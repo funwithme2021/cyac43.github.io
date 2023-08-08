@@ -149,23 +149,13 @@
     width: 100%;
     transition: margin 0.3s ease-in-out, width 0.3s ease-in-out;
   }
-}
-/* 按鈕樣式 */
-button {
-  padding: 5px 10px;
-  background-color: #3498db;
-  color: #fff;
-  border: none;
-  cursor: pointer;
-  margin-right: 10px;
-}
 
-/* 在手機尺寸下進行調整 */
-@media (max-width: 768px) {
+  /* 調整按鈕的間距 */
   button {
-    margin: 10px; /* 調整按鈕的間距 */
+    margin: 10px;
   }
 }
+
 
  
   </style>
@@ -173,8 +163,9 @@ button {
 
 </head>
 <body>
- <button id="openSidebar">開啟導航</button>
-  <button id="closeSidebar">關閉導航</button>
+<!-- 按鈕區域 -->
+  <div class="buttons">
+    <button id="toggleSidebar">切換導航</button>
 
 <div class="sidebar">
     <div>
@@ -361,22 +352,16 @@ button {
 
  
 
-const openButton = document.getElementById("openSidebar");
-const closeButton = document.getElementById("closeSidebar");
-const sidebar = document.querySelector(".sidebar");
-const content = document.querySelector(".content");
+const toggleButton = document.getElementById("toggleSidebar");
+    const sidebar = document.querySelector(".sidebar");
+    const content = document.querySelector(".content");
 
-openButton.addEventListener("click", toggleSidebar);
-closeButton.addEventListener("click", toggleSidebar);
+    toggleButton.addEventListener("click", toggleSidebar);
 
-// 使用手機上的觸摸事件
-openButton.addEventListener("touchstart", toggleSidebar);
-closeButton.addEventListener("touchstart", toggleSidebar);
-
-function toggleSidebar() {
-  sidebar.classList.toggle("show-sidebar");
-  content.classList.toggle("full-screen");
-}
+    function toggleSidebar() {
+      sidebar.classList.toggle("show-sidebar");
+      content.classList.toggle("full-screen");
+    }
 
 
 </script>
