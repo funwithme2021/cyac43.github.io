@@ -62,7 +62,18 @@
       background-color: #333;
       color: #fff;
       padding-top: 20px;
+
+
+      
+      display: block; /* 預設顯示導航區 */
     }
+    .hide-sidebar .sidebar {
+  display: none; /* 隱藏導航區 */
+}
+
+
+
+    
     .sidebar a {
       display: block;
       padding: 10px 20px;
@@ -112,40 +123,7 @@
 
 
 
-/* 按鈕樣式 */
-    .toggle-button {
-      position: fixed;
-      top: 10px;
-      left: 50%;
-      transform: translateX(-50%);
-      padding: 10px 20px;
-      background-color: #0d0e0f;
-      color: #fff;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      z-index: 1000;
-    }
 
-/* 隱藏導航區的樣式 */
-.sidebar {
-  width: 250px;
-  height: 100%;
-  position: fixed;
-  top: 0;
-  left: -250px; /* 將導航區移到畫面左邊 */
-  background-color: #333;
-  color: #fff;
-  padding-top: 20px;
-  transition: left 0.3s ease-in-out; /* 添加過渡效果 */
-  z-index: 900; /* 提高導航區的層級 */
-}
-
-/* 資訊區全螢幕樣式 */
-.content.full-screen {
-  margin-left: 0;
-  width: 100%;
-}
   </style>
 
 
@@ -344,13 +322,11 @@
   
 
  
- const toggleButton = document.getElementById('toggleButton');
-  const sidebar = document.querySelector('.sidebar');
-  const content = document.querySelector('.content');
+ document.getElementById("toggleSidebar").addEventListener("click", function() {
+  const sidebar = document.querySelector(".sidebar");
+  sidebar.classList.toggle("hide-sidebar");
+});
 
-  toggleButton.addEventListener('click', function () {
-    sidebar.classList.toggle('hide-sidebar');
-    content.classList.toggle('full-screen');
 
 </script>
 </body>
