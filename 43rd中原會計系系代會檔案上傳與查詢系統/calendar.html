@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>歡迎來到43rd中原大學會計學系系代會檔案上傳與查詢系統</title>
   <style>
-    body {
+     body {
       font-family: Arial, sans-serif;
       background-image: url('底圖的URL');
       background-size: cover;
@@ -62,7 +62,16 @@
       background-color: #333;
       color: #fff;
       padding-top: 20px;
+
+
+      
+      display: block; /* 預設顯示導航區 */
     }
+
+
+
+
+    
     .sidebar a {
       display: block;
       padding: 10px 20px;
@@ -87,6 +96,56 @@
       background-color: #333;
       color: #fff;
     }
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px auto;
+    }
+    th, td {
+      border: 1px solid #ccc;
+      padding: 8px;
+      text-align: center;
+    }
+    th {
+      background-color: #f2f2f2;
+    }
+    tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+
+
+
+ /* 按鈕樣式 */
+    .toggle-button {
+      position: fixed;
+      top: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      padding: 10px 20px;
+      background-color: #434547;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      z-index: 1000;
+    }
+  .hide-sidebar {
+    transform: translateX(-100%);
+    /* 在hide-sidebar類中新增這些規則 */
+.hide-sidebar .content {
+  width: 100%;
+  margin-left: 0;
+}
+  }
+    .content.expanded {
+  margin-left: 0;
+}
+
   </style>
 </head>
 <body>
@@ -109,6 +168,7 @@
       <a href="key.html" >帳號密碼查詢</a>
       <a href="mailto:funwithme2021@gmail.com">問題回報</a>
   </div>
+  <button align="center" class="toggle-button" id="toggleSidebar">顯示/隱藏導航</button>
   <div class="content">
     <div class="header">
       <h1>歡迎來到43rd中原大學會計學系系代會檔案上傳與查詢系統</h1>
@@ -227,6 +287,15 @@
     updateCurrentTime(); // 初始更新
 
     setInterval(updateCurrentTime, 1000); // 每秒更新一次時間
+
+  document.getElementById("toggleSidebar").addEventListener("click", function () {
+    const sidebar = document.querySelector(".sidebar");
+    sidebar.classList.toggle("hide-sidebar");
+
+    const content = document.querySelector(".content");
+    content.classList.toggle("expanded");
+});
+
 </script>
 </body>
 </html>
