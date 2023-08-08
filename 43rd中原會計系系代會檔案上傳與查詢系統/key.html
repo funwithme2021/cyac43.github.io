@@ -157,48 +157,40 @@
   display: table-row;
 }
 
-    .faq {
+   .faq {
   font-family: Arial, sans-serif;
   margin: 20px;
 }
 
 .faq h2 {
   font-size: 24px;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
+  text-align: center;
 }
 
-.faq-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 10px;
+.faq-list {
+  display: flex;
+  flex-direction: column;
 }
 
 .faq-item {
-  background-color: #f9f9f9;
-  border-bottom: 1px solid #ddd;
-  cursor: pointer;
-}
-
-.faq-question,
-.faq-answer {
-  padding: 10px;
-  text-align: left;
+  background-color: #f5f5f5;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  padding: 15px;
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
 }
 
 .faq-question {
   font-weight: bold;
-  width: 50%;
+  font-size: 18px;
+  margin-bottom: 10px;
 }
 
 .faq-answer {
-  display: none;
+  font-size: 16px;
 }
 
-.faq-item:hover .faq-answer {
-  display: table-cell;
-  padding-top: 10px;
-  padding-bottom: 10px;
-}
   </style>
 </head>
 <body>
@@ -287,11 +279,54 @@
 </div>
 
     
-    <div >
-        <h1 align="center">帳號密碼查詢</h1>
-        <h3 align="center">請您確認並注意英文字母大小寫後再次登入，若仍無法登入請連繫負責人員，謝謝!</h3>
-        <h2 align="center">◉帳號為您的「姓名」&nbsp;&nbsp;&nbsp;&nbsp;◉密碼為「a+學號」</h2>
-      </div>
+
+<div class="faq">
+  <h2>常見問題</h2>
+  <div class="faq-list">
+    <div class="faq-item">
+      <h3 class="faq-question">問題1：帳號密碼可以更改嗎？</h3>
+      <p class="faq-answer">回答1：不行。</p>
+    </div>
+    <div class="faq-item">
+      <h3 class="faq-question">問題2：若顯示帳號或密碼錯誤，該如何處理？</h3>
+      <p class="faq-answer">回答2：請先閱讀帳號及密碼的組成規則後再次嘗試，若仍無法登入請連繫負責人員協助處理。</p>
+    </div>
+    </div>
+    <div class="faq-item">
+      <h3 class="faq-question">問題3：帳號的組成規則？</h3>
+      <p class="faq-answer">回答3：帳號的組成規則即為您的「全名」，請使用繁體字型輸入。</p>
+    </div>
+  </div>
+    <div class="faq-item">
+      <h3 class="faq-question">問題4：密碼的組成規則？</h3>
+      <p class="faq-answer">回答4：密碼的組成規則即為「a」+您的「學號」，例如「a11000000」，請注意英文字母大小寫。</p>
+    </div>
+    </div>
+    <div class="faq-item">
+      <h3 class="faq-question">問題5：帳號密碼可以更改嗎？</h3>
+      <p class="faq-answer">回答5：不行。</p>
+    </div>
+  </div>
+    <div class="faq-item">
+      <h3 class="faq-question">問題6：若尚未擁有帳號，是否可以申請？</h3>
+      <p class="faq-answer">回答6：請連繫負責人員協助處理。</p>
+    </div>
+  </div>
+    <div class="faq-item">
+      <h3 class="faq-question">問題7：若尚未擁有帳號，是否可以登入查看檔案內容？</h3>
+      <p class="faq-answer">回答7：請連繫負責人員協助處理，依身份給予訪客或教職人員專用具時效性之帳號及密碼。</p>
+    </div>
+
+
+    
+    <!-- 在這裡繼續添加更多的問題和回答 -->
+  </div>
+</div>
+
+
+
+
+    
     <div class="usage-info">
       <span id="usageCount"><!-- FC2計數器 開始 -->
       <p>網頁累積使用次數：<script language="javascript" type="text/javascript" src="//counter1.fc2.com/counter.php?id=89504295"></script><noscript><img src="//counter1.fc2.com/counter_img.php?id=89504295" /></noscript>次
