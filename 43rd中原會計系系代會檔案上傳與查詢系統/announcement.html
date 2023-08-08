@@ -110,58 +110,31 @@
     }
 
 
-    /* 顯示導航區的樣式 */
-.sidebar.show-sidebar {
-  transform: translateX(0);
-}
-
-/* 隱藏導航區的樣式 */
-.sidebar {
-  transform: translateX(-100%);
-}
-
-/* 資訊區域佔滿整個螢幕的樣式 */
-.content.full-screen {
-  margin-left: 0;
-  width: 100%;
+  /* 電腦版和手機版共用的按鈕樣式 */
+button {
+  padding: 10px 20px;
+  background-color: #3498db;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 10px;
 }
 
 /* 手機尺寸下的顯示設定 */
 @media (max-width: 768px) {
-  .sidebar {
-    width: 100%;
-    height: 100%;
-    position: fixed;
-    top: 0;
-    left: -100%;
-    background-color: #333;
-    color: #fff;
-    padding-top: 20px;
-    transition: transform 0.3s ease-in-out;
-  }
+  /* ...其他 CSS 設定... */
 
-  .sidebar.show-sidebar {
-    transform: translateX(0);
-  }
-
-  .content {
-    margin: 20px auto; /* 將網頁內容置中 */
-    width: 80%; /* 設定網頁內容寬度 */
-    transition: margin 0.3s ease-in-out, width 0.3s ease-in-out;
-  }
-
-  /* 調整按鈕的間距和樣式 */
+  /* 修改手機版按鈕的間距和樣式 */
   button {
-    margin: 10px;
-    padding: 10px 20px;
-    background-color: #3498db;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+    margin: 10px auto; /* 按鈕置中 */
+  }
+
+  /* 修正手機版按鈕點選時顯示導航區 */
+  .show-sidebar button {
+    transform: translateX(250px); /* 按鈕偏移以顯示導航區 */
   }
 }
-
 
 
  
