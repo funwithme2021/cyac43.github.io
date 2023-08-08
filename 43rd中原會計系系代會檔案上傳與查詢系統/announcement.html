@@ -109,13 +109,24 @@
       background-color: #f2f2f2;
     }
     
-   
+   /* 顯示導航區的樣式 */
+.sidebar.show-sidebar {
+  transform: translateX(0);
+}
+
+/* 隱藏導航區的樣式 */
+.sidebar {
+  transform: translateX(-100%);
+  /* 其他樣式設定 */
+}
 
   </style>
 
 
 </head>
 <body>
+  <button id="toggleSidebar">切換導航</button>
+
 <div class="sidebar">
     <div>
         <img src="account.jpg" width="250" height="=90">
@@ -296,6 +307,14 @@
     updateCurrentTime(); // 初始更新
 
     setInterval(updateCurrentTime, 1000); // 每秒更新一次時間
+
+  const toggleButton = document.getElementById("toggleSidebar");
+const sidebar = document.querySelector(".sidebar");
+
+toggleButton.addEventListener("click", () => {
+  sidebar.classList.toggle("show-sidebar");
+});
+
 </script>
 </body>
 </html>
