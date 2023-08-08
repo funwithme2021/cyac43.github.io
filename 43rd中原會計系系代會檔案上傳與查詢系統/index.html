@@ -1,9 +1,9 @@
-<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.2//EN" "http://www.openmobilealliance.org/tech/DTD/xhtml-mobile12.dtd">
 
+<!DOCTYPE html>
 <html lang="zh-TW">
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
   <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>歡迎來到43rd中原大學會計學系系代會檔案上傳與查詢系統</title>
   <style>
@@ -180,8 +180,8 @@
         </div>
         <div class="grid-item">
           <h2 align="center">注意事項</h2>
-          <p align="left">◉「檔案查詢系統」為了確保檔案完整且安全，登入並送出檔案後欲再次上傳檔案請重新登入。<br>
-             ◉「檔案上傳系統」登入後重新整理頁面即可更新資料，不需再次登入。</p>
+          <p align="left">◉「檔案上傳系統」為了確保檔案完整且安全，登入並送出檔案後欲再次上傳檔案請重新登入。<br>
+             ◉「檔案查詢系統」登入後重新整理頁面即可更新資料，不需再次登入。</p>
              <button onclick="showMessage()">我已詳細閱讀</button>
         </div>
       </div>
@@ -275,7 +275,18 @@
             // 如果在時段內，禁用整個頁面或特定功能
             document.body.innerHTML = "<h1>目前網頁維護中，請稍後再試!<br>維護時段:每日13-14時及每週六0-6時</h1>";
         }
-     
+     function updateCurrentTime() {
+        const currentTimeElement = document.getElementById("current-time");
+        const currentTime = new Date();
+        currentTimeElement.textContent = currentTime.toLocaleTimeString();
+    }
+
+    // 初始更新
+    updateCurrentTime();
+
+    // 每秒更新一次
+    setInterval(updateCurrentTime, 1000);
+
     
   </script>
 </body>
