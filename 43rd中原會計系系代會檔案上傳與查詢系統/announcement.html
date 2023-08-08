@@ -149,14 +149,22 @@
     transition: margin 0.3s ease-in-out, width 0.3s ease-in-out;
   }
 }
-
+button {
+  padding: 5px 10px;
+  background-color: #3498db;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  margin-right: 10px;
+}
 
   </style>
 
 
 </head>
 <body>
-  <button id="toggleSidebar">切換導航</button>
+  <button id="openSidebar">開啟導航</button>
+  <button id="closeSidebar">關閉導航</button>
 
 <div class="sidebar">
     <div>
@@ -341,14 +349,21 @@
 
   
 
-  const toggleButton = document.getElementById("toggleSidebar");
+  const openButton = document.getElementById("openSidebar");
+const closeButton = document.getElementById("closeSidebar");
 const sidebar = document.querySelector(".sidebar");
 const content = document.querySelector(".content");
 
-toggleButton.addEventListener("click", () => {
-  sidebar.classList.toggle("show-sidebar");
-  content.classList.toggle("full-screen");
+openButton.addEventListener("click", () => {
+  sidebar.classList.add("show-sidebar");
+  content.classList.add("full-screen");
 });
+
+closeButton.addEventListener("click", () => {
+  sidebar.classList.remove("show-sidebar");
+  content.classList.remove("full-screen");
+});
+
 
 
 </script>
