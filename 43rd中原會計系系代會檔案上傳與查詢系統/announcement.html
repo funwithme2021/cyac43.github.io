@@ -113,19 +113,19 @@
 
 
 /* 按鈕樣式 */
-.toggle-button {
-  position: fixed;
-  top: 10px;
-  left: 50%;
-  transform: translateX(-50%);
-  padding: 10px 20px;
-  background-color: #0d0e0f;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  z-index: 1000; /* 將按鈕置於最上層 */
-}
+    .toggle-button {
+      position: fixed;
+      top: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      padding: 10px 20px;
+      background-color: #0d0e0f;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      z-index: 1000;
+    }
 
 /* 隱藏導航區的樣式 */
 .sidebar {
@@ -344,10 +344,13 @@
   
 
  
- document.getElementById("toggleSidebar").addEventListener("click", function() {
-    document.querySelector(".sidebar").classList.toggle("show-sidebar");
-    document.querySelector(".content").classList.toggle("full-screen");
-  });
+ const toggleButton = document.getElementById('toggleButton');
+  const sidebar = document.querySelector('.sidebar');
+  const content = document.querySelector('.content');
+
+  toggleButton.addEventListener('click', function () {
+    sidebar.classList.toggle('hide-sidebar');
+    content.classList.toggle('full-screen');
 
 </script>
 </body>
