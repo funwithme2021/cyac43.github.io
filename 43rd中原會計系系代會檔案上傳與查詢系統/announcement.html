@@ -108,14 +108,73 @@
     tr:nth-child(even) {
       background-color: #f2f2f2;
     }
-    
+
+
+    /* 顯示導航區的樣式 */
+.sidebar.show-sidebar {
+  transform: translateX(0);
+}
+
+/* 隱藏導航區的樣式 */
+.sidebar {
+  transform: translateX(-100%);
+}
+
+/* 資訊區域佔滿整個螢幕的樣式 */
+.content.full-screen {
+  margin-left: 0;
+  width: 100%;
+}
+
+/* 手機尺寸下的顯示設定 */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: -100%;
+    background-color: #333;
+    color: #fff;
+    padding-top: 20px;
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .sidebar.show-sidebar {
+    transform: translateX(0);
+  }
+
+  .content {
+    margin-left: 0;
+    width: 100%;
+    transition: margin 0.3s ease-in-out, width 0.3s ease-in-out;
+  }
+}
+/* 按鈕樣式 */
+button {
+  padding: 5px 10px;
+  background-color: #3498db;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+/* 在手機尺寸下進行調整 */
+@media (max-width: 768px) {
+  button {
+    margin: 10px; /* 調整按鈕的間距 */
+  }
+}
+
  
   </style>
 
 
 </head>
 <body>
- 
+ <button id="openSidebar">開啟導航</button>
+  <button id="closeSidebar">關閉導航</button>
 
 <div class="sidebar">
     <div>
@@ -302,6 +361,22 @@
 
  
 
+const openButton = document.getElementById("openSidebar");
+const closeButton = document.getElementById("closeSidebar");
+const sidebar = document.querySelector(".sidebar");
+const content = document.querySelector(".content");
+
+openButton.addEventListener("click", toggleSidebar);
+closeButton.addEventListener("click", toggleSidebar);
+
+// 使用手機上的觸摸事件
+openButton.addEventListener("touchstart", toggleSidebar);
+closeButton.addEventListener("touchstart", toggleSidebar);
+
+function toggleSidebar() {
+  sidebar.classList.toggle("show-sidebar");
+  content.classList.toggle("full-screen");
+}
 
 
 </script>
