@@ -134,7 +134,9 @@
       cursor: pointer;
       z-index: 1000;
     }
-
+  .hide-sidebar {
+    transform: translateX(-100%);
+  }
   </style>
 
 
@@ -333,11 +335,11 @@
   
 
  
- document.getElementById("toggleSidebar").addEventListener("click", function() {
-  const sidebar = document.querySelector(".sidebar");
-  sidebar.classList.toggle("hide-sidebar");
-});
 
+document.getElementById("toggleSidebar").addEventListener("click", function () {
+    const sidebar = document.querySelector(".sidebar");
+    sidebar.classList.toggle("hide-sidebar");
+  });
 
 
 </script>
