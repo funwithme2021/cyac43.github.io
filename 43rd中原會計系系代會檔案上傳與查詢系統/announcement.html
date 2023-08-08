@@ -136,7 +136,17 @@
     }
   .hide-sidebar {
     transform: translateX(-100%);
+    /* 在hide-sidebar類中新增這些規則 */
+.hide-sidebar .content {
+  width: 100%;
+  margin-left: 0;
+}
   }
+    .content.expanded {
+  margin-left: 0;
+}
+
+
   </style>
 
 
@@ -339,7 +349,10 @@
 document.getElementById("toggleSidebar").addEventListener("click", function () {
     const sidebar = document.querySelector(".sidebar");
     sidebar.classList.toggle("hide-sidebar");
-  });
+
+    const content = document.querySelector(".content");
+    content.classList.toggle("expanded");
+});
 
 
 </script>
