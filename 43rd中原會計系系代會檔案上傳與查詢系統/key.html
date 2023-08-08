@@ -210,8 +210,21 @@
             // 如果在時段內，禁用整個頁面或特定功能
             document.body.innerHTML = "<h1>目前網頁維護中，請稍後再試!<br>維護時段:每日13-14時及每週六0-6時</h1>";
         }
-     
-    
+
   </script>
+    <!-- ...（之前的HTML代碼）... -->
+
+<script>
+    function updateCurrentTime() {
+        const currentTimeElement = document.getElementById("current-time");
+        const now = new Date();
+        const formattedTime = now.toLocaleTimeString("zh-TW");
+        currentTimeElement.textContent = formattedTime;
+    }
+
+    updateCurrentTime(); // 初始更新
+
+    setInterval(updateCurrentTime, 1000); // 每秒更新一次時間
+</script>
 </body>
 </html>
