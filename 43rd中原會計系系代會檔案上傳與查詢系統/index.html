@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
@@ -7,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>歡迎來到43rd中原大學會計學系系代會檔案上傳與查詢系統</title>
   <style>
-   body {
+    body {
       font-family: Arial, sans-serif;
       background-image: url('底圖的URL');
       background-size: cover;
@@ -51,7 +50,7 @@
     .search-button {
       padding: 5px 10px;
       background-color: #3498db;
-      color: #fff;
+      color: #ffffff;
       border: none;
       cursor: pointer;
     }
@@ -64,16 +63,8 @@
       background-color: #333;
       color: #fff;
       padding-top: 20px;
-
-
-      
       display: block; /* 預設顯示導航區 */
     }
-
-
-
-
-    
     .sidebar a {
       display: block;
       padding: 10px 20px;
@@ -98,31 +89,27 @@
       background-color: #333;
       color: #fff;
     }
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-gap: 20px;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin: 20px auto;
-    }
-    th, td {
+    .grid-item {
+      padding: 10px;
       border: 1px solid #ccc;
-      padding: 8px;
+      border-radius: 5px;
       text-align: center;
     }
-    th {
-      background-color: #f2f2f2;
+    .grid-item h2 {
+      margin-top: 0;
     }
-    tr:nth-child(even) {
-      background-color: #f2f2f2;
-    }
-
-
-
- /* 按鈕樣式 */
+   
+    
+     /* 按鈕樣式 */
     .toggle-button {
       position: fixed;
       top: 10px;
@@ -147,45 +134,27 @@
     .content.expanded {
   margin-left: 0;
 }
-
-
-
-   
-
-
-
-
-
-    
-    
   </style>
   <script>
     function showMessage() {
       alert("哇!你太棒了!");
     }
-
      function updateCurrentTime() {
         const currentTimeElement = document.getElementById("current-time");
         const currentTime = new Date();
         currentTimeElement.textContent = currentTime.toLocaleTimeString();
     }
-
     // 初始更新
     updateCurrentTime();
-
     // 每秒更新一次
     setInterval(updateCurrentTime, 1000);
   </script>
 </head>
 <body>
-
 <div class="sidebar">
-
     <div>
         <img src="account.jpg" width="250" height="=90">
     </div>
-
-
     <div id="searchBox">
         <a href="https://www.google.com" target="_blank" id="googleLogo"></a>
         <form action="https://www.google.com/search" method="GET" target="_blank">
@@ -209,7 +178,6 @@
     <div class="info">
         <p>現在時間：<span id="current-time"></span></p>
       </div>
-
       <div class="grid">
         <div class="grid-item">
           <h2 align="center">操作說明</h2>
@@ -247,36 +215,30 @@
       const formattedTime = now.toLocaleTimeString("zh-TW");
       currentTimeElement.textContent = formattedTime;
     }
-
     function updateUsageCount() {
       const usageCountElement = document.getElementById("usage-count");
       // You can implement logic to update the usage count here
       // For now, let's assume the count is 42
       usageCountElement.textContent = "42";
     }
-
     function updateOnlineUsers() {
       const onlineUsersElement = document.getElementById("online-users");
       // You can implement logic to update the online users count here
       // For now, let's assume the count is 5
       onlineUsersElement.textContent = "5";
     }
-
     updateCurrentTime();
     updateUsageCount();
     updateOnlineUsers();
-
     setInterval(updateCurrentTime, 1000);
     // You can adjust the interval for updating usage count and online users
     setInterval(updateUsageCount, 5000);
     setInterval(updateOnlineUsers, 10000);
-
     
         // 取得當前日期和時間
         var now = new Date();
         var dayOfWeek = now.getDay(); // 0: 星期日, 1: 星期一, 2: 星期二, ... , 6: 星期六
         var hour = now.getHours();
-
         // 檢查是否在要鎖定的時段內（星期一的上午10點到11點）
         if (dayOfWeek === 6 && hour >= 00 && hour < 06) {
             // 如果在時段內，禁用整個頁面或特定功能
@@ -322,14 +284,12 @@
         const currentTime = new Date();
         currentTimeElement.textContent = currentTime.toLocaleTimeString();
     }
-
     // 初始更新
     updateCurrentTime();
-
     // 每秒更新一次
     setInterval(updateCurrentTime, 1000);
 
-    
+
   </script>
 
     <!-- ...（之前的HTML代碼）... -->
@@ -357,4 +317,3 @@
 </script>
 </body>
 </html>
-
