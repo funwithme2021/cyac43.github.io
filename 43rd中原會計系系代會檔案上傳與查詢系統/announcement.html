@@ -282,6 +282,20 @@
      
   
   </script>
+    <!-- ...（之前的HTML代碼）... -->
+
+<script>
+    function updateCurrentTime() {
+        const currentTimeElement = document.getElementById("current-time");
+        const now = new Date();
+        const formattedTime = now.toLocaleTimeString("zh-TW");
+        currentTimeElement.textContent = formattedTime;
+    }
+
+    updateCurrentTime(); // 初始更新
+
+    setInterval(updateCurrentTime, 1000); // 每秒更新一次時間
+</script>
 </body>
 </html>
 
