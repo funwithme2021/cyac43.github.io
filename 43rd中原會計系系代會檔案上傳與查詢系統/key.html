@@ -146,6 +146,59 @@
   margin-left: 0;
 }
 
+
+    /* 初始設置回答行為隱藏 */
+.answer-row {
+  display: none;
+}
+
+/* 當回答行需要顯示時的樣式 */
+.show-answer {
+  display: table-row;
+}
+
+    .faq {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+}
+
+.faq h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.faq-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+.faq-item {
+  background-color: #f9f9f9;
+  border-bottom: 1px solid #ddd;
+  cursor: pointer;
+}
+
+.faq-question,
+.faq-answer {
+  padding: 10px;
+  text-align: left;
+}
+
+.faq-question {
+  font-weight: bold;
+  width: 50%;
+}
+
+.faq-answer {
+  display: none;
+}
+
+.faq-item:hover .faq-answer {
+  display: table-cell;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
   </style>
 </head>
 <body>
@@ -176,6 +229,64 @@
     <div class="info">
       <p>現在時間：<span id="current-time"></span></p>
     </div>
+
+         <!-- 在這裡繼續添加更多的問題和回答 -->
+         <!-- 在這裡繼續添加更多的問題和回答 -->
+         <!-- 在這裡繼續添加更多的問題和回答 -->
+         <!-- 在這裡繼續添加更多的問題和回答 -->
+         <!-- 在這裡繼續添加更多的問題和回答 -->
+    <div class="faq">
+  <h2>常見問題</h2>
+  <table class="faq-table">
+    <tbody>
+      <tr class="faq-item">
+        <td class="faq-question">問題1：帳號密碼可以更改嗎？</td>
+        <td class="faq-answer">回答1：不行。</td>
+      </tr>
+      <tr class="faq-item">
+        <td class="faq-question">問題2：若顯示帳號或密碼錯誤，該如何處理？</td>
+        <td class="faq-answer">回答2：請先閱讀帳號及密碼的組成規則後再次嘗試，若仍無法登入請連繫負責人員協助處理。</td>
+      </tr>
+      <tr class="faq-item">
+        <td class="faq-question">問題3：帳號的組成規則？</td>
+        <td class="faq-answer">回答3：帳號的組成規則即為您的「全名」，請使用繁體字型輸入。</td>
+      </tr>
+      <tr class="faq-item">
+        <td class="faq-question">問題4：密碼的組成規則？</td>
+        <td class="faq-answer">回答4：密碼的組成規則即為「a」+您的「學號」，例如「a11000000」，請注意英文字母大小寫。</td>
+      </tr>
+      <tr class="faq-item">
+        <td class="faq-question">問題5：帳號密碼可以更改嗎？</td>
+        <td class="faq-answer">回答5：不行。</td>
+      </tr>
+       </tr>
+      <tr class="faq-item">
+        <td class="faq-question">問題6：若尚未擁有帳號，是否可以申請？</td>
+        <td class="faq-answer">回答6：請連繫負責人員協助處理。</td>
+      </tr>
+     </tr>
+      <tr class="faq-item">
+        <td class="faq-question">問題7：若尚未擁有帳號，是否可以登入查看檔案內容？</td>
+        <td class="faq-answer">回答7：請連繫負責人員協助處理，依身份給予訪客或教職人員專用具時效性之帳號及密碼。</td>
+      </tr>
+
+
+      
+           <!-- 在這裡繼續添加更多的問題和回答 -->
+           <!-- 在這裡繼續添加更多的問題和回答 -->
+           <!-- 在這裡繼續添加更多的問題和回答 -->
+           <!-- 在這裡繼續添加更多的問題和回答 -->
+           <!-- 在這裡繼續添加更多的問題和回答 -->
+           <!-- 在這裡繼續添加更多的問題和回答 -->
+
+
+
+      
+    </tbody>
+  </table>
+</div>
+
+    
     <div >
         <h1 align="center">帳號密碼查詢</h1>
         <h3 align="center">請您確認並注意英文字母大小寫後再次登入，若仍無法登入請連繫負責人員，謝謝!</h3>
@@ -293,6 +404,19 @@
     const content = document.querySelector(".content");
     content.classList.toggle("expanded");
 });
+
+  // 獲取所有問題和回答行
+const questionRows = document.querySelectorAll('.question-row');
+const answerRows = document.querySelectorAll('.answer-row');
+
+// 在每個問題行上添加點擊事件處理函式
+questionRows.forEach((questionRow, index) => {
+  questionRow.addEventListener('click', () => {
+    // 切換回答行的可見性
+    answerRows[index].classList.toggle('show-answer');
+  });
+});
+
 
 </script>
 </body>
