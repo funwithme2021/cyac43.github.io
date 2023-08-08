@@ -110,33 +110,28 @@
     }
 
 
-  /* 電腦版和手機版共用的按鈕樣式 */
-button {
-  padding: 10px 20px;
-  background-color: #3498db;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  margin: 10px;
-}
-
-/* 手機尺寸下的顯示設定 */
-@media (max-width: 768px) {
-  /* ...其他 CSS 設定... */
-
-  /* 修改手機版按鈕的間距和樣式 */
-  button {
-    margin: 10px auto; /* 按鈕置中 */
-  }
-
-  /* 修正手機版按鈕點選時顯示導航區 */
-  .show-sidebar button {
-    transform: translateX(250px); /* 按鈕偏移以顯示導航區 */
-  }
-}
 
 
+/* 按鈕樣式 */
+    .toggle-button {
+      position: fixed;
+      top: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      padding: 10px 20px;
+      background-color: #3498db;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      z-index: 1000; /* 將按鈕置於最上層 */
+    }
+
+    /* 資訊區全螢幕樣式 */
+    .content.full-screen {
+      margin-left: 0;
+      width: 100%;
+    }
  
   </style>
 
@@ -165,12 +160,14 @@ button {
     <a href="mailto:funwithme2021@gmail.com">問題回報</a>
   </div>
 
-   <!-- 按鈕區域 -->
-  <div class="buttons">
-    <button id="toggleSidebar">切換導航</button>
+  
 
     
   <div class="content">
+
+    <button class="toggle-button" id="toggleSidebar">顯示/隱藏導航</button>
+
+    
     <div class="header">
       <h1>歡迎來到43rd中原大學會計學系系代會檔案上傳與查詢系統</h1>
     </div>
@@ -335,17 +332,10 @@ button {
   
 
  
-
-const toggleButton = document.getElementById("toggleSidebar");
-    const sidebar = document.querySelector(".sidebar");
-    const content = document.querySelector(".content");
-
-    toggleButton.addEventListener("click", toggleSidebar);
-
-    function toggleSidebar() {
-      sidebar.classList.toggle("show-sidebar");
-      content.classList.toggle("full-screen");
-    }
+document.getElementById("toggleSidebar").addEventListener("click", function() {
+    document.querySelector(".sidebar").classList.toggle("show-sidebar");
+    document.querySelector(".content").classList.toggle("full-screen");
+  });
 
 
 </script>
