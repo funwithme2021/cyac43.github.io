@@ -31,7 +31,7 @@
     .announcement {
       font-size: 18px;
       font-weight: bold;
-      animation: blink 1s infinite;
+     
     }
     @keyframes blink {
       0%, 100% { opacity: 1; }
@@ -68,10 +68,6 @@
       display: block; /* 預設顯示導航區 */
     }
 
-
-
-
-    
     .sidebar a {
       display: block;
       padding: 10px 20px;
@@ -101,7 +97,26 @@
       margin: 0;
       padding: 0;
     }
-    
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px auto;
+      font-weight: normal;
+    }
+    th, td {
+      border: 1px solid #ccc;
+      padding: 8px;
+      text-align: center;
+    }
+    th {
+      background-color: #f2f2f2;
+    }
+    tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+
+
+
  /* 按鈕樣式 */
     .toggle-button {
       position: fixed;
@@ -127,60 +142,22 @@
     .content.expanded {
   margin-left: 0;
 }
+.pagination {
+  text-align: center;
+  margin-top: 10px;
+}
+.filter-bar {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
 
-.start-button {
-      display: inline-block;
-      padding: 15px 30px;
-      background-color: #e74c3c;
-      color: #fff;
-      border: none;
-      border-radius: 10px;
-      cursor: pointer;
-      font-size: 18px;
-      font-weight: bold; /* 新增這一行 */
-      margin-top: 40px;
-      transition: background-color 0.3s ease;
-      text-align: center;
-      text-decoration: none;
-      display: inline-block;
-    }
+.items-per-page,
+.search-bar {
+  margin-right: 10px;
+}
 
-    .start-button:hover {
-      background-color: #c0392b;
-    }
-
-    /* 新增步驟樣式 */
-    .step-container {
-      display: flex;
-      align-items: center;
-      margin-bottom: 20px;
-      border: 2px solid #3498db;
-      padding: 10px;
-      border-radius: 10px;
-    }
-
-    .step-image {
-      flex: 1;
-      max-width: 40%;
-      padding: 10px;
-      text-align: center; /* 將圖片置中 */
-    }
-
-    .step-image img {
-      max-width: 100%; /* 讓圖片符合父容器寬度 */
-      height: auto; /* 保持原圖比例 */
-    }
-
-    .step-text {
-      flex: 1;
-      padding: 10px;
-    }
-
-    .step-text h3 {
-      font-size: 20px;
-      margin-top: 0;
-    }
-
+   
   </style>
 
 
@@ -219,60 +196,65 @@
       <h1>歡迎來到43rd中原大學會計學系系代會檔案上傳與查詢系統</h1>
     </div>
     <div class="info">
-      <p>現在時間：<span id="current-time"></span></p>
-    </div>
-
-    <div class="start-button"> 
-        <a href="https://script.google.com/macros/s/AKfycbw7NT4ICxk6yR6WHy8gIYZcBV5-e_HNnH2K0IqqezZVNDGtUNy5aQUnCVkJsbUE--ZxNA/exec"style="color:#fafafa">開始登入檔案查詢系統</a>
-    </div>
-      <h2>操作說明 </h2> 
+       
+        <p>現在時間：<span id="current-time"></span></p>
       
-          <div class="step-container">
-            <div class="step-image">
-              <img src="1step1.jpg" alt="步驟 1">
-            </div>
-            <div class="step-text">
-              <h3>步驟 1</h3>
-              <p>1.點擊上方「開始登入檔案查詢系統」按鈕進入系統頁面。</p>
-            </div>
-          </div>
-      
-          <div class="step-container">
-            <div class="step-image">
-              <img src="2step2.jpg" alt="步驟 2">
-            </div>
-            <div class="step-text">
-              <h3>步驟 2</h3>
-              <p>1.請依序輸入帳號、密碼及密碼確認。<br>
-                 2.帳號的組成規則即為您的「全名」，請使用繁體字型輸入。<br>
-                 3.密碼的組成規則即為「a」+您的「學號」，例如「a11000000」，請注意英文字母大小寫。<br>
-                 4.請再次輸入密碼進行密碼確認<br>
-                 5.點擊下方「開始查詢」按鈕進入查詢頁面。</p>
-            </div></div>
-        
-            <div class="step-container">
-                <div class="step-image">
-                  <img src="3step3.jpg" alt="步驟 1">
-                </div>
-                <div class="step-text">
-                  <h3>步驟 3</h3>
-                  <p>1.若看見「所有資料查詢結果」字樣即代表登入成功。<br>
-                     2.請使用「Ctrl+F」鍵並輸入您欲查詢之檔案類別或名稱進行查詢。
-                     </p>
-                </div>
-             
-              
-          <!-- ... 添加更多步驟 ... -->
-      
-          <!-- ... (原有的內容)... -->
-        </div>
+        <h2>檔案列表</h2>
+        <div class="announcement">
+            <div class="filter-bar">
+            
+              <div class="items-per-page">
+                顯示每頁
+                <select id="itemsPerPageSelect">
+                  <option value="5">5</option>
+                  <option value="10" selected>10</option>
+                  <option value="15">15</option>
+                  <option value="20">20</option>
+                  <option value="25">25</option>
+                  <option value="30">30</option>
+                </select>
+                筆資料
+              </div>
+              <div class="search-bar">
+                    <input type="text" id="searchInput" placeholder="輸入關鍵字">
+                    <button id="searchButton">依關鍵字搜尋</button>
+                  </div>
+                  <div class="search-bar">
+                    <select id="keywordSelect">
+                  <option value="">全部檔案類別</option>
+                  <option value="預算表">預算表</option>
+                  <option value="預算明細表">預算明細表</option>
+                  <option value="決算表">決算表</option>
+                  <option value="決算明細表">決算明細表</option>
+                  <option value="結算表">結算表</option>
+                  <option value="結算明細表">結算明細表</option>
+                  <option value="查核表">查核表</option>
+                  <option value="發預算表">發預算表</option>
+                  <option value="應收退預算表">應收退預算表</option>
+                  <option value="現金帳">現金帳</option>
+                  <option value="帳簿">帳簿</option>
+                  <option value="其他">其他</option>
+                </select>
+                <button id="keywordSearchButton">依類別搜尋</button>
+              </div>
+            </div>  
+            
+        <table id="announcementTable">
+          <!-- 在此显示公告内容 -->
+        </table>
+      </div>
+      <div class="pagination">
+        <button id="prevPageBtn">上一頁</button>
+        <span>第 <span id="currentPage">1</span> 頁 / 共 <span id="totalPages">1</span> 頁</span>
+        <button id="nextPageBtn">下一頁</button>
+      </div>
     <div class="usage-info">
-      <span id="usageCount"><!-- FC2計數器 開始 -->
-      <p>網頁累積使用次數：<script language="javascript" type="text/javascript" src="//counter1.fc2.com/counter.php?id=89504295"></script><noscript><img src="//counter1.fc2.com/counter_img.php?id=89504295" /></noscript>次
-    </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <span id="onlineUsersCount"><!-- FC2計數器 開始 -->
-      網頁目前在線人數：<script language="javascript" type="text/javascript" src="//counter1.fc2.com/views.php?id=89504295"></script><noscript><img src="//counter1.fc2.com/counter_now.php?id=89504295" /></noscript>人</p>
-    </span>
+        <span id="usageCount"><!-- FC2計數器 開始 -->
+            <p>網頁累積使用次數：<script language="javascript" type="text/javascript" src="//counter1.fc2.com/counter.php?id=89504295"></script><noscript><img src="//counter1.fc2.com/counter_img.php?id=89504295" /></noscript>次
+          </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <span id="onlineUsersCount"><!-- FC2計數器 開始 -->
+            網頁目前在線人數：<script language="javascript" type="text/javascript" src="//counter1.fc2.com/views.php?id=89504295"></script><noscript><img src="//counter1.fc2.com/counter_now.php?id=89504295" /></noscript>人</p>
+          </span>
     </div>
     <div class="footer">
       <p>Copyright © 2023 邱偉軒. All rights reserved. | V3.4.20230720</p>
@@ -372,10 +354,242 @@
 
     setInterval(updateCurrentTime, 1000); // 每秒更新一次時間
 
+document.getElementById("toggleSidebar").addEventListener("click", function () {
+    const sidebar = document.querySelector(".sidebar");
+    sidebar.classList.toggle("hide-sidebar");
+
+    const content = document.querySelector(".content");
+    content.classList.toggle("expanded");
+});
+</script>
+<script>
+    document.getElementById("itemsPerPageSelect").addEventListener("change", () => {
+        itemsPerPage = parseInt(document.getElementById("itemsPerPageSelect").value);
+        currentPage = 1;
+        updateAnnouncementTable();
+        updatePagination();
+    });
+    const announcements = [
+    {
+    date: "2023-07-20",
+    title: "結算表",
+    note: "<a href='https://reurl.cc/QXDez5'>金計機國的闖關者(1112)</a>"
+  },
+  {
+    date: "2023-07-20",
+    title: "查核表",
+    note: "<a href='https://reurl.cc/nDXreX'>金計機國的闖關者(1112)</a>"
+  },
+  {
+    date: "2023-07-20",
+    title: "結算表",
+    note: "<a href='https://reurl.cc/WGWRe7'>海綿寶寶會救我(1112)</a>"
+  },
+  {
+    date: "2023-07-20",
+    title: "結算明細表",
+    note: "<a href='https://reurl.cc/QXDe1o'>海綿寶寶會救我(1112)</a>"
+  },
+  {
+    date: "2023-07-20",
+    title: "查核表",
+    note: "<a href='https://reurl.cc/N0D45m'>海綿寶寶會救我(1112)</a>"
+  },
+  {
+    date: "2023-07-20",
+    title: "結算表",
+    note: "<a href='https://reurl.cc/qLXr9R'>常會(下)(1112)</a>"
+  },
+  {
+    date: "2023-07-20",
+    title: "查核表",
+    note: "<a href='https://reurl.cc/94y7d8'>常會(下)(1112)</a>"
+  },
+  {
+    date: "2023-07-20",
+    title: "決算表",
+    note: "<a href='https://reurl.cc/EoD4qA'>新生搬宿(1121)</a>"
+  },
+  {
+    date: "2023-07-20",
+    title: "決算表",
+    note: "<a href='https://reurl.cc/WGWRe5'>新生註冊(1121)</a>"
+  },
+  {
+    date: "2023-07-20",
+    title: "決算表",
+    note: "<a href='https://reurl.cc/QXDe10'>新生手冊(1121)</a>"
+  },
+  {
+    date: "2023-07-20",
+    title: "決算明細表",
+    note: "<a href='https://reurl.cc/M8D4Yn'>新生手冊(1121)</a>"
+  },
+  {
+    date: "2023-07-20",
+    title: "決算表",
+    note: "<a href='https://reurl.cc/qLXVzD'>常會(上)(1121)</a>"
+  },
+  {
+    date: "2023-07-20",
+    title: "決算明細表",
+    note: "<a href='https://reurl.cc/x7XaxE'>常會(上)(1121)</a>"
+  },
+  {
+    date: "2023-07-20",
+    title: "決算表",
+    note: "<a href='https://reurl.cc/8j7v4o'>食字路口(1121)</a>"
+  },
+  {
+    date: "2023-07-20",
+    title: "決算明細表",
+    note: "<a href='https://reurl.cc/lDXQkv'>食字路口(1121)</a>"
+  },
+  {
+    date: "2023-07-20",
+    title: "決算表",
+    note: "<a href='https://reurl.cc/y7XL16'>迎新宿營(1121)</a>"
+  },
+  {
+    date: "2023-07-20",
+    title: "決算明細表",
+    note: "<a href='https://reurl.cc/p6X3nr'>迎新宿營(1121)</a>"
+  },
+  {
+    date: "2023-07-20",
+    title: "決算表",
+    note: "<a href='https://reurl.cc/v7Xa3a'>分區迎新(1121)</a>"
+  },
+
+  // 輸入公告區// 輸入公告區// 輸入公告區// 輸入公告區// 輸入公告區// 輸入公告區// 輸入公告區// 輸入公告區// 輸入公告區
+  // 輸入公告區// 輸入公告區// 輸入公告區// 輸入公告區// 輸入公告區// 輸入公告區// 輸入公告區// 輸入公告區// 輸入公告區
+  // 輸入公告區// 輸入公告區// 輸入公告區// 輸入公告區// 輸入公告區// 輸入公告區// 輸入公告區// 輸入公告區// 輸入公告區
+  // 輸入公告區// 輸入公告區// 輸入公告區// 輸入公告區// 輸入公告區// 輸入公告區// 輸入公告區// 輸入公告區// 輸入公告區
+  // 輸入公告區// 輸入公告區// 輸入公告區// 輸入公告區// 輸入公告區// 輸入公告區// 輸入公告區// 輸入公告區// 輸入公告區
+  // 輸入公告區// 輸入公告區// 輸入公告區// 輸入公告區// 輸入公告區// 輸入公告區// 輸入公告區// 輸入公告區// 輸入公告區
+];
   
+    let itemsPerPage = 10; // 初始每页显示的公告数量
+    let currentPage = 1;
+    let filteredAnnouncements = [...announcements];
+  
+    function updateAnnouncementTable() {
+  const table = document.getElementById("announcementTable");
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+  const currentPageAnnouncements = filteredAnnouncements.slice(startIndex, endIndex);
+  
+      table.innerHTML = `
+        <thead>
+          <tr>
+            <th>上傳日期</th>
+            <th>檔案類別</th>
+            <th>檔案名稱(點擊下載)</th>
+          </tr>
+        </thead>
+        <tbody>
+          ${currentPageAnnouncements.map((announcement) => `
+            <tr>
+              <td>${announcement.date}</td>
+              <td>${announcement.title}</td>
+              <td>${announcement.note}</td>
+            </tr>
+          `).join("")}
+        </tbody>
+      `;
+    }
+  
+    function updatePagination() {
+        const prevPageBtn = document.getElementById("prevPageBtn");
+  const nextPageBtn = document.getElementById("nextPageBtn");
+  const currentPageElement = document.getElementById("currentPage");
+  const totalPagesElement = document.getElementById("totalPages"); // 新增获取总页数的元素
 
- 
+  prevPageBtn.disabled = currentPage === 1;
+  nextPageBtn.disabled = currentPage * itemsPerPage >= filteredAnnouncements.length;
 
+  currentPageElement.textContent = currentPage;
+  totalPagesElement.textContent = Math.ceil(filteredAnnouncements.length / itemsPerPage); // 更新总页数
+}
+  
+function searchAnnouncements(keyword) {
+  filteredAnnouncements = announcements.filter((announcement) => {
+    return (
+      (announcement.title.includes(keyword) || announcement.note.includes(keyword)) &&
+      (selectedKeyword === "" || announcement.title.includes(selectedKeyword) || announcement.note.includes(selectedKeyword) || selectedKeyword === "全部檔案類別")
+    );
+  });
+
+  currentPage = 1;
+  updateAnnouncementTable();
+  updatePagination();
+
+  // 如果没有符合条件的公告，则显示查无资料
+  const table = document.getElementById("announcementTable");
+  if (filteredAnnouncements.length === 0) {
+    table.innerHTML = "<tr><td colspan='3'>查無資料，請重新輸入關鍵字</td></tr>";
+  }
+}
+    // 初始化
+    updateAnnouncementTable();
+    updatePagination();
+  
+    // 事件处理
+    document.getElementById("prevPageBtn").addEventListener("click", () => {
+      if (currentPage > 1) {
+        currentPage--;
+        updateAnnouncementTable();
+        updatePagination();
+      }
+    });
+  
+    document.getElementById("nextPageBtn").addEventListener("click", () => {
+      if (currentPage * itemsPerPage < filteredAnnouncements.length) {
+        currentPage++;
+        updateAnnouncementTable();
+        updatePagination();
+      }
+    });
+  
+    document.getElementById("searchButton").addEventListener("click", () => {
+  const searchInput = document.getElementById("searchInput");
+  const keyword = searchInput.value.trim();
+  const keywordSelect = document.getElementById("keywordSelect");
+  const selectedKeyword = keywordSelect.value;
+
+  if (selectedKeyword) {
+    // 如果选择了特定关键字，则使用选择的关键字进行过滤
+    searchAnnouncements(selectedKeyword);
+  } else if (keyword) {
+    // 如果未选择特定关键字但输入了关键字，则使用输入的关键字进行过滤
+    searchAnnouncements(keyword);
+  }
+});
+
+document.getElementById("searchInput").addEventListener("input", () => {
+  const keywordSelect = document.getElementById("keywordSelect");
+  keywordSelect.value = ""; // 重置选择的关键字
+
+  const searchInput = document.getElementById("searchInput");
+  const keyword = searchInput.value.trim();
+
+  if (keyword === "") {
+    searchAnnouncements(""); // 使用空字符串进行搜索，以显示所有公告信息
+  } else {
+    searchAnnouncements(keyword);
+  }
+});
+
+
+
+
+  document.getElementById("toggleSidebar").addEventListener("click", function () {
+    const sidebar = document.querySelector(".sidebar");
+    sidebar.classList.toggle("hide-sidebar");
+
+    const content = document.querySelector(".content");
+    content.classList.toggle("expanded");
+});
 document.getElementById("toggleSidebar").addEventListener("click", function () {
     const sidebar = document.querySelector(".sidebar");
     sidebar.classList.toggle("hide-sidebar");
@@ -384,7 +598,18 @@ document.getElementById("toggleSidebar").addEventListener("click", function () {
     content.classList.toggle("expanded");
 });
 
+document.getElementById("keywordSearchButton").addEventListener("click", () => {
+  const keywordSelect = document.getElementById("keywordSelect");
+  const selectedKeyword = keywordSelect.value;
 
-</script>
+  if (selectedKeyword === "") {
+    searchAnnouncements(""); // 使用空字符串进行搜索，以显示所有公告信息
+  } else {
+    searchAnnouncements(selectedKeyword);
+  }
+});
+let selectedKeyword = ""; // 在全局范围内定义 selectedKeyword 变量
+
+  </script>
 </body>
 </html>
