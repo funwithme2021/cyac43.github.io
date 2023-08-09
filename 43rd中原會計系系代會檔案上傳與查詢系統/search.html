@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>歡迎來到43rd中原大學會計學系系代會檔案上傳與查詢系統</title>
+  <style>
+   body {
+      font-family: Arial, sans-serif;
+      background-image: url('底圖的URL');
+      background-size: cover;
+      margin: 0;
+      padding: 0;
+    }
+    .header {
+      text-align: center;
+      padding: 20px;
+      background-color: #3498db;
+      color: #fff;
+    }
+    .marquee {
+      font-size: 16px;
+      white-space: nowrap;
+      overflow: hidden;
+      animation: marquee 10s linear infinite;
+    }
+    @keyframes marquee {
+      0% { transform: translateX(100%); }
+      100% { transform: translateX(-100%); }
+    }
+    .announcement {
+      font-size: 18px;
+      font-weight: bold;
+      animation: blink 1s infinite;
+    }
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+    .info {
+      text-align: center;
+      padding: 10px;
+    }
+   
+    .search-input {
+      flex: 1;
+      margin-right: 10px;
+    }
+    .search-button {
+      padding: 5px 10px;
+      background-color: #3498db;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+    }
+    .sidebar {
+      width: 250px;
+      height: 100%;
+      position: fixed;
+      top: 0;
+      left: 0;
+      background-color: #333;
+      color: #fff;
+      padding-top: 20px;
+
+
+      
+      display: block; /* 預設顯示導航區 */
+    }
+
+
+
+
+    
+    .sidebar a {
+      display: block;
+      padding: 10px 20px;
+      color: #fff;
+      text-decoration: none;
+    }
+    .content {
+      margin-left: 270px;
+      padding: 20px;
+    }
+    .usage-info {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      margin-top: 20px;
+      padding: 10px;
+      background-color: #ecf0f1;
+    }
+    .footer {
+      text-align: center;
+      padding: 10px;
+      background-color: #333;
+      color: #fff;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    
+ /* 按鈕樣式 */
+    .toggle-button {
+      position: fixed;
+      top: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      padding: 10px 20px;
+      background-color: #434547;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      z-index: 1000;
+    }
+  .hide-sidebar {
+    transform: translateX(-100%);
+    /* 在hide-sidebar類中新增這些規則 */
+.hide-sidebar .content {
+  width: 100%;
+  margin-left: 0;
+}
+  }
+    .content.expanded {
+  margin-left: 0;
+}
+
+.start-button {
+      display: inline-block;
+      padding: 15px 30px;
+      background-color: #e74c3c;
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 18px;
+      font-weight: bold; /* 新增這一行 */
+      margin-top: 40px;
+      transition: background-color 0.3s ease;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .start-button:hover {
+      background-color: #c0392b;
+    }
+
+    /* 新增步驟樣式 */
+    .step-container {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+      border: 2px solid #3498db;
+      padding: 10px;
+      border-radius: 10px;
+    }
+
+    .step-image {
+      flex: 1;
+      max-width: 40%;
+      padding: 10px;
+      text-align: center; /* 將圖片置中 */
+    }
+
+    .step-image img {
+      max-width: 100%; /* 讓圖片符合父容器寬度 */
+      height: auto; /* 保持原圖比例 */
+    }
+
+    .step-text {
+      flex: 1;
+      padding: 10px;
+    }
+
+    .step-text h3 {
+      font-size: 20px;
+      margin-top: 0;
+    }
+
+  </style>
+
+
+</head>
+<body>
+
+
+<div class="sidebar">
+    <div>
+        <img src="account.jpg" width="250" height="=90">
+    </div>
+    <div id="searchBox">
+        <a href="https://www.google.com" target="_blank" id="googleLogo"></a>
+        <form action="https://www.google.com/search" method="GET" target="_blank">
+          <input type="text" name="q" placeholder="輸入關鍵字" required>
+          <input type="submit" value="搜尋">
+        </form>
+      </div>
+    <a href="index.html">首頁</a>
+    <a href="calendar.html">行事曆</a>
+    <a href="announcement.html">公告事項</a>
+    <a href="upload.html">檔案上傳系統</a>
+    <a href="research.html">檔案查詢系統</a>
+    <a href="key.html" >帳號密碼查詢</a>
+    <a href="mailto:funwithme2021@gmail.com">問題回報</a>
+  </div>
+
+  
+
+  <button align="center" class="toggle-button" id="toggleSidebar">顯示/隱藏導航</button>  
+
+
+  
+  <div class="content"> 
+    <div class="header">
+      <h1>歡迎來到43rd中原大學會計學系系代會檔案上傳與查詢系統</h1>
+    </div>
+    <div class="info">
+      <p>現在時間：<span id="current-time"></span></p>
+    </div>
+
+    <div class="start-button"> 
+        <a href="https://script.google.com/macros/s/AKfycbw7NT4ICxk6yR6WHy8gIYZcBV5-e_HNnH2K0IqqezZVNDGtUNy5aQUnCVkJsbUE--ZxNA/exec"style="color:#fafafa">開始登入檔案查詢系統</a>
+    </div>
+      <h2>操作說明 </h2> 
+      
+          <div class="step-container">
+            <div class="step-image">
+              <img src="1step1.jpg" alt="步驟 1">
+            </div>
+            <div class="step-text">
+              <h3>步驟 1</h3>
+              <p>1.點擊上方「開始登入檔案查詢系統」按鈕進入系統頁面。</p>
+            </div>
+          </div>
+      
+          <div class="step-container">
+            <div class="step-image">
+              <img src="2step2.jpg" alt="步驟 2">
+            </div>
+            <div class="step-text">
+              <h3>步驟 2</h3>
+              <p>1.請依序輸入帳號、密碼及密碼確認。<br>
+                 2.帳號的組成規則即為您的「全名」，請使用繁體字型輸入。<br>
+                 3.密碼的組成規則即為「a」+您的「學號」，例如「a11000000」，請注意英文字母大小寫。<br>
+                 4.請再次輸入密碼進行密碼確認<br>
+                 5.點擊下方「開始查詢」按鈕進入查詢頁面。</p>
+            </div></div>
+        
+            <div class="step-container">
+                <div class="step-image">
+                  <img src="3step3.jpg" alt="步驟 1">
+                </div>
+                <div class="step-text">
+                  <h3>步驟 3</h3>
+                  <p>1.若看見「所有資料查詢結果」字樣即代表登入成功。<br>
+                     2.請使用「Ctrl+F」鍵並輸入您欲查詢之檔案類別或名稱進行查詢。
+                     </p>
+                </div>
+             
+              
+          <!-- ... 添加更多步驟 ... -->
+      
+          <!-- ... (原有的內容)... -->
+        </div>
+    <div class="usage-info">
+      <span id="usageCount"><!-- FC2計數器 開始 -->
+      <p>網頁累積使用次數：<script language="javascript" type="text/javascript" src="//counter1.fc2.com/counter.php?id=89504295"></script><noscript><img src="//counter1.fc2.com/counter_img.php?id=89504295" /></noscript>次
+    </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <span id="onlineUsersCount"><!-- FC2計數器 開始 -->
+      網頁目前在線人數：<script language="javascript" type="text/javascript" src="//counter1.fc2.com/views.php?id=89504295"></script><noscript><img src="//counter1.fc2.com/counter_now.php?id=89504295" /></noscript>人</p>
+    </span>
+    </div>
+    <div class="footer">
+      <p>Copyright © 2023 邱偉軒. All rights reserved. | V3.4.20230720</p>
+    </div>
+  </div>
+  <script>
+    function updateCurrentTime() {
+      const currentTimeElement = document.getElementById("current-time");
+      const now = new Date();
+      const formattedTime = now.toLocaleTimeString("zh-TW");
+      currentTimeElement.textContent = formattedTime;
+    }
+
+    function updateUsageCount() {
+      const usageCountElement = document.getElementById("usage-count");
+      // You can implement logic to update the usage count here
+      // For now, let's assume the count is 42
+      usageCountElement.textContent = "42";
+    }
+
+    function updateOnlineUsers() {
+      const onlineUsersElement = document.getElementById("online-users");
+      // You can implement logic to update the online users count here
+      // For now, let's assume the count is 5
+      onlineUsersElement.textContent = "5";
+    }
+
+    updateCurrentTime();
+    updateUsageCount();
+    updateOnlineUsers();
+
+    setInterval(updateCurrentTime, 1000);
+    // You can adjust the interval for updating usage count and online users
+    setInterval(updateUsageCount, 5000);
+    setInterval(updateOnlineUsers, 10000);
+
+   
+        // 取得當前日期和時間
+        var now = new Date();
+        var dayOfWeek = now.getDay(); // 0: 星期日, 1: 星期一, 2: 星期二, ... , 6: 星期六
+        var hour = now.getHours();
+
+        // 檢查是否在要鎖定的時段內（星期一的上午10點到11點）
+        if (dayOfWeek === 6 && hour >= 00 && hour < 06) {
+            // 如果在時段內，禁用整個頁面或特定功能
+            document.body.innerHTML = "<h1>目前網頁維護中，請稍後再試!<br>維護時段:每日13-14時及每週六0-6時</h1>";
+        }
+       // 檢查是否在要鎖定的時段內（星期一的上午10點到11點）
+        if (dayOfWeek === 1 && hour >= 13 && hour < 14) {
+            // 如果在時段內，禁用整個頁面或特定功能
+            document.body.innerHTML = "<h1>目前網頁維護中，請稍後再試!<br>維護時段:每日13-14時及每週六0-6時</h1>";
+        }
+       // 檢查是否在要鎖定的時段內（星期一的上午10點到11點）
+        if (dayOfWeek === 2 && hour >= 13 && hour < 14) {
+            // 如果在時段內，禁用整個頁面或特定功能
+            document.body.innerHTML = "<h1>目前網頁維護中，請稍後再試!<br>維護時段:每日13-14時及每週六0-6時</h1>";
+        }
+       // 檢查是否在要鎖定的時段內（星期一的上午10點到11點）
+        if (dayOfWeek === 3 && hour >= 13 && hour < 14) {
+            // 如果在時段內，禁用整個頁面或特定功能
+            document.body.innerHTML = "<h1>目前網頁維護中，請稍後再試!<br>維護時段:每日13-14時及每週六0-6時</h1>";
+        }
+       // 檢查是否在要鎖定的時段內（星期一的上午10點到11點）
+        if (dayOfWeek === 4 && hour >= 13 && hour < 14) {
+            // 如果在時段內，禁用整個頁面或特定功能
+            document.body.innerHTML = "<h1>目前網頁維護中，請稍後再試!<br>維護時段:每日13-14時及每週六0-6時</h1>";
+        }
+       // 檢查是否在要鎖定的時段內（星期一的上午10點到11點）
+        if (dayOfWeek === 5 && hour >= 13 && hour < 14) {
+            // 如果在時段內，禁用整個頁面或特定功能
+            document.body.innerHTML = "<h1>目前網頁維護中，請稍後再試!<br>維護時段:每日13-14時及每週六0-6時</h1>";
+        }
+       // 檢查是否在要鎖定的時段內（星期一的上午10點到11點）
+        if (dayOfWeek === 6 && hour >= 13 && hour < 14) {
+            // 如果在時段內，禁用整個頁面或特定功能
+            document.body.innerHTML = "<h1>目前網頁維護中，請稍後再試!<br>維護時段:每日13-14時及每週六0-6時</h1>";
+        }
+       // 檢查是否在要鎖定的時段內（星期一的上午10點到11點）
+        if (dayOfWeek === 0 && hour >= 13 && hour < 14) {
+            // 如果在時段內，禁用整個頁面或特定功能
+            document.body.innerHTML = "<h1>目前網頁維護中，請稍後再試!<br>維護時段:每日13-14時及每週六0-6時</h1>";
+        }
+     
+  
+  </script>
+    <!-- ...（之前的HTML代碼）... -->
+
+<script>
+    function updateCurrentTime() {
+        const currentTimeElement = document.getElementById("current-time");
+        const now = new Date();
+        const formattedTime = now.toLocaleTimeString("zh-TW");
+        currentTimeElement.textContent = formattedTime;
+    }
+
+    updateCurrentTime(); // 初始更新
+
+    setInterval(updateCurrentTime, 1000); // 每秒更新一次時間
+
+  
+
+ 
+
+document.getElementById("toggleSidebar").addEventListener("click", function () {
+    const sidebar = document.querySelector(".sidebar");
+    sidebar.classList.toggle("hide-sidebar");
+
+    const content = document.querySelector(".content");
+    content.classList.toggle("expanded");
+});
+
+
+</script>
+</body>
+</html>
