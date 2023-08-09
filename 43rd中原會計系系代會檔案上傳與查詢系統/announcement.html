@@ -68,10 +68,6 @@
       display: block; /* 預設顯示導航區 */
     }
 
-
-
-
-    
     .sidebar a {
       display: block;
       padding: 10px 20px;
@@ -159,6 +155,13 @@
 .items-per-page,
 .search-bar {
   margin-right: 10px;
+}
+
+    .content {
+  width: 100%; /* 使内容区域宽度自适应 */
+  height: 100vh; /* 使内容区域高度自适应屏幕高度 */
+  padding: 20px;
+  transition: margin-left 0.3s ease-in-out; /* 添加过渡效果 */
 }
   </style>
 
@@ -477,7 +480,11 @@ document.getElementById("toggleSidebar").addEventListener("click", function () {
 
 
   document.getElementById("toggleSidebar").addEventListener("click", function () {
-    // ...
+    const sidebar = document.querySelector(".sidebar");
+    sidebar.classList.toggle("hide-sidebar");
+
+    const content = document.querySelector(".content");
+    content.classList.toggle("expanded");
 });
 
   </script>
