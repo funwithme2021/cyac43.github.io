@@ -31,7 +31,7 @@
     .announcement {
       font-size: 18px;
       font-weight: bold;
-      animation: blink 1s infinite;
+     
     }
     @keyframes blink {
       0%, 100% { opacity: 1; }
@@ -105,6 +105,7 @@
       width: 100%;
       border-collapse: collapse;
       margin: 20px auto;
+      font-weight: normal;
     }
     th, td {
       border: 1px solid #ccc;
@@ -145,8 +146,20 @@
     .content.expanded {
   margin-left: 0;
 }
+.pagination {
+  text-align: center;
+  margin-top: 10px;
+}
+.filter-bar {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
 
-
+.items-per-page,
+.search-bar {
+  margin-right: 10px;
+}
   </style>
 
 
@@ -185,39 +198,41 @@
       <h1>歡迎來到43rd中原大學會計學系系代會檔案上傳與查詢系統</h1>
     </div>
     <div class="info">
-      <p>現在時間：<span id="current-time"></span></p>
-    </div>
-    <div class="announcement-list">
-        <h2 align="center">公告列表</h2>
-        <div class="announcement-controls">
-          <label for="announcementPerPage">每頁顯示數量：</label>
-          <select id="announcementPerPage">
-            <option value="5">5</option>
-            <option value="10">10</option>
-            <option value="15">15</option>
-            <option value="20">20</option>
-            <option value="25">25</option>
-            <option value="30">30</option>
-          </select>
-          <input type="text" id="searchInput" placeholder="關鍵字搜尋">
-          <button id="searchButton">搜尋</button>
-        </div>
-        <table>
-          <!-- 公告項目將在這裡動態生成 -->
+        <h2>公告列表</h2>
+        <div class="announcement">
+            <div class="filter-bar">
+              <div class="items-per-page">
+                顯示每頁
+                <select id="itemsPerPageSelect">
+                  <option value="5">5</option>
+                  <option value="10" selected>10</option>
+                  <option value="15">15</option>
+                  <option value="20">20</option>
+                  <option value="25">25</option>
+                  <option value="30">30</option>
+                </select>
+                筆資料
+              </div>
+              <div class="search-bar">
+                <input type="text" id="searchInput" placeholder="輸入關鍵字">
+                <button id="searchButton">搜尋</button>
+              </div>
+            </div>
+        <table id="announcementTable">
+          <!-- 在此显示公告内容 -->
         </table>
-        <div class="pagination">
-          <button id="prevPage">上一頁</button>
-          <span id="currentPage">1</span>
-          <button id="nextPage">下一頁</button>
-        </div>
       </div>
-    
+      <div class="pagination">
+        <button id="prevPageBtn">上一頁</button>
+        <span>第 <span id="currentPage">1</span> 頁 / 共 <span id="totalPages">1</span> 頁</span>
+        <button id="nextPageBtn">下一頁</button>
+      </div>
     <div class="usage-info">
       <span id="usageCount"><!-- FC2計數器 開始 -->
-      <p>網頁累積使用次數：<script language="javascript" type="text/javascript" src="//counter1.fc2.com/counter.php?id=89504295"></script><noscript><img src="//counter1.fc2.com/counter_img.php?id=89504295" /></noscript>次
+      <p>網頁累積使用次數：<script language="javascript" type="text/javascript" ></script><noscript><img src="//counter1.fc2.com/counter_img.php?id=89504295" /></noscript>次
     </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <span id="onlineUsersCount"><!-- FC2計數器 開始 -->
-      網頁目前在線人數：<script language="javascript" type="text/javascript" src="//counter1.fc2.com/views.php?id=89504295"></script><noscript><img src="//counter1.fc2.com/counter_now.php?id=89504295" /></noscript>人</p>
+      網頁目前在線人數：<script language="javascript" type="text/javascript" ></script><noscript><img src="//counter1.fc2.com/counter_now.php?id=89504295" /></noscript>人</p>
     </span>
     </div>
     <div class="footer">
@@ -318,10 +333,6 @@
 
     setInterval(updateCurrentTime, 1000); // 每秒更新一次時間
 
-  
-
- 
-
 document.getElementById("toggleSidebar").addEventListener("click", function () {
     const sidebar = document.querySelector(".sidebar");
     sidebar.classList.toggle("hide-sidebar");
@@ -329,27 +340,54 @@ document.getElementById("toggleSidebar").addEventListener("click", function () {
     const content = document.querySelector(".content");
     content.classList.toggle("expanded");
 });
-
-
 </script>
-
 <script>
-    // ...（之前的腳本代碼）...
+    document.getElementById("itemsPerPageSelect").addEventListener("change", () => {
+        itemsPerPage = parseInt(document.getElementById("itemsPerPageSelect").value);
+        currentPage = 1;
+        updateAnnouncementTable();
+        updatePagination();
+    });
+    const announcements = [
+  {
+    date: "2023-07-20",
+    title: "每日維護時段",
+    note: "網頁維護公告"
+  },
+  {
+    date: "2023-08-05",
+    title: "電腦版本網頁",
+    note: "<a href='https://funwithme2021.github.io/cyac43.github.io/43rd%E4%B8%AD%E5%8E%9F%E6%9C%83%E8%A8%88%E7%B3%BB%E7%B3%BB%E4%BB%A3%E6%9C%83%E6%AA%94%E6%A1%88%E4%B8%8A%E5%82%B3%E8%88%87%E6%9F%A5%E8%A9%A2%E7%B3%BB%E7%B5%B1/index.html'>點擊進入系統</a>"
+  },
+  {
+    date: "2023-07-20",
+    title: "簡易版本網頁",
+    note: "<a href='https://funwithme2021.github.io/43rdac.github.io/43rd%E4%B8%AD%E5%8E%9F%E6%9C%83%E8%A8%88%E7%B3%BB%E7%B3%BB%E5%AD%B8%E6%9C%83%E6%AA%94%E6%A1%88%E4%B8%8A%E5%82%B3%E8%88%87%E6%9F%A5%E8%A9%A2%E4%B8%8A%E5%82%B3%E7%B3%BB%E7%B5%B1/index.html?fbclid=IwAR0FnADHDKRIGK2IvE-0p7Yri8e7WUJvBoaqs2dGFdnWpgcSBU2annykUyw'>點擊進入系統</a>"
+  },
+  {
+    date: "2023-07-15",
+    title: "網頁測試中",
+    note: "網頁上線公告"
+  },
+
+  // 輸入公告區// 輸入公告區// 輸入公告區// 輸入公告區// 輸入公告區// 輸入公告區// 輸入公告區// 輸入公告區// 輸入公告區
+  // 輸入公告區// 輸入公告區// 輸入公告區// 輸入公告區// 輸入公告區// 輸入公告區// 輸入公告區// 輸入公告區// 輸入公告區
+  // 輸入公告區// 輸入公告區// 輸入公告區// 輸入公告區// 輸入公告區// 輸入公告區// 輸入公告區// 輸入公告區// 輸入公告區
+  // 輸入公告區// 輸入公告區// 輸入公告區// 輸入公告區// 輸入公告區// 輸入公告區// 輸入公告區// 輸入公告區// 輸入公告區
+  // 輸入公告區// 輸入公告區// 輸入公告區// 輸入公告區// 輸入公告區// 輸入公告區// 輸入公告區// 輸入公告區// 輸入公告區
+  // 輸入公告區// 輸入公告區// 輸入公告區// 輸入公告區// 輸入公告區// 輸入公告區// 輸入公告區// 輸入公告區// 輸入公告區
+];
   
-    const announcementList = document.querySelector('.announcement-list');
-    const table = announcementList.querySelector('table');
-    const prevPageButton = announcementList.querySelector('#prevPage');
-    const nextPageButton = announcementList.querySelector('#nextPage');
-    const currentPageSpan = announcementList.querySelector('#currentPage');
-    const announcementPerPageSelect = announcementList.querySelector('#announcementPerPage');
-    const searchInput = announcementList.querySelector('#searchInput');
-    const searchButton = announcementList.querySelector('#searchButton');
-  
+    let itemsPerPage = 10; // 初始每页显示的公告数量
     let currentPage = 1;
-    let announcements = []; // 保存所有公告項目的數組
+    let filteredAnnouncements = [...announcements];
   
-    // 生成公告列表
-    function renderAnnouncements(page) {
+    function updateAnnouncementTable() {
+  const table = document.getElementById("announcementTable");
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+  const currentPageAnnouncements = filteredAnnouncements.slice(startIndex, endIndex);
+  
       table.innerHTML = `
         <thead>
           <tr>
@@ -359,86 +397,84 @@ document.getElementById("toggleSidebar").addEventListener("click", function () {
           </tr>
         </thead>
         <tbody>
-          <!-- 公告項目將在這裡動態生成 -->
+          ${currentPageAnnouncements.map((announcement) => `
+            <tr>
+              <td>${announcement.date}</td>
+              <td>${announcement.title}</td>
+              <td>${announcement.note}</td>
+            </tr>
+          `).join("")}
         </tbody>
       `;
-  
-      const startIndex = (page - 1) * announcementPerPage;
-      const endIndex = startIndex + announcementPerPage;
-      const pageAnnouncements = announcements.slice(startIndex, endIndex);
-  
-      pageAnnouncements.forEach(announcement => {
-        const row = document.createElement('tr');
-        row.innerHTML = `
-          <td>${announcement.date}</td>
-          <td>${announcement.title}</td>
-          <td>${announcement.remark}</td>
-        `;
-        table.querySelector('tbody').appendChild(row);
-      });
-  
-      currentPageSpan.textContent = currentPage;
-      prevPageButton.disabled = currentPage === 1;
-      nextPageButton.disabled = endIndex >= announcements.length;
     }
   
+    function updatePagination() {
+        const prevPageBtn = document.getElementById("prevPageBtn");
+  const nextPageBtn = document.getElementById("nextPageBtn");
+  const currentPageElement = document.getElementById("currentPage");
+  const totalPagesElement = document.getElementById("totalPages"); // 新增获取总页数的元素
+
+  prevPageBtn.disabled = currentPage === 1;
+  nextPageBtn.disabled = currentPage * itemsPerPage >= filteredAnnouncements.length;
+
+  currentPageElement.textContent = currentPage;
+  totalPagesElement.textContent = Math.ceil(filteredAnnouncements.length / itemsPerPage); // 更新总页数
+}
+  
+    function searchAnnouncements(keyword) {
+        const searchInput = document.getElementById("searchInput"); // 正确引用搜索输入框元素
+  filteredAnnouncements = announcements.filter((announcement) => {
+    return announcement.title.includes(keyword) || announcement.note.includes(keyword);
+  });
+
+  currentPage = 1;
+  updateAnnouncementTable();
+  updatePagination();
+
+  // 如果没有符合条件的公告，则显示查无资料
+  const table = document.getElementById("announcementTable");
+  if (filteredAnnouncements.length === 0) {
+    table.innerHTML = "<tr><td colspan='3'>查無資料，請重新輸入關鍵字</td></tr>";
+  }
+}
     // 初始化
-    function init() {
-      renderAnnouncements(currentPage);
+    updateAnnouncementTable();
+    updatePagination();
   
-      prevPageButton.addEventListener('click', () => {
-        if (currentPage > 1) {
-          currentPage--;
-          renderAnnouncements(currentPage);
-        }
-      });
+    // 事件处理
+    document.getElementById("prevPageBtn").addEventListener("click", () => {
+      if (currentPage > 1) {
+        currentPage--;
+        updateAnnouncementTable();
+        updatePagination();
+      }
+    });
   
-      nextPageButton.addEventListener('click', () => {
-        if (currentPage < Math.ceil(announcements.length / announcementPerPage)) {
-          currentPage++;
-          renderAnnouncements(currentPage);
-        }
-      });
+    document.getElementById("nextPageBtn").addEventListener("click", () => {
+      if (currentPage * itemsPerPage < filteredAnnouncements.length) {
+        currentPage++;
+        updateAnnouncementTable();
+        updatePagination();
+      }
+    });
   
-      announcementPerPageSelect.addEventListener('change', () => {
-        announcementPerPage = parseInt(announcementPerPageSelect.value);
-        currentPage = 1;
-        renderAnnouncements(currentPage);
-      });
+    document.getElementById("searchButton").addEventListener("click", () => {
+      const searchInput = document.getElementById("searchInput");
+      const keyword = searchInput.value.trim();
+      if (keyword) {
+        searchAnnouncements(keyword);
+      }
+    });
   
-      searchButton.addEventListener('click', () => {
-        const keyword = searchInput.value.trim().toLowerCase();
-        if (keyword) {
-          const filteredAnnouncements = announcements.filter(announcement =>
-            announcement.title.toLowerCase().includes(keyword) ||
-            announcement.remark.toLowerCase().includes(keyword)
-          );
-          announcements = filteredAnnouncements;
-          currentPage = 1;
-          renderAnnouncements(currentPage);
-        }
-      });
-    }
-  
-    // 在此之前，您需要將公告項目添加到announcements數組中，例如：
-    // 在此之前，您需要將公告項目添加到announcements數組中，例如：
-    // 在此之前，您需要將公告項目添加到announcements數組中，例如：
-    // 在此之前，您需要將公告項目添加到announcements數組中，例如：
-    // 在此之前，您需要將公告項目添加到announcements數組中，例如：
-    announcements.push(
-      { date: '2023-07-20', title: '每日維護時段', remark: '網頁維護公告' },
-      { date: '2023-08-05', title: '電腦版本網頁', remark: '<a href="https://funwithme2021.github.io/cyac43.github.io/43rd%E4%B8%AD%E5%8E%9F%E6%9C%83%E8%A8%88%E7%B3%BB%E7%B3%BB%E4%BB%A3%E6%9C%83%E6%AA%94%E6%A1%88%E4%B8%8A%E5%82%B3%E8%88%87%E6%9F%A5%E8%A9%A2%E7%B3%BB%E7%B5%B1/index.html">點擊進入系統</a>' },
-      { date: '2023-07-20', title: '簡易版本網頁', remark: '<a href="https://funwithme2021.github.io/43rdac.github.io/43rd%E4%B8%AD%E5%8E%9F%E6%9C%83%E8%A8%88%E7%B3%BB%E7%B3%BB%E5%AD%B8%E6%9C%83%E6%AA%94%E6%A1%88%E4%B8%8A%E5%82%B3%E8%88%87%E6%9F%A5%E8%A9%A2%E4%B8%8A%E5%82%B3%E7%B3%BB%E7%B5%B1/index.html?fbclid=IwAR0FnADHDKRIGK2IvE-0p7Yri8e7WUJvBoaqs2dGFdnWpgcSBU2annykUyw">點擊進入系統</a>' },
-      { date: '2023-07-15', title: '網頁測試中', remark: '網頁上線公告' },
-     
-      // 其他公告項目...
-      // 其他公告項目...
-      // 其他公告項目...
-      // 其他公告項目...
-    );
-  
-    let announcementPerPage = parseInt(announcementPerPageSelect.value);
-    init();
+    // 在搜索框内输入时，显示所有公告
+    document.getElementById("searchInput").addEventListener("input", () => {
+      if (!searchInput.value.trim()) {
+        filteredAnnouncements = announcements;
+        updateAnnouncementTable();
+        updatePagination();
+      }
+    });
+   
   </script>
 </body>
 </html>
