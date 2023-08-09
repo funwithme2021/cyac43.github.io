@@ -187,55 +187,31 @@
     <div class="info">
       <p>現在時間：<span id="current-time"></span></p>
     </div>
-    <div class="info">
-        <h2>公告列表</h2>
-  
- 
-<table>
-    
-   
-<thead>
-      <tr>
-        <th>公告日期</th>
-        <th>公告事項</th>
-        <th>備註</th>
-      </tr>
-    </thead>
-    <tbody>
-     
-<!-- 可以在這裡繼續添加更多的公告項目 -->     
-<!-- 可以在這裡繼續添加更多的公告項目 -->    
-<!-- 可以在這裡繼續添加更多的公告項目 -->    
-<!-- 可以在這裡繼續添加更多的公告項目 -->
-      <tr>
-        <td>2023-07-20</td>
-        <td align="left">每日13-14時及每週六0-6時為維護時段，暫停使用</td>
-        <td>網頁維護公告</td>     
-      </tr>
-      <tr>
-        <td>2023-08-05</td>
-        <td>電腦版本網頁</td>
-        <td><a href="https://funwithme2021.github.io/cyac43.github.io/43rd%E4%B8%AD%E5%8E%9F%E6%9C%83%E8%A8%88%E7%B3%BB%E7%B3%BB%E4%BB%A3%E6%9C%83%E6%AA%94%E6%A1%88%E4%B8%8A%E5%82%B3%E8%88%87%E6%9F%A5%E8%A9%A2%E7%B3%BB%E7%B5%B1/index.html">點擊進入系統</a></td>
-      </tr>
-       <tr>
-        <td>2023-07-20</td>
-        <td>簡易版本網頁</td>
-        <td><a href="https://funwithme2021.github.io/43rdac.github.io/43rd%E4%B8%AD%E5%8E%9F%E6%9C%83%E8%A8%88%E7%B3%BB%E7%B3%BB%E5%AD%B8%E6%9C%83%E6%AA%94%E6%A1%88%E4%B8%8A%E5%82%B3%E8%88%87%E6%9F%A5%E8%A9%A2%E4%B8%8A%E5%82%B3%E7%B3%BB%E7%B5%B1/index.html?fbclid=IwAR0FnADHDKRIGK2IvE-0p7Yri8e7WUJvBoaqs2dGFdnWpgcSBU2annykUyw">點擊進入系統</a></td>
-      </tr>
-      <tr>
-        <td>2023-07-15</td>
-        <td>網頁測試中</td>
-        <td>網頁上線公告</td>
-      </tr>
-      
-     
-<!-- 可以在這裡繼續添加更多的公告項目 -->    
-<!-- 可以在這裡繼續添加更多的公告項目 -->    
-<!-- 可以在這裡繼續添加更多的公告項目 -->   
-<!-- 可以在這裡繼續添加更多的公告項目 -->
-    </tbody>
-  </table>
+    <div class="announcement-list">
+        <h2 align="center">公告列表</h2>
+        <div class="announcement-controls">
+          <label for="announcementPerPage">每頁顯示數量：</label>
+          <select id="announcementPerPage">
+            <option value="5">5</option>
+            <option value="10">10</option>
+            <option value="15">15</option>
+            <option value="20">20</option>
+            <option value="25">25</option>
+            <option value="30">30</option>
+          </select>
+          <input type="text" id="searchInput" placeholder="關鍵字搜尋">
+          <button id="searchButton">搜尋</button>
+        </div>
+        <table>
+          <!-- 公告項目將在這裡動態生成 -->
+        </table>
+        <div class="pagination">
+          <button id="prevPage">上一頁</button>
+          <span id="currentPage">1</span>
+          <button id="nextPage">下一頁</button>
+        </div>
       </div>
+    
     <div class="usage-info">
       <span id="usageCount"><!-- FC2計數器 開始 -->
       <p>網頁累積使用次數：<script language="javascript" type="text/javascript" src="//counter1.fc2.com/counter.php?id=89504295"></script><noscript><img src="//counter1.fc2.com/counter_img.php?id=89504295" /></noscript>次
@@ -356,6 +332,113 @@ document.getElementById("toggleSidebar").addEventListener("click", function () {
 
 
 </script>
+
+<script>
+    // ...（之前的腳本代碼）...
+  
+    const announcementList = document.querySelector('.announcement-list');
+    const table = announcementList.querySelector('table');
+    const prevPageButton = announcementList.querySelector('#prevPage');
+    const nextPageButton = announcementList.querySelector('#nextPage');
+    const currentPageSpan = announcementList.querySelector('#currentPage');
+    const announcementPerPageSelect = announcementList.querySelector('#announcementPerPage');
+    const searchInput = announcementList.querySelector('#searchInput');
+    const searchButton = announcementList.querySelector('#searchButton');
+  
+    let currentPage = 1;
+    let announcements = []; // 保存所有公告項目的數組
+  
+    // 生成公告列表
+    function renderAnnouncements(page) {
+      table.innerHTML = `
+        <thead>
+          <tr>
+            <th>公告日期</th>
+            <th>公告事項</th>
+            <th>備註</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- 公告項目將在這裡動態生成 -->
+        </tbody>
+      `;
+  
+      const startIndex = (page - 1) * announcementPerPage;
+      const endIndex = startIndex + announcementPerPage;
+      const pageAnnouncements = announcements.slice(startIndex, endIndex);
+  
+      pageAnnouncements.forEach(announcement => {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+          <td>${announcement.date}</td>
+          <td>${announcement.title}</td>
+          <td>${announcement.remark}</td>
+        `;
+        table.querySelector('tbody').appendChild(row);
+      });
+  
+      currentPageSpan.textContent = currentPage;
+      prevPageButton.disabled = currentPage === 1;
+      nextPageButton.disabled = endIndex >= announcements.length;
+    }
+  
+    // 初始化
+    function init() {
+      renderAnnouncements(currentPage);
+  
+      prevPageButton.addEventListener('click', () => {
+        if (currentPage > 1) {
+          currentPage--;
+          renderAnnouncements(currentPage);
+        }
+      });
+  
+      nextPageButton.addEventListener('click', () => {
+        if (currentPage < Math.ceil(announcements.length / announcementPerPage)) {
+          currentPage++;
+          renderAnnouncements(currentPage);
+        }
+      });
+  
+      announcementPerPageSelect.addEventListener('change', () => {
+        announcementPerPage = parseInt(announcementPerPageSelect.value);
+        currentPage = 1;
+        renderAnnouncements(currentPage);
+      });
+  
+      searchButton.addEventListener('click', () => {
+        const keyword = searchInput.value.trim().toLowerCase();
+        if (keyword) {
+          const filteredAnnouncements = announcements.filter(announcement =>
+            announcement.title.toLowerCase().includes(keyword) ||
+            announcement.remark.toLowerCase().includes(keyword)
+          );
+          announcements = filteredAnnouncements;
+          currentPage = 1;
+          renderAnnouncements(currentPage);
+        }
+      });
+    }
+  
+    // 在此之前，您需要將公告項目添加到announcements數組中，例如：
+    // 在此之前，您需要將公告項目添加到announcements數組中，例如：
+    // 在此之前，您需要將公告項目添加到announcements數組中，例如：
+    // 在此之前，您需要將公告項目添加到announcements數組中，例如：
+    // 在此之前，您需要將公告項目添加到announcements數組中，例如：
+    announcements.push(
+      { date: '2023-07-20', title: '每日維護時段', remark: '網頁維護公告' },
+      { date: '2023-08-05', title: '電腦版本網頁', remark: '<a href="https://funwithme2021.github.io/cyac43.github.io/43rd%E4%B8%AD%E5%8E%9F%E6%9C%83%E8%A8%88%E7%B3%BB%E7%B3%BB%E4%BB%A3%E6%9C%83%E6%AA%94%E6%A1%88%E4%B8%8A%E5%82%B3%E8%88%87%E6%9F%A5%E8%A9%A2%E7%B3%BB%E7%B5%B1/index.html">點擊進入系統</a>' },
+      { date: '2023-07-20', title: '簡易版本網頁', remark: '<a href="https://funwithme2021.github.io/43rdac.github.io/43rd%E4%B8%AD%E5%8E%9F%E6%9C%83%E8%A8%88%E7%B3%BB%E7%B3%BB%E5%AD%B8%E6%9C%83%E6%AA%94%E6%A1%88%E4%B8%8A%E5%82%B3%E8%88%87%E6%9F%A5%E8%A9%A2%E4%B8%8A%E5%82%B3%E7%B3%BB%E7%B5%B1/index.html?fbclid=IwAR0FnADHDKRIGK2IvE-0p7Yri8e7WUJvBoaqs2dGFdnWpgcSBU2annykUyw">點擊進入系統</a>' },
+      { date: '2023-07-15', title: '網頁測試中', remark: '網頁上線公告' },
+     
+      // 其他公告項目...
+      // 其他公告項目...
+      // 其他公告項目...
+      // 其他公告項目...
+    );
+  
+    let announcementPerPage = parseInt(announcementPerPageSelect.value);
+    init();
+  </script>
 </body>
 </html>
-
