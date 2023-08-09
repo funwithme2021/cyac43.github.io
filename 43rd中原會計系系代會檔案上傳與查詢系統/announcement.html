@@ -484,7 +484,13 @@ document.getElementById("toggleSidebar").addEventListener("click", function () {
     const content = document.querySelector(".content");
     content.classList.toggle("expanded");
 });
+document.getElementById("toggleSidebar").addEventListener("click", function () {
+    const sidebar = document.querySelector(".sidebar");
+    sidebar.classList.toggle("hide-sidebar");
 
+    const content = document.querySelector(".content");
+    content.classList.toggle("expanded");
+});
   </script>
 </body>
 </html>
