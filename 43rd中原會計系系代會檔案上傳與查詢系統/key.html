@@ -208,6 +208,26 @@ th, td {
   display: block; /* 或者您想使用的其他適當的顯示方式 */
 }
 
+.search-box {
+      text-align: left;
+      margin: 20px 0;
+    }
+
+    #searchButton {
+      padding: 5px 10px;
+      background-color: #3498db;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+    }
+
+    .search-result {
+      text-align: center;
+      margin-top: 10px;
+      color: rgb(3, 3, 3);
+      font-weight: bold;
+    }
+
   </style>
 </head>
 <body>
@@ -239,6 +259,31 @@ th, td {
       <p>現在時間：<span id="current-time"></span></p>
     </div>
 
+    <h2 align="center">帳號密碼查詢</h2>
+    <div class="search-box">
+      <label for="searchName">姓名：</label>
+      <input type="text" id="searchName" placeholder="請輸入姓名" required>
+      <label for="searchStudentId">學號：</label>
+      <input type="text" id="searchStudentId" placeholder="請輸入學號" required>
+      <button id="searchButton">查詢</button>
+    </div>
+    
+    <div id="searchResult" class="search-result">
+      <table>
+        <thead>
+          <tr>
+            <th>姓名</th>
+            <th>學號</th>
+            <th>職稱</th>
+            <th>登入帳號</th>
+            <th>登入密碼</th>
+          </tr>
+        </thead>
+        <tbody id="tableBody">
+          <!-- 這裡將會動態生成資料 -->
+        </tbody>
+      </table>
+    </div>
          <!-- 在這裡繼續添加更多的問題和回答 -->
          <!-- 在這裡繼續添加更多的問題和回答 -->
          <!-- 在這裡繼續添加更多的問題和回答 -->
@@ -307,11 +352,11 @@ th, td {
     
     <div class="usage-info">
       <span id="usageCount"><!-- FC2計數器 開始 -->
-      <p>網頁累積使用次數：<script language="javascript" type="text/javascript" src="//counter1.fc2.com/counter.php?id=89504295"></script><noscript><img src="//counter1.fc2.com/counter_img.php?id=89504295" /></noscript>次
-    </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <span id="onlineUsersCount"><!-- FC2計數器 開始 -->
-      網頁目前在線人數：<script language="javascript" type="text/javascript" src="//counter1.fc2.com/views.php?id=89504295"></script><noscript><img src="//counter1.fc2.com/counter_now.php?id=89504295" /></noscript>人</p>
-    </span>
+        <p>網頁累積使用次數：<script language="javascript" type="text/javascript" src="//counter1.fc2.com/counter.php?id=89504295"></script><noscript><img src="//counter1.fc2.com/counter_img.php?id=89504295" /></noscript>次
+      </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <span id="onlineUsersCount"><!-- FC2計數器 開始 -->
+        網頁目前在線人數：<script language="javascript" type="text/javascript" src="//counter1.fc2.com/views.php?id=89504295"></script><noscript><img src="//counter1.fc2.com/counter_now.php?id=89504295" /></noscript>人</p>
+      </span>
     </div>
     <div class="footer">
       <p>Copyright © 2023 邱偉軒. All rights reserved. | V3.4.20230720</p>
@@ -429,8 +474,79 @@ questionRows.forEach((questionRow, index) => {
     answerRows[index].classList.toggle('show-answer');
   });
 });
-
-
 </script>
-</body>
-</html>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+  $(document).ready(function () {
+    // 生成帳號和密碼
+    const generateAccountAndPassword = (name, studentId) => {
+      const account = name;
+      const password = 'a' + studentId;
+      return { account, password };
+    };
+
+    // 監聽查詢按鈕的點擊事件
+    document.getElementById("searchButton").addEventListener("click", function () {
+      const searchName = document.getElementById("searchName").value;
+      const searchStudentId = document.getElementById("searchStudentId").value;
+
+      // 假設資料庫的公告資料，使用符合格式的真實資料
+      const announcements = [
+      { "name": "訪客", "studentId": "12345678", "role": "訪客" },
+  { "name": "李芯妮", "studentId": "11043136", "role": "紀錄" },
+  { "name": "邱偉軒", "studentId": "11043101", "role": "主席" },
+  { "name": "詹沛臻", "studentId": "11043139", "role": "會 長" },
+  { "name": "賴佳均", "studentId": "11043130", "role": "副會長" },
+  { "name": "鍾品萬", "studentId": "11043240", "role": "副會長" },
+  { "name": "張語芹", "studentId": "11043226", "role": "活動部長" },
+  { "name": "黃宛婷", "studentId": "11043202", "role": "活動秘書" },
+  { "name": "薛詠齡", "studentId": "11043241", "role": "公關部長" },
+  { "name": "陳茹荺", "studentId": "11043337", "role": "公關秘書" },
+  { "name": "李辰彥", "studentId": "11043250", "role": "體育部長" },
+  { "name": "黃珮煊", "studentId": "11043152", "role": "體育秘書" },
+  { "name": "徐筱茹", "studentId": "11043207", "role": "美宣部長" },
+  { "name": "吳婉如", "studentId": "11043143", "role": "文書部長" },
+  { "name": "鄭葦瑧", "studentId": "11043214", "role": "學術部長" },
+  { "name": "鍾岱璉", "studentId": "11043126", "role": "執行秘書" },
+  { "name": "呂承恩", "studentId": "11043210", "role": "資產委員" },
+  { "name": "陳庭嫻", "studentId": "11043138", "role": "資產委員" },
+  { "name": "林明君", "studentId": "11043107", "role": "資產委員" },
+  { "name": "徐佩珊", "studentId": "11043141", "role": "財務委員" },
+  { "name": "陳冠瑜", "studentId": "11043104", "role": "財務委員" },
+  { "name": "郭璇潔", "studentId": "11043109", "role": "財務委員" },
+  { "name": "林姮儀", "studentId": "11043238", "role": "會 計" },
+  { "name": "劉品然", "studentId": "11043149", "role": "出 納" },
+  { "name": "林愷威", "studentId": "11113106", "role": "鯊魚" },
+  { "name": "教職人員", "studentId": "00000000", "role": "教職人員" },
+      ];
+
+      const matchingAnnouncements = announcements.filter(announcement => {
+        return announcement.name === searchName && announcement.studentId === searchStudentId;
+      });
+
+      const tableBody = document.getElementById("tableBody");
+      tableBody.innerHTML = ""; // 清空表格內容
+
+      if (matchingAnnouncements.length === 0) {
+  tableBody.innerHTML = `<tr><td colspan="5">尚未註冊或輸入的內容有誤! 請重新輸入或連繫協助人員。</td></tr>`;
+} else {
+      matchingAnnouncements.forEach(announcement => {
+        const newRow = tableBody.insertRow(-1);
+        const nameCell = newRow.insertCell(0);
+        const studentIdCell = newRow.insertCell(1);
+        const roleCell = newRow.insertCell(2);
+        const accountCell = newRow.insertCell(3);
+        const passwordCell = newRow.insertCell(4);
+
+        nameCell.textContent = announcement.name;
+        studentIdCell.textContent = announcement.studentId;
+        roleCell.textContent = announcement.role;
+
+        // 生成並顯示帳號和密碼
+        const generatedData = generateAccountAndPassword(announcement.name, announcement.studentId);
+        accountCell.textContent = generatedData.account;
+        passwordCell.textContent = generatedData.password;
+      });}
+    });
+  });
+</script>
