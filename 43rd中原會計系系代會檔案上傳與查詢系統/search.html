@@ -6,18 +6,19 @@
   <title>歡迎來到43rd中原大學會計學系系代會檔案上傳與查詢系統</title>
   <style>
    body {
-      font-family: Arial, sans-serif;
-      background-image: url('底圖的URL');
-      background-size: cover;
-      margin: 0;
-      padding: 0;
-    }
-    .header {
-      text-align: center;
-      padding: 20px;
-      background-color: #3498db;
-      color: #fff;
-    }
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f8f9fa; /* 更柔和的底色 */
+}
+
+.header {
+  text-align: center;
+  padding: 20px;
+  background-color: #3498db;
+  color: #fff;
+  border-bottom: 3px solid #2980b9; /* 添加底部邊框 */
+}
     .marquee {
       font-size: 16px;
       white-space: nowrap;
@@ -145,7 +146,11 @@
 .pagination {
   text-align: center;
   margin-top: 10px;
+  padding: 20px 0; /* 添加上下間距 */
+  border-top: 1px solid #ccc; /* 添加上方邊框 */
 }
+
+
 .filter-bar {
   display: flex;
   align-items: center;
@@ -157,13 +162,77 @@
   margin-right: 10px;
 }
 
-   
+.login-area {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: opacity 0.3s ease; /* 添加淡入淡出效果 */
+}
+
+.login-area h2 {
+  color: #070707;
+}
+
+.login-area h5 {
+  color: #727272;
+}
+
+.login-area input[type="text"],
+.login-area input[type="password"] {
+  width: 13%;
+  padding: 8px;
+  margin: 1px 0;
+  border: 1px solid #7c7c7c;
+  border-radius: 5px;
+}
+
+.login-area button {
+  padding: 8px 13px;
+  background-color: #3498db;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.login-area button:hover {
+  background-color: #2980b9;
+}
+
+ /* 添加遮罩层样式 */
+ .maintenance-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.884);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+
+        .maintenance-message {
+            text-align: center;
+            color: white;
+            padding: 20px;
+            border: 2px solid white;
+            max-width: 80%;
+        }
   </style>
 
 
 </head>
 <body>
-
+<!-- 添加维护遮罩层和维护提示信息 -->
+<div class="maintenance-overlay" id="maintenanceOverlay">
+  <div class="maintenance-message">
+      <h1>目前網頁維護中，請稍後再試!<br>維護時段:每日13-14時及每週六0-6時</h1>
+  </div>
+</div>
 
 <div class="sidebar">
     <div>
@@ -199,8 +268,16 @@
        
         <p>現在時間：<span id="current-time"></span></p>
       
-        <h2>檔案列表</h2>
-        <div class="announcement">
+        <div class="login-area">
+          <h2>帳號密碼登入</h2><h5>(請先登入再查看檔案列表)</h5>
+          <input type="text" id="username" placeholder="帳號">
+          <input type="password" id="password" placeholder="密碼">
+          <button id="loginButton">登入</button>
+          <div id="loginResult"></div>
+        </div>
+
+        <div class="announcement" id="announcementSection" style="display: none;">
+          <h2>檔案列表</h2>
             <div class="filter-bar">
             
               <div class="items-per-page">
@@ -239,23 +316,24 @@
                 </select>
                 <button id="keywordSearchButton">依類別搜尋</button>
               </div>
-            </div>  
+            </div>
             
         <table id="announcementTable">
           <!-- 在此显示公告内容 -->
         </table>
       </div>
-      <div class="pagination">
+      <div class="pagination" id="paginationSection" style="display: none;">
         <button id="prevPageBtn">上一頁</button>
         <span>第 <span id="currentPage">1</span> 頁 / 共 <span id="totalPages">1</span> 頁</span>
         <button id="nextPageBtn">下一頁</button>
       </div>
+    
     <div class="usage-info">
         <span id="usageCount"><!-- FC2計數器 開始 -->
-            <p>網頁累積使用次數：<script language="javascript" type="text/javascript" src="//counter1.fc2.com/counter.php?id=89504295"></script><noscript><img src="//counter1.fc2.com/counter_img.php?id=89504295" /></noscript>次
+            <p>網頁累積使用次數：<script language="javascript" type="text/javascript" ></script><noscript><img src="//counter1.fc2.com/counter_img.php?id=89504295" /></noscript>次
           </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           <span id="onlineUsersCount"><!-- FC2計數器 開始 -->
-            網頁目前在線人數：<script language="javascript" type="text/javascript" src="//counter1.fc2.com/views.php?id=89504295"></script><noscript><img src="//counter1.fc2.com/counter_now.php?id=89504295" /></noscript>人</p>
+            網頁目前在線人數：<script language="javascript" type="text/javascript" ></script><noscript><img src="//counter1.fc2.com/counter_now.php?id=89504295" /></noscript>人</p>
           </span>
     </div>
     <div class="footer">
@@ -292,57 +370,8 @@
     // You can adjust the interval for updating usage count and online users
     setInterval(updateUsageCount, 5000);
     setInterval(updateOnlineUsers, 10000);
-
    
-        // 取得當前日期和時間
-        var now = new Date();
-        var dayOfWeek = now.getDay(); // 0: 星期日, 1: 星期一, 2: 星期二, ... , 6: 星期六
-        var hour = now.getHours();
-
-        // 檢查是否在要鎖定的時段內（星期一的上午10點到11點）
-        if (dayOfWeek === 6 && hour >= 00 && hour < 06) {
-            // 如果在時段內，禁用整個頁面或特定功能
-            document.body.innerHTML = "<h1>目前網頁維護中，請稍後再試!<br>維護時段:每日13-14時及每週六0-6時</h1>";
-        }
-       // 檢查是否在要鎖定的時段內（星期一的上午10點到11點）
-        if (dayOfWeek === 1 && hour >= 13 && hour < 14) {
-            // 如果在時段內，禁用整個頁面或特定功能
-            document.body.innerHTML = "<h1>目前網頁維護中，請稍後再試!<br>維護時段:每日13-14時及每週六0-6時</h1>";
-        }
-       // 檢查是否在要鎖定的時段內（星期一的上午10點到11點）
-        if (dayOfWeek === 2 && hour >= 13 && hour < 14) {
-            // 如果在時段內，禁用整個頁面或特定功能
-            document.body.innerHTML = "<h1>目前網頁維護中，請稍後再試!<br>維護時段:每日13-14時及每週六0-6時</h1>";
-        }
-       // 檢查是否在要鎖定的時段內（星期一的上午10點到11點）
-        if (dayOfWeek === 3 && hour >= 13 && hour < 14) {
-            // 如果在時段內，禁用整個頁面或特定功能
-            document.body.innerHTML = "<h1>目前網頁維護中，請稍後再試!<br>維護時段:每日13-14時及每週六0-6時</h1>";
-        }
-       // 檢查是否在要鎖定的時段內（星期一的上午10點到11點）
-        if (dayOfWeek === 4 && hour >= 13 && hour < 14) {
-            // 如果在時段內，禁用整個頁面或特定功能
-            document.body.innerHTML = "<h1>目前網頁維護中，請稍後再試!<br>維護時段:每日13-14時及每週六0-6時</h1>";
-        }
-       // 檢查是否在要鎖定的時段內（星期一的上午10點到11點）
-        if (dayOfWeek === 5 && hour >= 13 && hour < 14) {
-            // 如果在時段內，禁用整個頁面或特定功能
-            document.body.innerHTML = "<h1>目前網頁維護中，請稍後再試!<br>維護時段:每日13-14時及每週六0-6時</h1>";
-        }
-       // 檢查是否在要鎖定的時段內（星期一的上午10點到11點）
-        if (dayOfWeek === 6 && hour >= 13 && hour < 14) {
-            // 如果在時段內，禁用整個頁面或特定功能
-            document.body.innerHTML = "<h1>目前網頁維護中，請稍後再試!<br>維護時段:每日13-14時及每週六0-6時</h1>";
-        }
-       // 檢查是否在要鎖定的時段內（星期一的上午10點到11點）
-        if (dayOfWeek === 0 && hour >= 13 && hour < 14) {
-            // 如果在時段內，禁用整個頁面或特定功能
-            document.body.innerHTML = "<h1>目前網頁維護中，請稍後再試!<br>維護時段:每日13-14時及每週六0-6時</h1>";
-        }
-     
-  
   </script>
-    <!-- ...（之前的HTML代碼）... -->
 
 <script>
     function updateCurrentTime() {
@@ -365,6 +394,84 @@ document.getElementById("toggleSidebar").addEventListener("click", function () {
 });
 </script>
 <script>
+ const loginButton = document.getElementById("loginButton");
+const loginResult = document.getElementById("loginResult");
+const announcementSection = document.getElementById("announcementSection");
+const paginationSection = document.getElementById("paginationSection");
+
+const validAccounts = [
+  { role: "訪客", username: "訪客", password: "a12345678", name: "訪客" },
+    { role: "紀錄", username: "李芯妮", password: "a11043136", name: "李芯妮" },
+    { role: "主席", username: "邱偉軒", password: "a11043101", name: "邱偉軒" },
+    { role: "會 長", username: "詹沛臻", password: "a11043139", name: "詹沛臻" },
+    { role: "副會長", username: "賴佳均", password: "a11043130", name: "賴佳均" },
+    { role: "副會長", username: "鍾品萬", password: "a11043240", name: "鍾品萬" },
+    { role: "活動部長", username: "張語芹", password: "a11043226", name: "張語芹" },
+    { role: "活動秘書", username: "黃宛婷", password: "a11043202", name: "黃宛婷" },
+    { role: "公關部長", username: "薛詠齡", password: "a11043241", name: "薛詠齡" },
+    { role: "公關秘書", username: "陳茹荺", password: "a11043337", name: "陳茹荺" },
+    { role: "體育部長", username: "李辰彥", password: "a11043250", name: "李辰彥" },
+    { role: "體育秘書", username: "黃珮煊", password: "a11043152", name: "黃珮煊" },
+    { role: "美宣部長", username: "徐筱茹", password: "a11043207", name: "徐筱茹" },
+    { role: "文書部長", username: "吳婉如", password: "a11043143", name: "吳婉如" },
+    { role: "學術部長", username: "鄭葦瑧", password: "a11043214", name: "鄭葦瑧" },
+    { role: "執行秘書", username: "鍾岱璉", password: "a11043126", name: "鍾岱璉" },
+    { role: "資產委員", username: "呂承恩", password: "a11043210", name: "呂承恩" },
+    { role: "資產委員", username: "陳庭嫻", password: "a11043138", name: "陳庭嫻" },
+    { role: "資產委員", username: "林明君", password: "a11043107", name: "林明君" },
+    { role: "財務委員", username: "徐佩珊", password: "a11043141", name: "徐佩珊" },
+    { role: "財務委員", username: "陳冠瑜", password: "a11043104", name: "陳冠瑜" },
+    { role: "財務委員", username: "郭璇潔", password: "a11043109", name: "郭璇潔" },
+    { role: "會 計", username: "林姮儀", password: "a11043238", name: "林姮儀" },
+    { role: "出 納", username: "劉品然", password: "a11043149", name: "劉品然" },
+    { role: "鯊魚", username: "林愷威", password: "a11113106", name: "林愷威" },
+    { role: "教職人員", username: "教師", password: "a00000000", name: "教師" },
+  ];
+  loginButton.addEventListener("click", () => {
+  const usernameInput = document.getElementById("username");
+  const passwordInput = document.getElementById("password");
+
+  const inputUsername = usernameInput.value;
+  const inputPassword = passwordInput.value;
+
+  const validAccount = validAccounts.find(account => 
+    account.username === inputUsername && account.password === inputPassword
+  );
+
+  if (validAccount) {
+    loginResult.style.color = "green";
+    loginResult.textContent = `登入成功！歡迎，${validAccount.name}，身份：${validAccount.role}`;
+    announcementSection.style.display = "block"; // 顯示檔案列表區域
+
+    // 設定登入有效時間為0.5分鐘 (30秒)
+    const expirationTime = new Date().getTime() + 0.5 * 60 * 1000;
+    localStorage.setItem("loginExpiration", expirationTime);
+
+    // 0.5分鐘後檢查是否超時
+    setTimeout(() => {
+      const currentTime = new Date().getTime();
+      const loginExpTime = parseInt(localStorage.getItem("loginExpiration"));
+
+      if (currentTime > loginExpTime) {
+        // 登入超時，隱藏內容並提示重新登入
+        announcementSection.style.display = "none";
+        paginationSection.style.display = "none"; // 額外隱藏分頁區域
+        alert("已超時，請重新登入！");
+      }
+    }, 10 * 60 * 1000);
+
+    // 登入成功的程式碼
+    paginationSection.style.display = "block"; // 顯示分頁區域
+    // 清空帳號和密碼欄位
+usernameInput.value = "";
+passwordInput.value = "";
+  } else {
+    loginResult.style.color = "red";
+    loginResult.textContent = "登入失敗，請重新登入！";
+    announcementSection.style.display = "none"; // 隱藏檔案列表區域
+    paginationSection.style.display = "none"; // 隱藏分頁區域
+  }
+});
     document.getElementById("itemsPerPageSelect").addEventListener("change", () => {
         itemsPerPage = parseInt(document.getElementById("itemsPerPageSelect").value);
         currentPage = 1;
@@ -633,5 +740,30 @@ document.getElementById("keywordSearchButton").addEventListener("click", () => {
 let selectedKeyword = ""; // 在全局范围内定义 selectedKeyword 变量
 
   </script>
+  <script>
+    function updateCurrentTime() {
+        const currentTimeElement = document.getElementById("current-time");
+        const now = new Date();
+        const formattedTime = now.toLocaleTimeString("zh-TW");
+        currentTimeElement.textContent = formattedTime;
+    }
+
+    function disableInteractionsDuringMaintenance() {
+        const now = new Date();
+        const dayOfWeek = now.getDay(); // 0: 星期日, 1: 星期一, 2: 星期二, ... , 6: 星期六
+        const hour = now.getHours();
+
+        // 檢查是否在要鎖定的時段內（星期六的0點到6點和每日13點到14點）
+        if ((dayOfWeek === 6 && hour >= 0 && hour < 6) || (hour >= 13 && hour < 14)) {
+            // 显示遮罩层
+            const overlay = document.getElementById("maintenanceOverlay");
+            overlay.style.display = "flex";
+        }
+    }
+
+    updateCurrentTime();
+    setInterval(updateCurrentTime, 1000);
+    disableInteractionsDuringMaintenance(); // 检查维护状态
+</script>
 </body>
 </html>
