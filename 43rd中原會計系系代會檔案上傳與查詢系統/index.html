@@ -134,6 +134,27 @@
     .content.expanded {
   margin-left: 0;
 }
+  /* 添加遮罩层样式 */
+ .maintenance-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.884);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+
+        .maintenance-message {
+            text-align: center;
+            color: white;
+            padding: 20px;
+            border: 2px solid white;
+            max-width: 80%;
+        }
   </style>
   <script>
     function showMessage() {
@@ -151,6 +172,11 @@
   </script>
 </head>
 <body>
+  <div class="maintenance-overlay" id="maintenanceOverlay">
+        <div class="maintenance-message">
+            <h1>目前網頁維護中，請稍後再試!<br>維護時段:每日13-14時及每週六0-6時</h1>
+        </div>
+    </div>
 <div class="sidebar">
     <div>
         <img src="account.jpg" width="250" height="=90">
@@ -319,5 +345,30 @@
 });
 
 </script>
+   <script>
+        function updateCurrentTime() {
+            const currentTimeElement = document.getElementById("current-time");
+            const now = new Date();
+            const formattedTime = now.toLocaleTimeString("zh-TW");
+            currentTimeElement.textContent = formattedTime;
+        }
+
+        function disableInteractionsDuringMaintenance() {
+            const now = new Date();
+            const dayOfWeek = now.getDay(); // 0: 星期日, 1: 星期一, 2: 星期二, ... , 6: 星期六
+            const hour = now.getHours();
+
+            // 檢查是否在要鎖定的時段內（星期六的0點到6點和每日13點到14點）
+            if ((dayOfWeek === 6 && hour >= 0 && hour < 6) || (hour >= 13 && hour < 15)) {
+                // 显示遮罩层
+                const overlay = document.getElementById("maintenanceOverlay");
+                overlay.style.display = "flex";
+            }
+        }
+
+        updateCurrentTime();
+        setInterval(updateCurrentTime, 1000);
+        disableInteractionsDuringMaintenance(); // 检查维护状态
+    </script>
 </body>
 </html>
