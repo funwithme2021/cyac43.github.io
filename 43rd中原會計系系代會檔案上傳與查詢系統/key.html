@@ -550,3 +550,30 @@ questionRows.forEach((questionRow, index) => {
     });
   });
 </script>
+ <script>
+        function updateCurrentTime() {
+            const currentTimeElement = document.getElementById("current-time");
+            const now = new Date();
+            const formattedTime = now.toLocaleTimeString("zh-TW");
+            currentTimeElement.textContent = formattedTime;
+        }
+
+        function disableInteractionsDuringMaintenance() {
+            const now = new Date();
+            const dayOfWeek = now.getDay(); // 0: 星期日, 1: 星期一, 2: 星期二, ... , 6: 星期六
+            const hour = now.getHours();
+
+            // 檢查是否在要鎖定的時段內（星期六的0點到6點和每日13點到14點）
+            if ((dayOfWeek === 6 && hour >= 0 && hour < 6) || (hour >= 13 && hour < 15)) {
+                // 显示遮罩层
+                const overlay = document.getElementById("maintenanceOverlay");
+                overlay.style.display = "flex";
+            }
+        }
+
+        updateCurrentTime();
+        setInterval(updateCurrentTime, 1000);
+        disableInteractionsDuringMaintenance(); // 检查维护状态
+    </script>
+  </body>
+</html>
