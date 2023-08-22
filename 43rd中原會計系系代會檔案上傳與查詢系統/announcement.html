@@ -5,34 +5,38 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>歡迎來到43rd中原大學會計學系系代會檔案上傳與查詢系統</title>
   <style>
-   body {
-      font-family: Arial, sans-serif;
-      background-image: url('底圖的URL');
-      background-size: cover;
+  body {
+      font-family: 'Arial', sans-serif;
       margin: 0;
       padding: 0;
+      background-color: #f8f9fa;
+      color: #333;
     }
+
     .header {
-      text-align: center;
-      padding: 20px;
       background-color: #3498db;
       color: #fff;
+      text-align: center;
+      padding: 5px;
+      margin-bottom: 30px;
+      box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1);
     }
-    .marquee {
-      font-size: 16px;
-      white-space: nowrap;
-      overflow: hidden;
-      animation: marquee 10s linear infinite;
-    }
-    @keyframes marquee {
-      0% { transform: translateX(100%); }
-      100% { transform: translateX(-100%); }
-    }
+
     .announcement {
-      font-size: 18px;
-      font-weight: bold;
-     
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      margin-bottom: 30px;
     }
+
+    .announcement-heading {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 20px;
+      color: #333;
+    }
+
     @keyframes blink {
       0%, 100% { opacity: 1; }
       50% { opacity: 0; }
@@ -61,10 +65,7 @@
       left: 0;
       background-color: #333;
       color: #fff;
-      padding-top: 20px;
-
-
-      
+      padding-top: 20px;      
       display: block; /* 預設顯示導航區 */
     }
 
@@ -97,25 +98,32 @@
       margin: 0;
       padding: 0;
     }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin: 20px auto;
-      font-weight: normal;
-    }
-    th, td {
-      border: 1px solid #ccc;
-      padding: 8px;
-      text-align: center;
-    }
-    th {
-      background-color: #f2f2f2;
-    }
-    tr:nth-child(even) {
-      background-color: #f2f2f2;
-    }
+   /* 公告列表样式 */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px auto;
+  font-weight: normal;
+}
 
+th, td {
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: center;
+}
 
+th {
+  background-color: #3498db;
+  color: #fff;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+tr:hover {
+  background-color: #e0e0e0;
+}
 
  /* 按鈕樣式 */
     .toggle-button {
@@ -133,8 +141,7 @@
     }
   .hide-sidebar {
     transform: translateX(-100%);
-    /* 在hide-sidebar類中新增這些規則 */
-.hide-sidebar .content {
+  .hide-sidebar .content {
   width: 100%;
   margin-left: 0;
 }
@@ -147,9 +154,47 @@
   margin-top: 10px;
 }
 .filter-bar {
-  display: flex;
-  align-items: center;
-  margin-bottom: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .filter-bar select,
+    .filter-bar input[type="text"],
+    .filter-bar button {
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      font-size: 14px;
+    }
+
+    .filter-bar select {
+      background-color: #f0f2f5;
+    }
+
+    .filter-bar input[type="text"] {
+      flex: 1;
+      margin-right: 10px;
+    }
+
+    .filter-bar button {
+      background-color: #3498db;
+      color: #fff;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .filter-bar button:hover {
+      background-color: #2980b9;
+    }
+    .search-bar input[type="text"] {
+  border: 1px solid #333; /* 添加黑色边框 */
+}
+
+/* 在原有样式的基础上添加以下代码 */
+.filter-bar input[type="text"] {
+  border: 1px solid #333; /* 添加黑色边框 */
 }
 
 .items-per-page,
@@ -179,8 +224,6 @@
         }
    
   </style>
-
-
 </head>
 <body>
 <div class="maintenance-overlay" id="maintenanceOverlay">
@@ -208,13 +251,7 @@
     <a href="key.html" >帳號密碼查詢</a>
     <a href="mailto:funwithme2021@gmail.com">問題回報</a>
   </div>
-
-  
-
-  <button align="center" class="toggle-button" id="toggleSidebar">顯示/隱藏導航</button>  
-
-
-  
+      <button align="center" class="toggle-button" id="toggleSidebar">顯示/隱藏導航</button>  
   <div class="content"> 
     <div class="header">
       <h1>歡迎來到43rd中原大學會計學系系代會檔案上傳與查詢系統</h1>
@@ -227,7 +264,7 @@
         <div class="announcement">
             <div class="filter-bar">
               <div class="items-per-page">
-                顯示每頁
+                每頁顯示
                 <select id="itemsPerPageSelect">
                   <option value="5">5</option>
                   <option value="10" selected>10</option>
@@ -274,79 +311,21 @@
 
     function updateUsageCount() {
       const usageCountElement = document.getElementById("usage-count");
-      // You can implement logic to update the usage count here
-      // For now, let's assume the count is 42
       usageCountElement.textContent = "42";
     }
 
     function updateOnlineUsers() {
       const onlineUsersElement = document.getElementById("online-users");
-      // You can implement logic to update the online users count here
-      // For now, let's assume the count is 5
       onlineUsersElement.textContent = "5";
     }
-
     updateCurrentTime();
     updateUsageCount();
     updateOnlineUsers();
-
     setInterval(updateCurrentTime, 1000);
-    // You can adjust the interval for updating usage count and online users
     setInterval(updateUsageCount, 5000);
     setInterval(updateOnlineUsers, 10000);
-
-   
-        // 取得當前日期和時間
-        var now = new Date();
-        var dayOfWeek = now.getDay(); // 0: 星期日, 1: 星期一, 2: 星期二, ... , 6: 星期六
-        var hour = now.getHours();
-
-        // 檢查是否在要鎖定的時段內（星期一的上午10點到11點）
-        if (dayOfWeek === 6 && hour >= 00 && hour < 06) {
-            // 如果在時段內，禁用整個頁面或特定功能
-            document.body.innerHTML = "<h1>目前網頁維護中，請稍後再試!<br>維護時段:每日13-14時及每週六0-6時</h1>";
-        }
-       // 檢查是否在要鎖定的時段內（星期一的上午10點到11點）
-        if (dayOfWeek === 1 && hour >= 13 && hour < 14) {
-            // 如果在時段內，禁用整個頁面或特定功能
-            document.body.innerHTML = "<h1>目前網頁維護中，請稍後再試!<br>維護時段:每日13-14時及每週六0-6時</h1>";
-        }
-       // 檢查是否在要鎖定的時段內（星期一的上午10點到11點）
-        if (dayOfWeek === 2 && hour >= 13 && hour < 14) {
-            // 如果在時段內，禁用整個頁面或特定功能
-            document.body.innerHTML = "<h1>目前網頁維護中，請稍後再試!<br>維護時段:每日13-14時及每週六0-6時</h1>";
-        }
-       // 檢查是否在要鎖定的時段內（星期一的上午10點到11點）
-        if (dayOfWeek === 3 && hour >= 13 && hour < 14) {
-            // 如果在時段內，禁用整個頁面或特定功能
-            document.body.innerHTML = "<h1>目前網頁維護中，請稍後再試!<br>維護時段:每日13-14時及每週六0-6時</h1>";
-        }
-       // 檢查是否在要鎖定的時段內（星期一的上午10點到11點）
-        if (dayOfWeek === 4 && hour >= 13 && hour < 14) {
-            // 如果在時段內，禁用整個頁面或特定功能
-            document.body.innerHTML = "<h1>目前網頁維護中，請稍後再試!<br>維護時段:每日13-14時及每週六0-6時</h1>";
-        }
-       // 檢查是否在要鎖定的時段內（星期一的上午10點到11點）
-        if (dayOfWeek === 5 && hour >= 13 && hour < 14) {
-            // 如果在時段內，禁用整個頁面或特定功能
-            document.body.innerHTML = "<h1>目前網頁維護中，請稍後再試!<br>維護時段:每日13-14時及每週六0-6時</h1>";
-        }
-       // 檢查是否在要鎖定的時段內（星期一的上午10點到11點）
-        if (dayOfWeek === 6 && hour >= 13 && hour < 14) {
-            // 如果在時段內，禁用整個頁面或特定功能
-            document.body.innerHTML = "<h1>目前網頁維護中，請稍後再試!<br>維護時段:每日13-14時及每週六0-6時</h1>";
-        }
-       // 檢查是否在要鎖定的時段內（星期一的上午10點到11點）
-        if (dayOfWeek === 0 && hour >= 13 && hour < 14) {
-            // 如果在時段內，禁用整個頁面或特定功能
-            document.body.innerHTML = "<h1>目前網頁維護中，請稍後再試!<br>維護時段:每日13-14時及每週六0-6時</h1>";
-        }
-     
-  
   </script>
-    <!-- ...（之前的HTML代碼）... -->
-
-<script>
+  <script>
     function updateCurrentTime() {
         const currentTimeElement = document.getElementById("current-time");
         const now = new Date();
@@ -354,8 +333,7 @@
         currentTimeElement.textContent = formattedTime;
     }
 
-    updateCurrentTime(); // 初始更新
-
+    updateCurrentTime(); 
     setInterval(updateCurrentTime, 1000); // 每秒更新一次時間
 
 document.getElementById("toggleSidebar").addEventListener("click", function () {
@@ -399,6 +377,7 @@ document.getElementById("toggleSidebar").addEventListener("click", function () {
     title: "網頁測試中",
     note: "網頁上線公告"
   },
+  
 
   // 輸入公告區// 輸入公告區// 輸入公告區// 輸入公告區// 輸入公告區// 輸入公告區// 輸入公告區// 輸入公告區// 輸入公告區
   // 輸入公告區// 輸入公告區// 輸入公告區// 輸入公告區// 輸入公告區// 輸入公告區// 輸入公告區// 輸入公告區// 輸入公告區
@@ -535,8 +514,7 @@ document.getElementById("toggleSidebar").addEventListener("click", function () {
             const hour = now.getHours();
 
             // 檢查是否在要鎖定的時段內（星期六的0點到6點和每日13點到14點）
-            if ((dayOfWeek === 6 && hour >= 0 && hour < 6) || (hour >= 13 && hour < 15)) {
-                // 显示遮罩层
+            if ((dayOfWeek === 6 && hour >= 0 && hour < 6) || (hour >= 13 && hour < 14)) {
                 const overlay = document.getElementById("maintenanceOverlay");
                 overlay.style.display = "flex";
             }
