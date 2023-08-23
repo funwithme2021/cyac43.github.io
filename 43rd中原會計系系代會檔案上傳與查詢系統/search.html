@@ -28,10 +28,9 @@
 
 .header {
   text-align: center;
-  padding: 20px;
+  padding: 5px;
   background-color: #3498db;
   color: #fff;
-  border-bottom: 3px solid #2980b9; /* 添加底部邊框 */
 }
     .marquee {
       font-size: 16px;
@@ -225,6 +224,43 @@
             border: 2px solid white;
             max-width: 80%;
         }
+    /* 增加檔案列表的設計 */
+#announcementTable {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  font-weight: normal;
+  background-color: #fff; /* 白色背景 */
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* 微小陰影效果 */
+}
+
+#announcementTable th, #announcementTable td {
+  border: none;
+  padding: 12px;
+  text-align: left;
+}
+
+#announcementTable th {
+  background-color: #e5e5e5; /* 淺灰背景 */
+  font-weight: bold;
+}
+
+#announcementTable tbody tr:nth-child(even) {
+  background-color: #f9f9f9; /* 更淺的灰背景 */
+}
+
+#announcementTable tbody tr:hover {
+  background-color: #f0f0f0; /* 鼠標懸停時的效果 */
+}
+
+#announcementTable a {
+  text-decoration: none;
+  color: #3498db; /* 蓝色链接颜色 */
+}
+
+#announcementTable a:hover {
+  text-decoration: underline;
+}
   </style>
 
 
