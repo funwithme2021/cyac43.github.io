@@ -265,13 +265,13 @@
     <div class="calendar-container">
     <br><span class="search-box">
       &nbsp;&nbsp;&nbsp;&nbsp;<strong class="search-label">活動查詢:</strong>&nbsp;&nbsp;
-      ◉&nbsp;&nbsp;<input type="text" id="searchKeyword" placeholder="輸入關鍵字">
+      ◉&nbsp;&nbsp;<input type="text" id="searchKeyword" placeholder="輸入關鍵字" required>
       <button class="search-button" onclick="searchByKeyword()">名稱搜尋</button>
       <button class="search-button" onclick="clearSearch()">清除</button>
     </span>&nbsp;&nbsp;
     <span class="search-box">
-      ◉&nbsp;&nbsp;<input type="date" id="startDate">
-      至<input type="date" id="endDate">
+      ◉&nbsp;&nbsp;<input type="date" id="startDate" required>
+      至<input type="date" id="endDate" required>
       <button class="search-button" onclick="searchByDateRange()">時間搜尋</button>
       <button class="search-button" onclick="clearDateSearch()">清除</button>
     </span>
