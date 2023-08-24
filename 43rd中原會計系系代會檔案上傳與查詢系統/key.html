@@ -4,271 +4,283 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>歡迎來到43rd中原大學會計學系系代會檔案上傳與查詢系統</title>
-  <style>
-     body {
-      font-family: Arial, sans-serif;
-      background-image: url('底圖的URL');
-      background-size: cover;
-      margin: 0;
-      padding: 0;
-    }
-    .header {
-      text-align: center;
-      padding: 20px;
-      background-color: #3498db;
-      color: #fff;
-    }
-    .marquee {
-      font-size: 16px;
-      white-space: nowrap;
-      overflow: hidden;
-      animation: marquee 10s linear infinite;
-    }
-    @keyframes marquee {
-      0% { transform: translateX(100%); }
-      100% { transform: translateX(-100%); }
-    }
-    .announcement {
-      font-size: 18px;
-      font-weight: bold;
-      animation: blink 1s infinite;
-    }
-    @keyframes blink {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0; }
-    }
-    .info {
-      text-align: center;
-      padding: 10px;
-    }
-   
-    .search-input {
-      flex: 1;
-      margin-right: 10px;
-    }
-    .search-button {
-      padding: 5px 10px;
-      background-color: #3498db;
-      color: #fff;
-      border: none;
-      cursor: pointer;
-    }
-    .sidebar {
-      width: 250px;
-      height: 100%;
-      position: fixed;
-      top: 0;
-      left: 0;
-      background-color: #333;
-      color: #fff;
-      padding-top: 20px;
-
-
-      
-      display: block; /* 預設顯示導航區 */
-    }
-
-
-
-
-    
-    .sidebar a {
-      display: block;
-      padding: 10px 20px;
-      color: #fff;
-      text-decoration: none;
-    }
-    .content {
-      margin-left: 270px;
-      padding: 20px;
-    }
-    .usage-info {
-      display: flex;
-      justify-content: space-around;
-      align-items: center;
-      margin-top: 20px;
-      padding: 10px;
-      background-color: #ecf0f1;
-    }
-    .footer {
-      text-align: center;
-      padding: 10px;
-      background-color: #333;
-      color: #fff;
-    }
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-    }
-    table {
+ <style>
+    .hide-sidebar .content {
       width: 100%;
-      border-collapse: collapse;
-      margin: 20px auto;
+      margin-left: 0;
     }
-    th, td {
-      border: 1px solid #ccc;
-      padding: 8px;
-      text-align: center;
-    }
-    th {
-      background-color: #f2f2f2;
-    }
-    tr:nth-child(even) {
-      background-color: #f2f2f2;
-    }
-
-
-
- /* 按鈕樣式 */
-    .toggle-button {
-      position: fixed;
-      top: 10px;
-      left: 50%;
-      transform: translateX(-50%);
-      padding: 10px 20px;
-      background-color: #434547;
-      color: #fff;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      z-index: 1000;
-    }
-  .hide-sidebar {
-    transform: translateX(-100%);
-    /* 在hide-sidebar類中新增這些規則 */
-.hide-sidebar .content {
-  width: 100%;
-  margin-left: 0;
-}
-  }
     .content.expanded {
-  margin-left: 0;
-}
-
-
-    /* 初始設置回答行為隱藏 */
-.answer-row {
-  display: none;
-}
-
-/* 當回答行需要顯示時的樣式 */
-.show-answer {
-  display: table-row;
-}
-
-   .faq {
-  font-family: Arial, sans-serif;
-  margin: 20px;
-}
-
-.faq h2 {
-  font-size: 24px;
-  margin-bottom: 20px;
-  text-align: center;
-}
-
-.faq-list {
-  display: flex;
-  flex-direction: column;
-}
-
+      margin-left: 0;
+    }
+    .answer-row {
+      display: none;
+    }
+    .show-answer {
+      display: table-row;
+    }    
+    .faq {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }    
+    .faq h2 {
+      font-size: 24px;
+      margin-bottom: 20px;
+      text-align: center;
+    }    
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+    }    
+   /* 調整常見問題的樣式 */
 .faq-item {
   background-color: #f5f5f5;
   border-radius: 8px;
   margin-bottom: 20px;
-  padding: 15px;
   box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden; /* 讓折疊效果適用 */
 }
-
 .faq-question {
   font-weight: bold;
   font-size: 18px;
-  margin-bottom: 10px;
+  margin-bottom: px;
+  padding: 10px;
+  cursor: pointer;
+  transition: background-color 0.1s ease-in-out;
 }
-
 .faq-answer {
   font-size: 16px;
-}
-
-
-th, td {
-  border: 1px solid #ccc;
-  padding: 8px;
-  text-align: center;
-  vertical-align: middle; /* 添加這一行以垂直居中對齊 */
-}
-    /* 初始設置回答行為隱藏 */
-.faq-answer {
+  padding: 15px;
   display: none;
+  background-color: #c5c4c4; /* 避免答案與其他區塊混淆 */
 }
-
-/* 當回答行需要顯示時的樣式 */
-.show-answer {
-  display: block; /* 或者您想使用的其他適當的顯示方式 */
+.faq-question.active {
+  background-color: #9f9d9d;
 }
-
-.search-box {
+.faq-question.active + .faq-answer {
+  display: block;
+}
+     th, td {
+      border: 1px solid #ccc;
+      padding: 8px;
+      text-align: center;
+      vertical-align: middle; /* 添加這一行以垂直居中對齊 */
+    }
+        /* 初始設置回答行為隱藏 */
+    .faq-answer {
+      display: none;
+    }
+    
+    /* 當回答行需要顯示時的樣式 */
+    .show-answer {
+      display: block; 
+    }
+      /* 調整查詢框的樣式 */
+    .search-box {
+      text-align: center;
+      margin: 15px 0;
+      background-color: #f5f5f5;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+    } 
+       /* 調整查詢結果區域的樣式 */
+        .search-result {
+          text-align: center;
+          margin-top: 0px;
+          color: #e60d0d00;
+          font-weight: bold;
+          padding: 20px;
+        }   
+         body {
+          font-family: Arial, sans-serif;
+          background-size: cover;
+          margin: 0;
+          padding: 0;
+        }
+        .header {
+          text-align: center;
+          padding: 5px;
+          background-color: #3498db;
+          color: #fff;
+        }
+        .announcement {
+          font-size: 18px;
+          font-weight: bold;
+          animation: blink 1s infinite;
+        }
+        @keyframes blink {
+          0%, 100% { opacity: 1; }
+          50% { opacity: 0; }
+        }
+        .info {
+          text-align: center;
+          padding: 10px;
+        }
+       
+        .search-input {
+          flex: 1;
+          margin-right: 10px;
+        }
+        .search-button {
+          padding: 5px 10px;
+          background-color: #fb7f03da;
+          color: #fff;
+          border: none;
+          cursor: pointer;
+        }
+        .sidebar {
+          width: 250px;
+          height: 100%;
+          position: fixed;
+          top: 0;
+          left: 0;
+          background-color: #333;
+          color: #fff;
+          padding-top: 20px;         
+          display: block; /* 預設顯示導航區 */
+        }
+        .sidebar a {
+          display: block;
+          padding: 10px 20px;
+          color: #fff;
+          text-decoration: none;
+        }
+        .content {
+          margin-left: 270px;
+          padding: 20px;
+        }
+        .usage-info {
+          display: flex;
+          justify-content: space-around;
+          align-items: center;
+          margin-top: 20px;
+          padding: 10px;
+          background-color: #ecf0f1;
+        }
+        .footer {
+          text-align: center;
+          padding: 10px;
+          background-color: #333;
+          color: #fff;
+        }
+        body {
+          font-family: Arial, sans-serif;
+          margin: 0;
+          padding: 0;
+        }
+        table {
+          width: 100%;
+          border-collapse: collapse;
+          margin: 20px auto;
+        }
+        th, td {
+          border: 1px solid #ccc;
+          padding: 8px;
+          text-align: center;
+        }
+        th {
+          background-color: #f2f2f2;
+        }
+        tr:nth-child(even) {
+          background-color: #f2f2f2;
+        }
+    
+        /* 按鈕樣式 */
+        .toggle-button {
+          position: fixed;
+          top: 10px;
+          left: 50%;
+          transform: translateX(-50%);
+          padding: 10px 20px;
+          background-color: #434547;
+          color: #fff;
+          border: none;
+          border-radius: 5px;
+          cursor: pointer;
+          z-index: 1000;
+        }
+      .hide-sidebar {
+        transform: translateX(-100%);
+      border-radius: 5px;
+    }   
+    #searchButton:hover {
+      background-color: #fb7f03da;
+    }    
+    .search-result {
+      text-align: center;
+      margin-top: 20px;
+      color: #33333300;
+      font-weight: bold;
+      display: none; /* 初始隱藏結果 */
+    }
+    .search-box {
       text-align: left;
       margin: 20px 0;
     }
-
     #searchButton {
       padding: 5px 10px;
-      background-color: #3498db;
+      background-color: #fb7f03da;
       color: #fff;
       border: none;
       cursor: pointer;
       border-radius: 5px;
     }
-
     .search-result {
       text-align: center;
       margin-top: 10px;
       color: rgb(3, 3, 3);
       font-weight: bold;
+    }      
+    /* 標題樣式 */
+    .calendar-header {
+      background-color: #fb7f03da;
+      color: #fff;
+      padding: 0.1px;
+      border-radius: 5px;
+      box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      margin-bottom: 0px;
+      margin-top: 0px;
     }
-
-  </style>
+</style>      
 </head>
 <body>
 <div class="sidebar">
-    <div>
-        <img src="account.jpg" width="250" height="=90">
-    </div>
-    <div id="searchBox">
-        <a href="https://www.google.com" target="_blank" id="googleLogo"></a>
-        <form action="https://www.google.com/search" method="GET" target="_blank">
-          <input type="text" name="q" placeholder="輸入關鍵字" required>
-          <input type="submit" value="搜尋">
-        </form>
-      </div>
+  <div>
+     <img src="account.jpg" width="250" height="=90">
+  </div>
+  <div id="searchBox">
+    <a href="https://www.google.com" target="_blank" id="googleLogo"></a>
+      <form action="https://www.google.com/search" method="GET" target="_blank">
+        <input type="text" name="q" placeholder="輸入關鍵字" required>
+        <input type="submit" value="搜尋">
+      </form>
+  </div>
       <a href="index.html">首頁</a>
       <a href="calendar.html">行事曆</a>
       <a href="announcement.html">公告事項</a>
-       <a href="upload.html">檔案上傳系統</a>
+      <a href="upload.html">檔案上傳系統</a>
       <a href="search.html">檔案查詢系統</a>
       <a href="key.html" >帳號密碼查詢</a>
       <a href="mailto:funwithme2021@gmail.com">問題回報</a>
   </div>
-  <button align="center" class="toggle-button" id="toggleSidebar">顯示/隱藏導航</button>
+     <button align="center" class="toggle-button" id="toggleSidebar">顯示/隱藏導航</button>
   <div class="content">
-    <div class="header">
-      <h1>歡迎來到43rd中原大學會計學系系代會檔案上傳與查詢系統</h1>
-    </div>
-    <div class="info">
-      <p>現在時間：<span id="current-time"></span></p>
-    </div>
-
-    <h2 align="center">帳號密碼查詢</h2>
+  <div class="header">
+    <h1>歡迎來到43rd中原大學會計學系系代會檔案上傳與查詢系統</h1>
+  </div>
+  <div class="info">
+    <p>現在時間：<span id="current-time"></span></p>
+  </div>
+  <div class="calendar-header">
+     <h2 align="center">帳號密碼查詢</h2>
+  </div>
     <div class="search-box">
       <label for="searchName">姓名：</label>
       <input type="text" id="searchName" placeholder="請輸入姓名" required>
       <label for="searchStudentId">學號：</label>
       <input type="text" id="searchStudentId" placeholder="請輸入學號" required>
-      <button id="searchButton">查詢</button>
-    </div>
-    
+      <button id="searchButton">查詢</button>    
     <div id="searchResult" class="search-result">
       <table>
         <thead>
@@ -284,16 +296,19 @@ th, td {
           <!-- 這裡將會動態生成資料 -->
         </tbody>
       </table>
+      <p id="timeoutMessage" style="color: red; display: none;">已超時，请重新查詢</p>
     </div>
+</div>
          <!-- 在這裡繼續添加更多的問題和回答 -->
          <!-- 在這裡繼續添加更多的問題和回答 -->
          <!-- 在這裡繼續添加更多的問題和回答 -->
          <!-- 在這裡繼續添加更多的問題和回答 -->
          <!-- 在這裡繼續添加更多的問題和回答 -->
   
-
+         <div class="calendar-header">
+          <h2 align="center">常見問題</h2>
+          </div>
 <div class="faq">
-  <h2>常見問題</h2>
   <div class="faq-list">
     <div class="faq-item">
       <h3 class="faq-question">問題1：帳號密碼可以更改嗎？</h3>
@@ -346,17 +361,12 @@ th, td {
          <!-- 在這裡繼續添加更多的問題和回答 -->
   </div>
 </div>
-
-
-
-
-    
     <div class="usage-info">
       <span id="usageCount"><!-- FC2計數器 開始 -->
-        <p>網頁累積使用次數：<script language="javascript" type="text/javascript" src="//counter1.fc2.com/counter.php?id=89504295"></script><noscript><img src="//counter1.fc2.com/counter_img.php?id=89504295" /></noscript>次
-      </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <p>網頁累積使用次數：<script language="javascript" type="text/javascript" src"//counter1.fc2.com/counter.php?id=89504295"></script><noscript><img src="//counter1.fc2.com/counter_img.php?id=89504295" /></noscript>次
+           </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       <span id="onlineUsersCount"><!-- FC2計數器 開始 -->
-        網頁目前在線人數：<script language="javascript" type="text/javascript" src="//counter1.fc2.com/views.php?id=89504295"></script><noscript><img src="//counter1.fc2.com/counter_now.php?id=89504295" /></noscript>人</p>
+        網頁目前在線人數：<script language="javascript" type="text/javascript" src"//counter1.fc2.com/views.php?id=89504295"></script><noscript><img src="//counter1.fc2.com/counter_now.php?id=89504295" /></noscript>人</p>
       </span>
     </div>
     <div class="footer">
@@ -370,80 +380,21 @@ th, td {
       const formattedTime = now.toLocaleTimeString("zh-TW");
       currentTimeElement.textContent = formattedTime;
     }
-
     function updateUsageCount() {
       const usageCountElement = document.getElementById("usage-count");
-      // You can implement logic to update the usage count here
-      // For now, let's assume the count is 42
       usageCountElement.textContent = "42";
     }
-
     function updateOnlineUsers() {
       const onlineUsersElement = document.getElementById("online-users");
-      // You can implement logic to update the online users count here
-      // For now, let's assume the count is 5
       onlineUsersElement.textContent = "5";
     }
-
     updateCurrentTime();
     updateUsageCount();
     updateOnlineUsers();
-
     setInterval(updateCurrentTime, 1000);
-    // You can adjust the interval for updating usage count and online users
     setInterval(updateUsageCount, 5000);
     setInterval(updateOnlineUsers, 10000);
-
-   
-        // 取得當前日期和時間
-        var now = new Date();
-        var dayOfWeek = now.getDay(); // 0: 星期日, 1: 星期一, 2: 星期二, ... , 6: 星期六
-        var hour = now.getHours();
-
-        // 檢查是否在要鎖定的時段內（星期一的上午10點到11點）
-        if (dayOfWeek === 6 && hour >= 00 && hour < 06) {
-            // 如果在時段內，禁用整個頁面或特定功能
-            document.body.innerHTML = "<h1>目前網頁維護中，請稍後再試!<br>維護時段:每日13-14時及每週六0-6時</h1>";
-        }
-       // 檢查是否在要鎖定的時段內（星期一的上午10點到11點）
-        if (dayOfWeek === 1 && hour >= 13 && hour < 14) {
-            // 如果在時段內，禁用整個頁面或特定功能
-            document.body.innerHTML = "<h1>目前網頁維護中，請稍後再試!<br>維護時段:每日13-14時及每週六0-6時</h1>";
-        }
-       // 檢查是否在要鎖定的時段內（星期一的上午10點到11點）
-        if (dayOfWeek === 2 && hour >= 13 && hour < 14) {
-            // 如果在時段內，禁用整個頁面或特定功能
-            document.body.innerHTML = "<h1>目前網頁維護中，請稍後再試!<br>維護時段:每日13-14時及每週六0-6時</h1>";
-        }
-       // 檢查是否在要鎖定的時段內（星期一的上午10點到11點）
-        if (dayOfWeek === 3 && hour >= 13 && hour < 14) {
-            // 如果在時段內，禁用整個頁面或特定功能
-            document.body.innerHTML = "<h1>目前網頁維護中，請稍後再試!<br>維護時段:每日13-14時及每週六0-6時</h1>";
-        }
-       // 檢查是否在要鎖定的時段內（星期一的上午10點到11點）
-        if (dayOfWeek === 4 && hour >= 13 && hour < 14) {
-            // 如果在時段內，禁用整個頁面或特定功能
-            document.body.innerHTML = "<h1>目前網頁維護中，請稍後再試!<br>維護時段:每日13-14時及每週六0-6時</h1>";
-        }
-       // 檢查是否在要鎖定的時段內（星期一的上午10點到11點）
-        if (dayOfWeek === 5 && hour >= 13 && hour < 14) {
-            // 如果在時段內，禁用整個頁面或特定功能
-            document.body.innerHTML = "<h1>目前網頁維護中，請稍後再試!<br>維護時段:每日13-14時及每週六0-6時</h1>";
-        }
-       // 檢查是否在要鎖定的時段內（星期一的上午10點到11點）
-        if (dayOfWeek === 6 && hour >= 13 && hour < 14) {
-            // 如果在時段內，禁用整個頁面或特定功能
-            document.body.innerHTML = "<h1>目前網頁維護中，請稍後再試!<br>維護時段:每日13-14時及每週六0-6時</h1>";
-        }
-       // 檢查是否在要鎖定的時段內（星期一的上午10點到11點）
-        if (dayOfWeek === 0 && hour >= 13 && hour < 14) {
-            // 如果在時段內，禁用整個頁面或特定功能
-            document.body.innerHTML = "<h1>目前網頁維護中，請稍後再試!<br>維護時段:每日13-14時及每週六0-6時</h1>";
-        }
-
-  </script>
-    <!-- ...（之前的HTML代碼）... -->
-
+</script>
 <script>
     function updateCurrentTime() {
         const currentTimeElement = document.getElementById("current-time");
@@ -451,49 +402,41 @@ th, td {
         const formattedTime = now.toLocaleTimeString("zh-TW");
         currentTimeElement.textContent = formattedTime;
     }
-
     updateCurrentTime(); // 初始更新
-
     setInterval(updateCurrentTime, 1000); // 每秒更新一次時間
-
   document.getElementById("toggleSidebar").addEventListener("click", function () {
     const sidebar = document.querySelector(".sidebar");
     sidebar.classList.toggle("hide-sidebar");
-
     const content = document.querySelector(".content");
     content.classList.toggle("expanded");
 });
-
- // 獲取所有問題和回答行
 const questionRows = document.querySelectorAll('.faq-question');
 const answerRows = document.querySelectorAll('.faq-answer');
-
-// 在每個問題行上添加點擊事件處理函式
 questionRows.forEach((questionRow, index) => {
-  questionRow.addEventListener('click', () => {
-    // 切換回答行的可見性
-    answerRows[index].classList.toggle('show-answer');
-  });
+questionRow.addEventListener('click', () => {
+answerRows[index].classList.toggle('show-answer');
+});
 });
 </script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
-  $(document).ready(function () {
-    // 生成帳號和密碼
-    const generateAccountAndPassword = (name, studentId) => {
-      const account = name;
-      const password = 'a' + studentId;
-      return { account, password };
-    };
-
-    // 監聽查詢按鈕的點擊事件
-    document.getElementById("searchButton").addEventListener("click", function () {
-      const searchName = document.getElementById("searchName").value;
-      const searchStudentId = document.getElementById("searchStudentId").value;
-
-      // 假設資料庫的公告資料，使用符合格式的真實資料
-      const announcements = [
-      { "name": "訪客", "studentId": "12345678", "role": "訪客" },
+ $(document).ready(function () {
+  const generateAccountAndPassword = (name, studentId) => {
+    const account = name;
+    const password = 'a' + studentId;
+    return { account, password };
+  };
+  const timeoutMessage = document.getElementById("timeoutMessage");
+  const searchResult = document.getElementById("searchResult");
+  const searchNameInput = document.getElementById("searchName");
+  const searchStudentIdInput = document.getElementById("searchStudentId");
+  const tableBody = document.getElementById("tableBody");
+  document.getElementById("searchButton").addEventListener("click", function () {
+  const searchName = searchNameInput.value;
+  const searchStudentId = searchStudentIdInput.value;
+  timeoutMessage.style.display = "none"; // 隱藏超時訊息
+  const announcements = [
+  { "name": "訪客", "studentId": "12345678", "role": "訪客" },
   { "name": "李芯妮", "studentId": "11043136", "role": "紀錄" },
   { "name": "邱偉軒", "studentId": "11043101", "role": "主席" },
   { "name": "詹沛臻", "studentId": "11043139", "role": "會 長" },
@@ -522,15 +465,14 @@ questionRows.forEach((questionRow, index) => {
       ];
 
       const matchingAnnouncements = announcements.filter(announcement => {
-        return announcement.name === searchName && announcement.studentId === searchStudentId;
-      });
+      return announcement.name === searchName && announcement.studentId === searchStudentId;
+    });
 
-      const tableBody = document.getElementById("tableBody");
-      tableBody.innerHTML = ""; // 清空表格內容
+    tableBody.innerHTML = ""; // 清空表格內容
 
-      if (matchingAnnouncements.length === 0) {
-  tableBody.innerHTML = `<tr><td colspan="5">尚未註冊或輸入的內容有誤! 請重新輸入或連繫協助人員。</td></tr>`;
-} else {
+    if (matchingAnnouncements.length === 0) {
+      tableBody.innerHTML = `<tr><td colspan="5">尚未註冊或輸入的內容有誤! 請重新輸入或連繫協助人員。</td></tr>`;
+    } else {
       matchingAnnouncements.forEach(announcement => {
         const newRow = tableBody.insertRow(-1);
         const nameCell = newRow.insertCell(0);
@@ -538,19 +480,38 @@ questionRows.forEach((questionRow, index) => {
         const roleCell = newRow.insertCell(2);
         const accountCell = newRow.insertCell(3);
         const passwordCell = newRow.insertCell(4);
-
         nameCell.textContent = announcement.name;
         studentIdCell.textContent = announcement.studentId;
         roleCell.textContent = announcement.role;
-
-        // 生成並顯示帳號和密碼
         const generatedData = generateAccountAndPassword(announcement.name, announcement.studentId);
         accountCell.textContent = generatedData.account;
         passwordCell.textContent = generatedData.password;
-      });}
-    });
+      });
+    }
+    // 清空輸入框
+    searchNameInput.value = "";
+    searchStudentIdInput.value = "";
+    // 顯示結果
+    searchResult.style.display = "block";
+    // 自動關閉結果
+    setTimeout(() => {
+      searchResult.style.display = "none";
+    }, 30000);
+  });
+    // 超時提示的自動隱藏
+    setTimeout(() => {
+      timeoutMessage.style.display = "block";
+      setTimeout(() => {
+        timeoutMessage.style.display = "none";
+      }, 30000);
+    }, 30000);
+    // 自動關閉結果
+    setTimeout(() => {
+      searchResult.style.display = "none";
+    }, 30000);
   });
 </script>
+  set
  <script>
         function updateCurrentTime() {
             const currentTimeElement = document.getElementById("current-time");
@@ -558,12 +519,10 @@ questionRows.forEach((questionRow, index) => {
             const formattedTime = now.toLocaleTimeString("zh-TW");
             currentTimeElement.textContent = formattedTime;
         }
-
         function disableInteractionsDuringMaintenance() {
             const now = new Date();
             const dayOfWeek = now.getDay(); // 0: 星期日, 1: 星期一, 2: 星期二, ... , 6: 星期六
             const hour = now.getHours();
-
             // 檢查是否在要鎖定的時段內（星期六的0點到6點和每日13點到14點）
             if ((dayOfWeek === 6 && hour >= 0 && hour < 6) || (hour >= 13 && hour < 15)) {
                 // 显示遮罩层
@@ -571,7 +530,6 @@ questionRows.forEach((questionRow, index) => {
                 overlay.style.display = "flex";
             }
         }
-
         updateCurrentTime();
         setInterval(updateCurrentTime, 1000);
         disableInteractionsDuringMaintenance(); // 检查维护状态
