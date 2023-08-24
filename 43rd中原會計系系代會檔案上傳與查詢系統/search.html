@@ -301,8 +301,8 @@
         <p>現在時間：<span id="current-time"></span></p>
         <div class="login-area">
           <h2>帳號密碼登入</h2><h5>(請先登入再查看檔案列表)</h5>
-          <input type="text" id="username" placeholder="帳號">
-          <input type="password" id="password" placeholder="密碼">
+          <input type="text" id="username" placeholder="帳號" required>
+          <input type="password" id="password" placeholder="密碼" required>
           <button id="loginButton">登入</button>
           <div id="loginResult"></div>
         </div>
@@ -326,7 +326,7 @@
                 筆資料
               </div>
               <div class="search-bar">
-                    <input type="text" id="searchInput" placeholder="輸入關鍵字">
+                    <input type="text" id="searchInput" placeholder="輸入關鍵字" required>
                     <button id="searchButton">依關鍵字搜尋</button>
                   </div>
                   <div class="search-bar">
@@ -346,18 +346,18 @@
                   <option value="其他">其他</option>
                 </select>
                 <button id="keywordSearchButton">依類別搜尋</button>
-              </div>
-            </div>
+              </div></div>
+            
             
         <table id="announcementTable">
           <!-- 在此显示公告内容 -->
         </table>
-      </div>
+    
       <div class="pagination" id="paginationSection" style="display: none;">
         <button id="prevPageBtn">上一頁</button>
         <span>第 <span id="currentPage">1</span> 頁 / 共 <span id="totalPages">1</span> 頁</span>
         <button id="nextPageBtn">下一頁</button>
-      </div>
+      </div></div>
     
     <div class="usage-info">
         <span id="usageCount"><!-- FC2計數器 開始 -->
