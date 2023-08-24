@@ -48,10 +48,11 @@
     }
     .search-button {
       padding: 5px 10px;
-      background-color: #3498db;
+      background-color: #fb7f03da;
       color: #fff;
       border: none;
       cursor: pointer;
+      border-radius: 5px;
     }
     .sidebar {
       width: 250px;
@@ -99,7 +100,7 @@
       margin: 20px auto;
     }
     th, td {
-      border: 1px solid #ccc;
+      border: 1px solid #c91717;
       padding: 8px;
       text-align: center;
     }
@@ -133,7 +134,7 @@
     .content.expanded {
   margin-left: 0;
 }
-/* 添加遮罩层样式 */
+/* 維護時間樣式 */
  .maintenance-overlay {
             position: fixed;
             top: 0;
@@ -159,11 +160,12 @@
 .calendar-header {
       background-color: #fb7f03da;
       color: #fff;
-      padding: 0.3px;
+      padding: 0.1px;
       border-radius: 5px;
       box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
       text-align: center;
-      margin-bottom: 10px;
+      margin-bottom: 3px;
+      margin-top: 10px;
     }
 
     /* 行事曆的外觀 */
@@ -179,30 +181,48 @@
       padding: 20px;
     }
 
-    /* 日期、時間標籤 */
-    .event-info {
-      background-color: #f5f5f5;
-      padding: 5px;
-      margin-bottom: 15px;
-      border-radius: 6px;
-      border-left: 4px solid #ff6b6b;
-    }
+/* 更新活動項目的樣式 */
+.event-info {
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  padding: 5px;
+  border: 1px solid #e74d3c00;
+  border-radius: 6px;
+  margin-bottom: 13px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #f5f5f5;
+  border-left: 4px solid #ff6b6b;
+}
 
-    .event-date {
-      font-size: 16px;
-      color: #ff6b6b;
-      margin-bottom: 6px;
-    }
+.event-date {
+  flex: 3;
+  font-size: 24px;
+  font-weight: bold;
+  text-align:center ;
+  color: #e74c3c;
+}
 
-    .event-time {
-      font-size: 14px;
-      color: #555;
-    }
+.event-time {
+  flex: 3;
+  font-size: 20px;
+  color: #555;
+  text-align: left;
+}
 
+.event-name {
+  flex: 3;
+  font-size: 30px;
+  font-weight: bold;
+  padding-left: 40px;
+  color: #333;
+  text-align:left ;
+}
     /* 調整連結顏色 */
     .content a {
       color: #3498db;
     }
+  
   </style>
 </head>
 <body>
@@ -240,27 +260,26 @@
     </div>
 
     <div class="calendar-header">
-      <h2>精彩時刻，即刻而至</h2>
+      <h2 class="calendar-title">精彩時刻&nbsp;&nbsp;即刻而至</h2>
     </div>
-    <span class="search-box">
-      <strong>活動查詢:</strong>&nbsp;&nbsp; ◉&nbsp;&nbsp;<input type="text" id="searchKeyword" placeholder="輸入關鍵字">
-      <button onclick="searchByKeyword()">名稱搜尋</button>
-      <button onclick="clearSearch()">清除</button>
-    </span>&nbsp;&nbsp;&nbsp;&nbsp;
+    <div class="calendar-container">
+    <br><span class="search-box">
+      &nbsp;&nbsp;&nbsp;&nbsp;<strong class="search-label">活動查詢:</strong>&nbsp;&nbsp;
+      ◉&nbsp;&nbsp;<input type="text" id="searchKeyword" placeholder="輸入關鍵字">
+      <button class="search-button" onclick="searchByKeyword()">名稱搜尋</button>
+      <button class="search-button" onclick="clearSearch()">清除</button>
+    </span>&nbsp;&nbsp;
     <span class="search-box">
       ◉&nbsp;&nbsp;<input type="date" id="startDate">
-      <input type="date" id="endDate">
-      <button onclick="searchByDateRange()">時間搜尋</button>
-      <button onclick="clearDateSearch()">清除</button>
+      至<input type="date" id="endDate">
+      <button class="search-button" onclick="searchByDateRange()">時間搜尋</button>
+      <button class="search-button" onclick="clearDateSearch()">清除</button>
     </span>
-    <p id="searchResult"></p>
-    <div class="info">
-      <div class="calendar-container">
-        <div class="calendar-content" id="upcomingEvents">
-          <!-- 活動將在這裡動態添加 -->
-        </div>       
-      </div>
-    </div>
+    <p class="search-result" id="searchResult"></p>
+    <div class="calendar-content" id="upcomingEvents">
+      <!-- 活動將在這裡動態添加 -->
+    </div>     </div> 
+   
     <div class="calendar-header">
       <h2 align="center">行事曆</h2>
     </div>
@@ -283,25 +302,25 @@
   </div>
   <script>
   const events = [
-  { date: "8 月 27 日", time: "11:00 - 15:59", name: "分區迎新" },
-  { date: "9 月 06 日", time: "00:00 - 23:59", name: "食字路口" },
-  { date: "9 月 08 日", time: "00:00 - 23:59", name: "迎新宿營" },
-  { date: "9 月 09 日", time: "00:00 - 23:59", name: "迎新宿營" },
-  { date: "9 月 10 日", time: "00:00 - 23:59", name: "迎新宿營" },
-  { date: "9 月 11 日", time: "00:00 - 23:59", name: "全校開學日" },
-  { date: "9 月 29 日", time: "00:00 - 23:59", name: "中秋節" },
-  { date: "10 月 10 日", time: "00:00 - 23:59", name: "國慶日" },
-  { date: "11 月 06 日", time: "00:00 - 23:59", name: "期中考試週" },
-  { date: "11 月 07 日", time: "00:00 - 23:59", name: "期中考試週" },
-  { date: "11 月 08 日", time: "00:00 - 23:59", name: "期中考試週" },
-  { date: "11 月 09 日", time: "00:00 - 23:59", name: "期中考試週" },
-  { date: "11 月 10 日", time: "00:00 - 23:59", name: "期中考試週" },
-  { date: "1 月 01 日", time: "00:00 - 23:59", name: "開國紀念日" },
-  { date: "1 月 08 日", time: "00:00 - 23:59", name: "期末考試週" },
-  { date: "1 月 09 日", time: "00:00 - 23:59", name: "期末考試週" },
-  { date: "1 月 10 日", time: "00:00 - 23:59", name: "期末考試週" },
-  { date: "1 月 11 日", time: "00:00 - 23:59", name: "期末考試週" },
-  { date: "1 月 12 日", time: "00:00 - 23:59", name: "期末考試週" },
+  { date: "2023 年 8 月 27 日", time: "11:00 - 15:59", name: "分區迎新" },
+  { date: "2023 年 9 月 06 日", time: "00:00 - 23:59", name: "食字路口" },
+  { date: "2023 年 9 月 08 日", time: "00:00 - 23:59", name: "迎新宿營" },
+  { date: "2023 年 9 月 09 日", time: "00:00 - 23:59", name: "迎新宿營" },
+  { date: "2023 年 9 月 10 日", time: "00:00 - 23:59", name: "迎新宿營" },
+  { date: "2023 年 9 月 11 日", time: "00:00 - 23:59", name: "全校開學日" },
+  { date: "2023 年 9 月 29 日", time: "00:00 - 23:59", name: "中秋節" },
+  { date: "2023 年 10 月 10 日", time: "00:00 - 23:59", name: "國慶日" },
+  { date: "2023 年 11 月 06 日", time: "00:00 - 23:59", name: "期中考試週" },
+  { date: "2023 年 11 月 07 日", time: "00:00 - 23:59", name: "期中考試週" },
+  { date: "2023 年 11 月 08 日", time: "00:00 - 23:59", name: "期中考試週" },
+  { date: "2023 年 11 月 09 日", time: "00:00 - 23:59", name: "期中考試週" },
+  { date: "2023 年 11 月 10 日", time: "00:00 - 23:59", name: "期中考試週" },
+  { date: "2024 年 1 月 01 日", time: "00:00 - 23:59", name: "開國紀念日" },
+  { date: "2024 年 1 月 08 日", time: "00:00 - 23:59", name: "期末考試週" },
+  { date: "2024 年 1 月 09 日", time: "00:00 - 23:59", name: "期末考試週" },
+  { date: "2024 年 1 月 10 日", time: "00:00 - 23:59", name: "期末考試週" },
+  { date: "2024 年 1 月 11 日", time: "00:00 - 23:59", name: "期末考試週" },
+  { date: "2024 年 1 月 12 日", time: "00:00 - 23:59", name: "期末考試週" },
   // 其他活動...
 ];
 
@@ -310,21 +329,43 @@ function displayUpcomingEvents() {
   upcomingEventsContainer.innerHTML = ""; // 清空原有內容
 
   const now = new Date();
-  const upcomingEvents = events.filter(event => {
-    const eventDate = new Date(event.date.replace("月", "/").replace("日", "") + ` ${now.getFullYear()} ${event.time.split(" ")[0]}`);
-    return eventDate >= now;
-  });
+const upcomingEvents = events.filter(event => {
+  const eventDateParts = event.date.split(" ");
+  const eventYear = parseInt(eventDateParts[0]);
+  const eventMonth = parseInt(eventDateParts[2]);
+  const eventDay = parseInt(eventDateParts[4]);
+
+  const [startHour] = event.time.split(":");
+  
+  const eventDate = new Date(eventYear, eventMonth - 1, eventDay, parseInt(startHour));
+  return eventDate >= now;
+});
+
 
   upcomingEvents.slice(0, 5).forEach(event => {
-    const eventInfo = document.createElement("div");
-    eventInfo.classList.add("event-info");
-    eventInfo.innerHTML = `
-      <div class="event-date">${event.date}</div>
-      <div class="event-time">${event.time}</div>
-      <div>${event.name}</div>
-    `;
-    upcomingEventsContainer.appendChild(eventInfo);
-  });
+  const eventInfo = document.createElement("div");
+  eventInfo.classList.add("event-info");
+  
+  const eventDateParts = event.date.split(" ");
+  const eventYear = eventDateParts[0];
+  const eventDate = document.createElement("div");
+  eventDate.classList.add("event-date");
+  eventDate.textContent = `${eventYear} 年 ${eventDateParts[2]} ${eventDateParts[3]} ${eventDateParts[4]}`;
+  
+  const eventTime = document.createElement("div");
+  eventTime.classList.add("event-time");
+  eventTime.textContent = event.time;
+  
+  const eventName = document.createElement("div");
+  eventName.classList.add("event-name");
+  eventName.textContent = event.name;
+  
+  eventInfo.appendChild(eventDate);
+  eventInfo.appendChild(eventTime);
+  eventInfo.appendChild(eventName);
+  
+  upcomingEventsContainer.appendChild(eventInfo);
+});
 }
 
 function searchByKeyword() {
@@ -336,10 +377,19 @@ function searchByKeyword() {
 function searchByDateRange() {
   const startDate = new Date(document.getElementById("startDate").value);
   const endDate = new Date(document.getElementById("endDate").value);
+  endDate.setHours(23, 59, 59);
+
   const filteredEvents = events.filter(event => {
-    const eventDate = new Date(event.date.replace("月", "/").replace("日", "") + ` ${new Date().getFullYear()}`);
+    const eventDateParts = event.date.split(" ");
+    const eventYear = parseInt(eventDateParts[0]);
+    const eventMonth = parseInt(eventDateParts[2]);
+    const eventDay = parseInt(eventDateParts[4]);
+    const [startHour] = event.time.split(":");
+  
+    const eventDate = new Date(eventYear, eventMonth - 1, eventDay, parseInt(startHour));
     return eventDate >= startDate && eventDate <= endDate;
   });
+
   displayFilteredEvents(filteredEvents);
 }
 
@@ -461,5 +511,3 @@ displayUpcomingEvents(); // 初始顯示即將發生的活動
     </script>
 </body>
 </html>
-
-
