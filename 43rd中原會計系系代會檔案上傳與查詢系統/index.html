@@ -359,7 +359,7 @@
             const hour = now.getHours();
 
             // 檢查是否在要鎖定的時段內（星期六的0點到6點和每日13點到14點）
-            if ((dayOfWeek === 6 && hour >= 0 && hour < 6) || (hour >= 13 && hour < 15)) {
+            if ((dayOfWeek === 6 && hour >= 0 && hour < 6) || (hour >= 13 && hour < 14)) {
                 // 显示遮罩层
                 const overlay = document.getElementById("maintenanceOverlay");
                 overlay.style.display = "flex";
