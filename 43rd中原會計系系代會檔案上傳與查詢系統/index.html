@@ -181,13 +181,13 @@
     <div>
         <img src="account.jpg" width="250" height="=90">
     </div>
-    <div id="searchBox">
-        <a href="https://www.google.com" target="_blank" id="googleLogo"></a>
+<div id="searchBox">
+     <a href="https://www.google.com" target="_blank" id="googleLogo"></a>
         <form action="https://www.google.com/search" method="GET" target="_blank">
           <input type="text" name="q" placeholder="輸入關鍵字" required>
           <input type="submit" value="搜尋">
         </form>
-      </div>
+ </div>
       <a href="index.html">首頁</a>
       <a href="calendar.html">行事曆</a>
       <a href="announcement.html">公告事項</a>
@@ -207,13 +207,13 @@
       <div class="grid">
         <div class="grid-item">
           <h2 align="center">操作說明</h2>
-          
-         
+                   
     <p align="left">
         ◉點選左側「導航欄位」進入各頁面，即可開始使用。<br>
         ◉點選上方「顯示/隱藏導航」按鈕即可隱藏或顯示導航區。<br>
         ◉若需登入，請按提示輸入正確的帳號及密碼後即可登入頁面並繼續使用。<br>
-        ◉若有相關問題或發現錯誤請使用「問題回報」。<br>
+        ◉若有相關問題或發現錯誤，請使用「問題回報」。<br>
+        ◉若忘記帳號密碼或有相關疑問，請使用「帳號密碼查詢」。<br>
         </p>
           <button onclick="showMessage()">我已詳細閱讀</button>
         </div>
@@ -222,7 +222,7 @@
           <p align="left">
              ◉若使用手機操作，ios系統請先點選上方「顯示/隱藏導航」按鈕使資訊區展開；安卓系統請先至設定區切換至「電腦版網站」。<br>
              ◉「檔案上傳系統」為了確保檔案完整且安全，登入並送出檔案後欲再次上傳檔案請重新登入。<br>
-             ◉「檔案查詢系統」需待檔案審核完成後才會上傳至「檔案上傳系統」，非同步運作。</p>
+             ◉「檔案上傳系統」需待檔案審核完成後才會上傳至「檔案查詢系統」，非同步運作。</p>
              <button onclick="showMessage()">我已詳細閱讀</button>
         </div>
       </div>
@@ -319,12 +319,7 @@
     updateCurrentTime();
     // 每秒更新一次
     setInterval(updateCurrentTime, 1000);
-
-
-  </script>
-
-    <!-- ...（之前的HTML代碼）... -->
-
+</script>
 <script>
     function updateCurrentTime() {
         const currentTimeElement = document.getElementById("current-time");
@@ -332,21 +327,16 @@
         const formattedTime = now.toLocaleTimeString("zh-TW");
         currentTimeElement.textContent = formattedTime;
     }
-
     updateCurrentTime(); // 初始更新
-
     setInterval(updateCurrentTime, 1000); // 每秒更新一次時間
-
-  document.getElementById("toggleSidebar").addEventListener("click", function () {
+    document.getElementById("toggleSidebar").addEventListener("click", function () {
     const sidebar = document.querySelector(".sidebar");
     sidebar.classList.toggle("hide-sidebar");
-
     const content = document.querySelector(".content");
     content.classList.toggle("expanded");
 });
-
 </script>
-   <script>
+<script>
         function updateCurrentTime() {
             const currentTimeElement = document.getElementById("current-time");
             const now = new Date();
