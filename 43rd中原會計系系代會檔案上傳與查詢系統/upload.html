@@ -352,58 +352,10 @@
     setInterval(updateCurrentTime, 1000);
     // You can adjust the interval for updating usage count and online users
     setInterval(updateUsageCount, 5000);
-    setInterval(updateOnlineUsers, 10000);
-
-   
-        // 取得當前日期和時間
-        var now = new Date();
-        var dayOfWeek = now.getDay(); // 0: 星期日, 1: 星期一, 2: 星期二, ... , 6: 星期六
-        var hour = now.getHours();
-
-        // 檢查是否在要鎖定的時段內（星期一的上午10點到11點）
-        if (dayOfWeek === 6 && hour >= 00 && hour < 06) {
-            // 如果在時段內，禁用整個頁面或特定功能
-            document.body.innerHTML = "<h1>目前網頁維護中，請稍後再試!<br>維護時段:每日13-14時及每週六0-6時</h1>";
-        }
-       // 檢查是否在要鎖定的時段內（星期一的上午10點到11點）
-        if (dayOfWeek === 1 && hour >= 13 && hour < 14) {
-            // 如果在時段內，禁用整個頁面或特定功能
-            document.body.innerHTML = "<h1>目前網頁維護中，請稍後再試!<br>維護時段:每日13-14時及每週六0-6時</h1>";
-        }
-       // 檢查是否在要鎖定的時段內（星期一的上午10點到11點）
-        if (dayOfWeek === 2 && hour >= 13 && hour < 14) {
-            // 如果在時段內，禁用整個頁面或特定功能
-            document.body.innerHTML = "<h1>目前網頁維護中，請稍後再試!<br>維護時段:每日13-14時及每週六0-6時</h1>";
-        }
-       // 檢查是否在要鎖定的時段內（星期一的上午10點到11點）
-        if (dayOfWeek === 3 && hour >= 13 && hour < 14) {
-            // 如果在時段內，禁用整個頁面或特定功能
-            document.body.innerHTML = "<h1>目前網頁維護中，請稍後再試!<br>維護時段:每日13-14時及每週六0-6時</h1>";
-        }
-       // 檢查是否在要鎖定的時段內（星期一的上午10點到11點）
-        if (dayOfWeek === 4 && hour >= 13 && hour < 14) {
-            // 如果在時段內，禁用整個頁面或特定功能
-            document.body.innerHTML = "<h1>目前網頁維護中，請稍後再試!<br>維護時段:每日13-14時及每週六0-6時</h1>";
-        }
-       // 檢查是否在要鎖定的時段內（星期一的上午10點到11點）
-        if (dayOfWeek === 5 && hour >= 13 && hour < 14) {
-            // 如果在時段內，禁用整個頁面或特定功能
-            document.body.innerHTML = "<h1>目前網頁維護中，請稍後再試!<br>維護時段:每日13-14時及每週六0-6時</h1>";
-        }
-       // 檢查是否在要鎖定的時段內（星期一的上午10點到11點）
-        if (dayOfWeek === 6 && hour >= 13 && hour < 14) {
-            // 如果在時段內，禁用整個頁面或特定功能
-            document.body.innerHTML = "<h1>目前網頁維護中，請稍後再試!<br>維護時段:每日13-14時及每週六0-6時</h1>";
-        }
-       // 檢查是否在要鎖定的時段內（星期一的上午10點到11點）
-        if (dayOfWeek === 0 && hour >= 13 && hour < 14) {
-            // 如果在時段內，禁用整個頁面或特定功能
-            document.body.innerHTML = "<h1>目前網頁維護中，請稍後再試!<br>維護時段:每日13-14時及每週六0-6時</h1>";
-        }
-     
+    setInterval(updateOnlineUsers, 10000)
   
   </script>
-    <!-- ...（之前的HTML代碼）... -->
+
 
 <script>
     function updateCurrentTime() {
