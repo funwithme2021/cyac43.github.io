@@ -271,7 +271,7 @@ tr:hover {
     </div>
     <div class="info">
       <div class="info">
-        <p>現在日期：<span id="current-date"></span>，時間：<span id="current-time"></span></p>
+        <p>現在時間：&nbsp;<span id="current-date"></span>&nbsp;&nbsp;&nbsp;&nbsp; <span id="current-time"></span></p>
       </div>
       
         <div class="announ-header">
@@ -342,15 +342,27 @@ tr:hover {
     setInterval(updateOnlineUsers, 10000);
   </script>
   <script>
-    function updateCurrentTime() {
-        const currentTimeElement = document.getElementById("current-time");
-        const now = new Date();
-        const formattedTime = now.toLocaleTimeString("zh-TW");
-        currentTimeElement.textContent = formattedTime;
-    }
+   function updateDateTime() {
+  const currentDateElement = document.getElementById("current-date");
+  const currentTimeElement = document.getElementById("current-time");
 
-    updateCurrentTime(); 
-    setInterval(updateCurrentTime, 1000); // 每秒更新一次時間
+  const now = new Date();
+
+  // 格式化日期
+  const formattedDate = now.toLocaleDateString("zh-TW");
+  currentDateElement.textContent = formattedDate;
+
+  // 格式化時間
+  const formattedTime = now.toLocaleTimeString("zh-TW");
+  currentTimeElement.textContent = formattedTime;
+}
+
+// 初始更新日期和時間
+updateDateTime();
+
+// 每秒更新一次
+setInterval(updateDateTime, 1000);
+
 
 document.getElementById("toggleSidebar").addEventListener("click", function () {
     const sidebar = document.querySelector(".sidebar");
