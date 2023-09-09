@@ -11,6 +11,11 @@ title: "每日13-14時及每週六0-6時為維護時段，暫停使用。",
 note: "網頁維護公告"
 },
 {
+date: "2023-09-09",
+title: "自112年9月9日起，簡易版本網頁停止服務，請使用電腦版本網頁操作。",
+note: "網頁停用公告"
+},
+{
 date: "2023-08-10",
 title: "自112年8月10日起，簡易版本網頁內檔案查詢系統停止更新，請使用電腦版本網頁操作。",
 note: "網頁停止公告"
@@ -23,7 +28,7 @@ note: "<a href='https://funwithme2021.github.io/cyac43.github.io/43rd%E4%B8%AD%E
 {
 date: "2023-07-20",
 title: "簡易版本網頁",
-note: "<a href='https://funwithme2021.github.io/43rdac.github.io/43rd%E4%B8%AD%E5%8E%9F%E6%9C%83%E8%A8%88%E7%B3%BB%E7%B3%BB%E5%AD%B8%E6%9C%83%E6%AA%94%E6%A1%88%E4%B8%8A%E5%82%B3%E8%88%87%E6%9F%A5%E8%A9%A2%E4%B8%8A%E5%82%B3%E7%B3%BB%E7%B5%B1/index.html?fbclid=IwAR0FnADHDKRIGK2IvE-0p7Yri8e7WUJvBoaqs2dGFdnWpgcSBU2annykUyw'>點擊進入系統</a>"
+note: "<a href='https:funwithme2021.github.io/43rdac.github.io/43rd%E4%B8%AD%E5%8E%9F%E6%9C%83%E8%A8%88%E7%B3%BB%E7%B3%BB%E5%AD%B8%E6%9C%83%E6%AA%94%E6%A1%88%E4%B8%8A%E5%82%B3%E8%88%87%E6%9F%A5%E8%A9%A2%E4%B8%8A%E5%82%B3%E7%B3%BB%E7%B5%B1/index.html?fbclid=IwAR0FnADHDKRIGK2IvE-0p7Yri8e7WUJvBoaqs2dGFdnWpgcSBU2annykUyw'>點擊進入系統</a>"
 },
 {
 date: "2023-07-15",
