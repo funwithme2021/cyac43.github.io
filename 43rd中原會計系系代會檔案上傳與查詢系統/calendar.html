@@ -235,6 +235,10 @@
     <div>
         <img src="account.jpg" width="250" height="=90">
     </div>
+<!--跑馬燈-->
+<div class="marquee-container">
+  <marquee behavior="scroll" direction="left">◉歡迎來到43rd中原會計系系學會檔案上傳與查詢上傳系統。 ◉每日13-14時及每週六0-6時為維護時段，暫停使用。</marquee>
+</div>
     <div id="searchBox">
         <a href="https://www.google.com" target="_blank" id="googleLogo"></a>
         <form action="https://www.google.com/search" method="GET" target="_blank">
@@ -256,7 +260,7 @@
       <h1>歡迎來到43rd中原大學會計學系系代會檔案上傳與查詢系統</h1>
     </div>
     <div class="info">
-      <p>現在時間：<span id="current-time"></span></p>
+      <p>現在日期：<span id="current-date"></span>，時間：<span id="current-time"></span></p>
     </div>
 
     <div class="calendar-header">
@@ -339,6 +343,27 @@
     content.classList.toggle("expanded");
   });
 });
+
+function updateDateTime() {
+  const currentDateElement = document.getElementById("current-date");
+  const currentTimeElement = document.getElementById("current-time");
+
+  const now = new Date();
+
+  // 格式化日期
+  const formattedDate = now.toLocaleDateString("zh-TW");
+  currentDateElement.textContent = formattedDate;
+
+  // 格式化時間
+  const formattedTime = now.toLocaleTimeString("zh-TW");
+  currentTimeElement.textContent = formattedTime;
+}
+
+// 初始更新日期和時間
+updateDateTime();
+
+// 每秒更新一次
+setInterval(updateDateTime, 1000);
 
     </script>
 </body>
