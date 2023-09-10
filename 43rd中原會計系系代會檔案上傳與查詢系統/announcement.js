@@ -13,7 +13,7 @@ note: "網頁維護公告"
 {
 date: "2023-09---",
 title: "112年9月-日-時-分，於中原大學管理大樓401室辦理1121學年度9月份系代會。",
-note: "＜a href='https//' >開會通知公告</a>"
+note: "<a href='https://funwithme.github.io/'>開會通知公告</a>"
 },
 {
 date: "2023-09-09",
