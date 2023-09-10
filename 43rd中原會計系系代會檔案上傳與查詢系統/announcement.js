@@ -1,8 +1,8 @@
 document.getElementById("itemsPerPageSelect").addEventListener("change", () => {
-    itemsPerPage = parseInt(document.getElementById("itemsPerPageSelect").value);
-    currentPage = 1;
-    updateAnnouncementTable();
-    updatePagination();
+  itemsPerPage = parseInt(document.getElementById("itemsPerPageSelect").value);
+  currentPage = 1;
+  updateAnnouncementTable();
+  updatePagination();
 });
 const announcements = [
 {
@@ -60,28 +60,28 @@ const startIndex = (currentPage - 1) * itemsPerPage;
 const endIndex = startIndex + itemsPerPage;
 const currentPageAnnouncements = filteredAnnouncements.slice(startIndex, endIndex);
 
-  table.innerHTML = `
-    <thead>
+table.innerHTML = `
+  <thead>
+    <tr>
+      <th>公告日期</th>
+      <th>公告事項</th>
+      <th>備註</th>
+    </tr>
+  </thead>
+  <tbody>
+    ${currentPageAnnouncements.map((announcement) => `
       <tr>
-        <th>公告日期</th>
-        <th>公告事項</th>
-        <th>備註</th>
+        <td>${announcement.date}</td>
+        <td>${announcement.title}</td>
+        <td>${announcement.note}</td>
       </tr>
-    </thead>
-    <tbody>
-      ${currentPageAnnouncements.map((announcement) => `
-        <tr>
-          <td>${announcement.date}</td>
-          <td>${announcement.title}</td>
-          <td>${announcement.note}</td>
-        </tr>
-      `).join("")}
-    </tbody>
-  `;
+    `).join("")}
+  </tbody>
+`;
 }
 
 function updatePagination() {
-    const prevPageBtn = document.getElementById("prevPageBtn");
+  const prevPageBtn = document.getElementById("prevPageBtn");
 const nextPageBtn = document.getElementById("nextPageBtn");
 const currentPageElement = document.getElementById("currentPage");
 const totalPagesElement = document.getElementById("totalPages"); // 新增获取总页数的元素
@@ -94,7 +94,7 @@ totalPagesElement.textContent = Math.ceil(filteredAnnouncements.length / itemsPe
 }
 
 function searchAnnouncements(keyword) {
-    const searchInput = document.getElementById("searchInput"); // 正确引用搜索输入框元素
+  const searchInput = document.getElementById("searchInput"); // 正确引用搜索输入框元素
 filteredAnnouncements = announcements.filter((announcement) => {
 return announcement.title.includes(keyword) || announcement.note.includes(keyword);
 });
@@ -115,36 +115,36 @@ updatePagination();
 
 // 事件处理
 document.getElementById("prevPageBtn").addEventListener("click", () => {
-  if (currentPage > 1) {
-    currentPage--;
-    updateAnnouncementTable();
-    updatePagination();
-  }
+if (currentPage > 1) {
+  currentPage--;
+  updateAnnouncementTable();
+  updatePagination();
+}
 });
 
 document.getElementById("nextPageBtn").addEventListener("click", () => {
-  if (currentPage * itemsPerPage < filteredAnnouncements.length) {
-    currentPage++;
-    updateAnnouncementTable();
-    updatePagination();
-  }
+if (currentPage * itemsPerPage < filteredAnnouncements.length) {
+  currentPage++;
+  updateAnnouncementTable();
+  updatePagination();
+}
 });
 
 document.getElementById("searchButton").addEventListener("click", () => {
-  const searchInput = document.getElementById("searchInput");
-  const keyword = searchInput.value.trim();
-  if (keyword) {
-    searchAnnouncements(keyword);
-  }
+const searchInput = document.getElementById("searchInput");
+const keyword = searchInput.value.trim();
+if (keyword) {
+  searchAnnouncements(keyword);
+}
 });
 
 // 在搜索框内输入时，显示所有公告
 document.getElementById("searchInput").addEventListener("input", () => {
-  if (!searchInput.value.trim()) {
-    filteredAnnouncements = announcements;
-    updateAnnouncementTable();
-    updatePagination();
-  }
+if (!searchInput.value.trim()) {
+  filteredAnnouncements = announcements;
+  updateAnnouncementTable();
+  updatePagination();
+}
 });
 
 

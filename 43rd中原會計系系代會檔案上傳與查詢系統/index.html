@@ -228,9 +228,13 @@
     <div>
         <img src="account.jpg" width="250" height="=90">
     </div>
-    <div class="marquee-container">
-        <marquee behavior="scroll" direction="left">◉歡迎來到43rd中原會計系系學會檔案上傳與查詢上傳系統。 ◉每日13-14時及每週六0-6時為維護時段，暫停使用。</marquee>
-    </div>
+
+   <!--跑馬燈-->
+<div class="marquee-container">
+  <marquee behavior="scroll" direction="left"><div  id="marquee-content"></div></marquee>
+</div>
+
+
 <div id="searchBox">
      <a href="https://www.google.com" target="_blank" id="googleLogo"></a>
         <form action="https://www.google.com/search" method="GET" target="_blank">
@@ -369,6 +373,10 @@ setInterval(updateDateTime, 1000);
 
       // 在页面加载后显示提示框
       window.addEventListener('load', openModal);
+
   </script>
+
+<!--連結至跑馬燈marquee.js-->
+<script src="marquee.js"></script>
 </body>
 </html>
