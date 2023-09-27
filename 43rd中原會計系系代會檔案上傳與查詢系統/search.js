@@ -210,6 +210,16 @@ passwordInput.value = "";
     title: "會議紀錄",
     note: "<a href='https://reurl.cc/Ryj6ox'>112年6月份系代會會議紀錄(1121)</a>"
   },
+  {
+    date: "2023-10-02",
+    title: "檢討會",
+    note: "<a href='https://reurl.cc/A0yayQ'>新生搬宿(1121)</a>"
+  },
+  {
+    date: "2023-10-02",
+    title: "檢討會",
+    note: "<a href='https://reurl.cc/8N5Rqg'>新生手冊(1121)</a>"
+  },
 
 
 
