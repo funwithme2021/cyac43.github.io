@@ -173,42 +173,42 @@ passwordInput.value = "";
   {
     date: "2023-07-20",
     title: "應收退預算表",
-    note: "<a href='https://drive.google.com/uc?export=download&id=1CIcABUerEUilsXE3Va9ihdx7njEVU-ig'>112年6月應收退預算表(1112)</a>"
+    note: "<a href='https://drive.google.com/uc?export=download&id=1CIcABUerEUilsXE3Va9ihdx7njEVU-ig'>112年6月份(1112)</a>"
   },
   {
     date: "2023-07-20",
     title: "發預算表",
-    note: "<a href='https://drive.google.com/uc?export=download&id=1rPO_1Y3_zkKYigoB_lW0iatEvMANJZCw'>112年6月發預算表(1121)</a>"
+    note: "<a href='https://drive.google.com/uc?export=download&id=1rPO_1Y3_zkKYigoB_lW0iatEvMANJZCw'>112年6月份(1121)</a>"
   },
   {
     date: "2023-07-20",
     title: "現金帳",
-    note: "<a href='https://drive.google.com/uc?export=download&id=1e_4yEydhsorGi9EIwUC0R8rTp3nBOeXp'>112年5月現金帳(1112)</a>"
+    note: "<a href='https://drive.google.com/uc?export=download&id=1e_4yEydhsorGi9EIwUC0R8rTp3nBOeXp'>112年5月份(1112)</a>"
   },
   {
     date: "2023-07-20",
     title: "帳簿",
-    note: "<a href='https://drive.google.com/uc?export=download&id=1r95dGgPpYmDLaAz3FpyXnar8XTJKAhv_'>112年5月帳簿(1112)</a>"
+    note: "<a href='https://drive.google.com/uc?export=download&id=1r95dGgPpYmDLaAz3FpyXnar8XTJKAhv_'>112年5月份(1112)</a>"
   },
   {
     date: "2023-09-20",
     title: "開會通知",
-    note: "<a href='https://reurl.cc/3ejNWl'>112年6月份系代會開會通知(1121)</a>"
+    note: "<a href='https://reurl.cc/3ejNWl'>112年6月份(1121)</a>"
   },
   {
     date: "2023-09-20",
     title: "開會通知",
-    note: "<a href='https://reurl.cc/E1p2e0'>112年9月份系代會開會通知(1121)</a>"
+    note: "<a href='https://reurl.cc/E1p2e0'>112年9月份(1121)</a>"
   },
   {
     date: "2023-09-20",
     title: "會議簽到",
-    note: "<a href='https://reurl.cc/nLEnM6'>112年6月份系代會會議簽到(1121)</a>"
+    note: "<a href='https://reurl.cc/nLEnM6'>112年6月份(1121)</a>"
   },
   {
     date: "2023-09-20",
     title: "會議紀錄",
-    note: "<a href='https://reurl.cc/Ryj6ox'>112年6月份系代會會議紀錄(1121)</a>"
+    note: "<a href='https://reurl.cc/Ryj6ox'>112年6月份(1121)</a>"
   },
   {
     date: "2023-10-02",
@@ -220,7 +220,171 @@ passwordInput.value = "";
     title: "檢討會",
     note: "<a href='https://reurl.cc/8N5Rqg'>新生手冊(1121)</a>"
   },
-
+  {
+    date: "2023-10-02",
+    title: "檢討會",
+    note: "<a href='https://reurl.cc/v6kNke'>部員大會(1121)</a>"
+  },
+  {
+    date: "2023-10-02",
+    title: "企劃書",
+    note: "<a href='https://reurl.cc/K3Mg09'>期初佈置(1121)</a>"
+  },
+  {
+    date: "2023-10-02",
+    title: "企劃書",
+    note: "<a href='https://reurl.cc/edXYDj'>青春洋溢，會樂與你(1121)</a>"
+  },
+  {
+    date: "2023-10-02",
+    title: "企劃書",
+    note: "<a href='https://reurl.cc/OjVWv3'>校慶運動會(1121)</a>"
+  },
+  {
+    date: "2023-10-02",
+    title: "企劃書",
+    note: "<a href='https://reurl.cc/gaZ5ab'>六系聯合萬聖趴(1121)</a>"
+  },
+  {
+    date: "2023-10-02",
+    title: "決算表",
+    note: "<a href='https:'>期初佈置(1121)</a>"
+  },
+  {
+    date: "2023-10-02",
+    title: "決算表",
+    note: "<a href='https:'>青春洋溢，會樂與你(1121)</a>"
+  },
+  {
+    date: "2023-10-02",
+    title: "決算明細表",
+    note: "<a href='https:'>青春洋溢，會樂與你(1121)</a>"
+  },
+  {
+    date: "2023-10-02",
+    title: "決算表",
+    note: "<a href='https:'>校慶運動會(1121)</a>"
+  },
+  {
+    date: "2023-10-02",
+    title: "決算明細表",
+    note: "<a href='https:'>校慶運動會(1121)</a>"
+  },
+  {
+    date: "2023-10-02",
+    title: "決算表",
+    note: "<a href='https:'>六系聯合萬聖趴(1121)</a>"
+  },
+  {
+    date: "2023-10-02",
+    title: "結算表",
+    note: "<a href='https:'>新生搬宿(1121)</a>"
+  },
+  {
+    date: "2023-10-02",
+    title: "查核表",
+    note: "<a href='https:'>新生搬宿(1121)</a>"
+  },
+  {
+    date: "2023-10-02",
+    title: "結算表",
+    note: "<a href='https:'>新生註冊(1121)</a>"
+  },
+  {
+    date: "2023-10-02",
+    title: "查核表",
+    note: "<a href='https:'>新生註冊(1121)</a>"
+  },
+  {
+    date: "2023-10-02",
+    title: "結算表",
+    note: "<a href='https:'>新生手冊(1121)</a>"
+  },
+  {
+    date: "2023-10-02",
+    title: "結算明細表",
+    note: "<a href='https:'>新生手冊(1121)</a>"
+  },
+  {
+    date: "2023-10-02",
+    title: "查核表",
+    note: "<a href='https:'>新生手冊(1121)</a>"
+  },
+  {
+    date: "2023-10-02",
+    title: "結算表",
+    note: "<a href='https:'>食字路口(1121)</a>"
+  },
+  {
+    date: "2023-10-02",
+    title: "結算明細表",
+    note: "<a href='https:'>食字路口(1121)</a>"
+  },
+  {
+    date: "2023-10-02",
+    title: "查核表",
+    note: "<a href='https:'>食字路口(1121)</a>"
+  },
+  {
+    date: "2023-10-02",
+    title: "結算表",
+    note: "<a href='https:'>迎新宿營(1121)</a>"
+  },
+  {
+    date: "2023-10-02",
+    title: "結算明細表",
+    note: "<a href='https:'>迎新宿營(1121)</a>"
+  },
+  {
+    date: "2023-10-02",
+    title: "查核表",
+    note: "<a href='https:'>迎新宿營(1121)</a>"
+  },
+  {
+    date: "2023-10-02",
+    title: "結算表",
+    note: "<a href='https:'>分區迎新(1121)</a>"
+  },
+  {
+    date: "2023-10-02",
+    title: "查核表",
+    note: "<a href='https:'>分區迎新(1121)</a>"
+  },
+  {
+    date: "2023-10-02",
+    title: "應收退預算表",
+    note: "<a href='https:'>112年9月份(1112)</a>"
+  },
+  {
+    date: "2023-10-02",
+    title: "發預算表",
+    note: "<a href='https:'>112年9月份(1121)</a>"
+  },
+  {
+    date: "2023-10-02",
+    title: "現金帳",
+    note: "<a href='https:'>112年9月份(1112)</a>"
+  },
+  {
+    date: "2023-10-02",
+    title: "帳簿",
+    note: "<a href='https:'>112年9月份(1112)</a>"
+  },
+  {
+    date: "2023-10-02",
+    title: "會議簽到",
+    note: "<a href='https:'>112年9月份(1121)</a>"
+  },
+  {
+    date: "2023-10-02",
+    title: "會議紀錄",
+    note: "<a href='https:'>112年9月份(1121)</a>"
+  },
+  {
+    date: "2023-10-10",
+    title: "開會通知",
+    note: "<a href='https:'>112年10月份(1121)</a>"
+  },
 
 
   // 輸入公告區// 輸入公告區// 輸入公告區// 輸入公告區// 輸入公告區// 輸入公告區// 輸入公告區// 輸入公告區// 輸入公告區
