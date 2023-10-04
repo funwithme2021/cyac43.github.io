@@ -123,17 +123,17 @@ passwordInput.value = "";
   {
     date: "2023-07-20",
     title: "決算表",
-    note: "<a href='https://reurl.cc/WGWRe5'>新生註冊(1121)</a>"
+    note: "<a href='https://reurl.cc/dmmxV6'>新生註冊(1121)</a>"
   },
   {
     date: "2023-07-20",
     title: "決算表",
-    note: "<a href='https://reurl.cc/QXDe10'>新生手冊(1121)</a>"
+    note: "<a href='https://reurl.cc/L6677a'>新生手冊(1121)</a>"
   },
   {
     date: "2023-07-20",
     title: "決算明細表",
-    note: "<a href='https://reurl.cc/M8D4Yn'>新生手冊(1121)</a>"
+    note: "<a href='https://reurl.cc/0ZZx26'>新生手冊(1121)</a>"
   },
   {
     date: "2023-07-20",
@@ -143,7 +143,7 @@ passwordInput.value = "";
   {
     date: "2023-07-20",
     title: "決算明細表",
-    note: "<a href='https://reurl.cc/x7XaxE'>常會(上)(1121)</a>"
+    note: "<a href='https://reurl.cc/9RR5GX'>常會(上)(1121)</a>"
   },
   {
     date: "2023-07-20",
@@ -153,7 +153,7 @@ passwordInput.value = "";
   {
     date: "2023-07-20",
     title: "決算明細表",
-    note: "<a href='https://reurl.cc/lDXQkv'>食字路口(1121)</a>"
+    note: "<a href='https://reurl.cc/XmmljM'>食字路口(1121)</a>"
   },
   {
     date: "2023-07-20",
@@ -213,12 +213,12 @@ passwordInput.value = "";
   {
     date: "2023-10-02",
     title: "檢討會",
-    note: "<a href='https://reurl.cc/A0yayQ'>新生搬宿(1121)</a>"
+    note: "<a href='https://reurl.cc/XmmlR3'>新生搬宿(1121)</a>"
   },
   {
     date: "2023-10-02",
     title: "檢討會",
-    note: "<a href='https://reurl.cc/8N5Rqg'>新生手冊(1121)</a>"
+    note: "<a href='https://reurl.cc/2EEo6v'>新生手冊(1121)</a>"
   },
   {
     date: "2023-10-02",
@@ -228,12 +228,12 @@ passwordInput.value = "";
   {
     date: "2023-10-02",
     title: "企劃書",
-    note: "<a href='https://reurl.cc/K3Mg09'>期初佈置(1121)</a>"
+    note: "<a href='https://reurl.cc/gaazGR'>期初佈置(1121)</a>"
   },
   {
     date: "2023-10-02",
     title: "企劃書",
-    note: "<a href='https://reurl.cc/edXYDj'>青春洋溢，會樂與你(1121)</a>"
+    note: "<a href='https://reurl.cc/q001r3'>青春洋溢，會樂與你(1121)</a>"
   },
   {
     date: "2023-10-02",
@@ -243,7 +243,7 @@ passwordInput.value = "";
   {
     date: "2023-10-02",
     title: "企劃書",
-    note: "<a href='https://reurl.cc/gaZ5ab'>六系聯合萬聖趴(1121)</a>"
+    note: "<a href='https://reurl.cc/l77576'>六系聯合萬聖趴(1121)</a>"
   },
   {
     date: "2023-10-02",
@@ -278,7 +278,7 @@ passwordInput.value = "";
   {
     date: "2023-10-02",
     title: "結算表",
-    note: "<a href='https:'>新生搬宿(1121)</a>"
+    note: "<a href='https://reurl.cc/p55gYZ'>新生搬宿(1121)</a>"
   },
   {
     date: "2023-10-02",
@@ -288,7 +288,7 @@ passwordInput.value = "";
   {
     date: "2023-10-02",
     title: "結算表",
-    note: "<a href='https:'>新生註冊(1121)</a>"
+    note: "<a href='https://reurl.cc/8NN3bX'>新生註冊(1121)</a>"
   },
   {
     date: "2023-10-02",
@@ -298,27 +298,27 @@ passwordInput.value = "";
   {
     date: "2023-10-02",
     title: "結算表",
-    note: "<a href='https:'>新生手冊(1121)</a>"
+    note: "<a href='https://reurl.cc/bllXNM'>新生手冊(1121)</a>"
   },
   {
     date: "2023-10-02",
     title: "結算明細表",
-    note: "<a href='https:'>新生手冊(1121)</a>"
+    note: "<a href='https://reurl.cc/0ZZjmb'>新生手冊(1121)</a>"
   },
   {
     date: "2023-10-02",
     title: "查核表",
-    note: "<a href='https:'>新生手冊(1121)</a>"
+    note: "<a href='https:'>新生手冊(1121)(免查核表)</a>"
   },
   {
     date: "2023-10-02",
     title: "結算表",
-    note: "<a href='https:'>食字路口(1121)</a>"
+    note: "<a href='https://reurl.cc/GKKm5G'>食字路口(1121)</a>"
   },
   {
     date: "2023-10-02",
     title: "結算明細表",
-    note: "<a href='https:'>食字路口(1121)</a>"
+    note: "<a href='https://reurl.cc/o55gXg'>食字路口(1121)</a>"
   },
   {
     date: "2023-10-02",
@@ -326,24 +326,24 @@ passwordInput.value = "";
     note: "<a href='https:'>食字路口(1121)</a>"
   },
   {
-    date: "2023-10-02",
+    date: "2023-11-02",
     title: "結算表",
     note: "<a href='https:'>迎新宿營(1121)</a>"
   },
   {
-    date: "2023-10-02",
+    date: "2023-11-02",
     title: "結算明細表",
     note: "<a href='https:'>迎新宿營(1121)</a>"
   },
   {
-    date: "2023-10-02",
+    date: "2023-11-02",
     title: "查核表",
     note: "<a href='https:'>迎新宿營(1121)</a>"
   },
   {
     date: "2023-10-02",
     title: "結算表",
-    note: "<a href='https:'>分區迎新(1121)</a>"
+    note: "<a href='https://reurl.cc/jvv8aq'>分區迎新(1121)</a>"
   },
   {
     date: "2023-10-02",
@@ -353,7 +353,7 @@ passwordInput.value = "";
   {
     date: "2023-10-02",
     title: "應收退預算表",
-    note: "<a href='https:'>112年9月份(1112)</a>"
+    note: "<a href='https://reurl.cc/o55gaM'>112年9月份(1121)</a>"
   },
   {
     date: "2023-10-02",
@@ -373,7 +373,7 @@ passwordInput.value = "";
   {
     date: "2023-10-02",
     title: "會議簽到",
-    note: "<a href='https:'>112年9月份(1121)</a>"
+    note: "<a href='https://reurl.cc/nLLoj2'>112年9月份(1121)</a>"
   },
   {
     date: "2023-10-02",
