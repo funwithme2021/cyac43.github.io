@@ -12,7 +12,7 @@ const validAccounts = [
     { role: "活動部長", username: "張語芹", password: "a11043226", name: "張語芹" , gmail: "11043226@cycu.org.tw"},
     { role: "活動秘書", username: "黃宛婷", password: "a11043202", name: "黃宛婷" , gmail: "11043202@cycu.org.tw"},
     { role: "公關部長", username: "薛詠齡", password: "a11043241", name: "薛詠齡" , gmail: "11043241@cycu.org.tw"},
-    { role: "公關秘書", username: "陳茹荺", password: "a11043337", name: "陳茹荺" , gmail: "11043337@cycu.org.tw"},
+    { role: "公關秘書", username: "陳茹筠", password: "a11043337", name: "陳茹筠" , gmail: "11043337@cycu.org.tw"},
     { role: "體育部長", username: "李辰彥", password: "a11043250", name: "李辰彥" , gmail: "11043250@cycu.org.tw"},
     { role: "體育秘書", username: "黃珮煊", password: "a11043152", name: "黃珮煊" , gmail: "11043152@cycu.org.tw"},
     { role: "美宣部長", username: "徐筱茹", password: "a11043207", name: "徐筱茹" , gmail: "11043207@cycu.org.tw"},
