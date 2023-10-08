@@ -23,7 +23,7 @@ $(document).ready(function () {
     { "name": "張語芹", "studentId": "11043226", "role": "活動部長" , "gmail": "11043226@cycu.org.tw"},
     { "name": "黃宛婷", "studentId": "11043202", "role": "活動秘書" , "gmail": "11043202@cycu.org.tw"},
     { "name": "薛詠齡", "studentId": "11043241", "role": "公關部長" , "gmail": "11043241@cycu.org.tw"},
-    { "name": "陳茹荺", "studentId": "11043337", "role": "公關秘書" , "gmail": "11043337@cycu.org.tw"},
+    { "name": "陳茹筠", "studentId": "11043337", "role": "公關秘書" , "gmail": "11043337@cycu.org.tw"},
     { "name": "李辰彥", "studentId": "11043250", "role": "體育部長" , "gmail": "11043250@cycu.org.tw"},
     { "name": "黃珮煊", "studentId": "11043152", "role": "體育秘書" , "gmail": "11043152@cycu.org.tw"},
     { "name": "徐筱茹", "studentId": "11043207", "role": "美宣部長" , "gmail": "11043207@cycu.org.tw"},
