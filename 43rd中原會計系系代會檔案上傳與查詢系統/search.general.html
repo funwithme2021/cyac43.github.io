@@ -256,23 +256,6 @@ body {
     tr:nth-child(even) {
       background-color: #f2f2f2;
     }
-
-
-
- /* 按鈕樣式 */
-    .toggle-button {
-      position: fixed;
-      top: 10px;
-      left: 50%;
-      transform: translateX(-50%);
-      padding: 10px 20px;
-      background-color: #434547;
-      color: #fff;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      z-index: 1000;
-    }
   .hide-sidebar {
     transform: translateX(-100%);
     /* 在hide-sidebar類中新增這些規則 */
@@ -468,6 +451,7 @@ body {
 </div>
     </div>
 </header>
+<button align="center" class="toggle-button" id="toggleSidebar">顯示/隱藏導航</button>    
 <div class="info"> 
         <div class="login-area">
           <h2>帳號密碼登入</h2><h5>(請先登入再查看檔案列表)</h5>
@@ -537,10 +521,10 @@ body {
     
     <div class="usage-info">
         <span id="usageCount"><!-- FC2計數器 開始 -->
-      <p>網頁累積使用次數：<script language="javascript" type="text/javascript" src"//counter1.fc2.com/counter.php?id=89504295"></script><noscript><img src="//counter1.fc2.com/counter_img.php?id=89504295" /></noscript>次
+      <p>網頁累積使用次數：<script language="javascript" type="text/javascript" src="//counter1.fc2.com/counter.php?id=89504295"></script><noscript><img src="//counter1.fc2.com/counter_img.php?id=89504295" /></noscript>次
     </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <span id="onlineUsersCount"><!-- FC2計數器 開始 -->
-      網頁目前在線人數：<script language="javascript" type="text/javascript" src"//counter1.fc2.com/views.php?id=89504295"></script><noscript><img src="//counter1.fc2.com/counter_now.php?id=89504295" /></noscript>人</p>
+      網頁目前在線人數：<script language="javascript" type="text/javascript" src="//counter1.fc2.com/views.php?id=89504295"></script><noscript><img src="//counter1.fc2.com/counter_now.php?id=89504295" /></noscript>人</p>
     </span>
     </div>
     <div class="footer">
@@ -649,41 +633,7 @@ disableInteractionsDuringMaintenance(); // 检查维护状态
     <!--連結至跑馬燈marquee.js-->
 <script src="marquee.js"></script>
 
-<script>
-  // 当页面加载完成时执行
-  window.addEventListener('load', function() {
-    // 创建弹出框容器
-    var popupContainer = document.createElement('div');
-    popupContainer.className = 'popup-container';
-  
-    // 创建弹出框内容
-    var popupContent = document.createElement('div');
-    popupContent.innerHTML = '由於系統異常，將於 <span class="countdown">5</span> 秒後切換至一般版本頁面，造成不便敬請見諒。';
-    popupContainer.appendChild(popupContent);
-  
-    // 将弹出框容器添加到页面
-    document.body.appendChild(popupContainer);
-  
-    // 获取倒计时元素
-    var countdownElement = document.querySelector('.countdown');
-    var countdownTime = 5; // 设置倒计时时间（秒）
-  
-    // 更新倒计时显示
-    function updateCountdown() {
-      countdownElement.textContent = countdownTime;
-      countdownTime--;
-  
-      if (countdownTime < 0) {
-        // 跳转到指定页面
-        window.location.href = 'https://funwithme2021.github.io/cyac43.github.io/43rd%E4%B8%AD%E5%8E%9F%E6%9C%83%E8%A8%88%E7%B3%BB%E7%B3%BB%E4%BB%A3%E6%9C%83%E6%AA%94%E6%A1%88%E4%B8%8A%E5%82%B3%E8%88%87%E6%9F%A5%E8%A9%A2%E7%B3%BB%E7%B5%B1/search.html';
-      }
-    }
-  
-    // 启动倒计时
-    setInterval(updateCountdown, 1000);
-  
-  });
-  </script>
+
 
 
 </body>
