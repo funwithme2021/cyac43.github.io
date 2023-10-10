@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=0.3">
+  <title>歡迎來到43rd中原大學會計學系系代會檔案上傳與查詢系統</title>
+  <style>
+  body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #000000;
+            color: #fff;
+            padding: 10px 20px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+        }
+
+
+
+        /* 左侧区域 */
+.left-section {
+    display: flex-start;
+    flex-direction: column;
+    align-items: left;
+    margin-left: 0px;
+    float: left; /* 将左侧区域浮动到左侧 */
+    
+}
+
+/* 中间区域 */
+.middle-section {
+    display: flex-start;
+    flex-direction: column;
+    align-items: left;
+    margin-left: 5px;
+    float: left; /* 将中间区域浮动到左侧 */
+    
+}
+
+/* 右侧区域 */
+.right-section {
+    display: flex-end;
+    flex-direction: column;
+    align-items: right;
+    margin-left: 30px;
+    float: right; /* 将右侧区域浮动到右侧 */
+    white-space: nowrap;
+}
+
+        .logo img {
+            width: 220px;
+            height: 65px;
+            margin-left: 0%;
+            margin-top: 0cm;
+        }
+
+        .account-info {
+            text-align: left;
+            margin-left: 0%;
+            margin-top: 0cm;
+        }
+
+        .search-bar2 {
+            display: flex;
+            align-items: center;
+            height: 15px; /* 调整搜索框的高度 */
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            overflow: hidden;
+            width: 225px;
+            padding: 5px;
+        }
+
+        .search-bar2 input {
+            flex: 1;
+            padding: 5px;
+            width: 100px;
+            border: none;
+            outline: none;
+        }
+
+        .search-bar2 button {
+    padding: px px; /* 调整按钮的大小 */
+    background-color: #6c6c6c;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    vertical-align: middle; /* 垂直居中对齐 */
+    margin-left: 0px; /* 调整按钮和搜索框之间的间距 */
+    white-space: nowrap; /* 防止文本换行 */
+}
+
+/* 移除按钮内部换行 */
+.search-bar2 button span {
+    white-space: nowrap;
+}
+
+        .search-button2 {
+    padding: 0px 4px; /* 调整搜索按钮的大小 */
+    background-color: #ffffff;
+    color: #050505;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    vertical-align: right; /* 垂直居中对齐 */
+    margin-left: 40px; /* 調整搜尋按鈕和搜尋框之間的間距 */
+}
+
+/* Google logo樣式 */
+#googleLogo {
+    background-image: url('google_logo.png'); 
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 25px; /* 调整 Google logo 图片的大小 */
+    height: 25px;
+    display: inline-block;
+    margin: 0 0px; /* 调整 Google logo 图片的左右间距，上下间距保持默认 */
+    border-radius: 50%; /* 使用50%的border-radius实现圆形 */
+}
+
+        .navigation a {
+            text-decoration: none;
+            color: #fff;
+            margin: 0 10px;
+            white-space: nowrap;
+        }
+
+        .marquee p {
+            white-space: nowrap;
+            position: absolute;
+            animation: marquee 2.5s linear infinite;
+            top: 100px; /* 将跑马灯的位置调整为更低 */
+        }
+
+        @keyframes marquee {
+            0% {
+                transform: translateX(100%);
+            }
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+
+        /* 內容區域樣式 */
+.content {
+    margin-top: 100px;
+    padding: 20px;
+    text-align: center;
+    white-space: nowrap;
+    margin-left: 100px;
+      margin-right: 100px;
+}
+
+.info {
+    text-align: center;
+    padding: 10px;
+    white-space: nowrap;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 20px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    white-space: nowrap;
+}
+
+.grid-item {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    text-align: center;
+    white-space: nowrap;
+    margin-right: 20px; /* 向右增加一點間距 */
+}
+
+.grid-item h2 {
+    margin-top: 0;
+    white-space: nowrap;
+}
+/* 注意事項區域樣式 */
+.content2 {
+    margin-top: 500px; /* 調整頂部間距，使其與操作說明區域相似 */
+    padding: 20px;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.info2 {
+    text-align: center;
+    padding: 10px;
+    white-space: nowrap;
+}
+
+
+
+.grid2-item {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    text-align: center;
+    white-space: nowrap;
+    margin-right: 20px; /* 向右增加一點間距 */
+}
+
+
+
+        /* 頁尾樣式 */
+        .usage-info {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      margin-top: 5px;
+      padding: 1px;
+      background-color: #afb0b1;
+    }
+
+        .footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #000000;
+            color: #fff;
+        }
+
+        /* 按鈕樣式 */
+        .toggle-button {
+            position: fixed;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 10px 20px;
+            background-color: #434547;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            z-index: 1000;
+        }
+
+    /* 调整内容区域的样式 */
+    .content {
+      margin-top: 100px; /* 留出顶部导航的空间 */
+    }
+  /* 添加遮罩层样式 */
+ .maintenance-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.884);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+
+        .maintenance-message {
+            text-align: center;
+            color: white;
+            padding: 20px;
+            border: 2px solid white;
+            max-width: 80%;
+        }
+
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left:auto ;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.884);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.maintenance-message {
+  text-align: center;
+  color: white;
+  padding: 20px;
+  border: 2px solid white;
+  max-width: 80%;
+}
+
+.overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+  z-index: 9999; /* 确保遮罩层在最顶层 */
+}
+
+/* 样式用于提示框 */
+.modal {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+/* 样式用于确定按钮 */
+.modal-button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+  </style>
+  <script>
+    function showMessage() {
+      alert("哇!你太棒了!");
+    }
+     function updateCurrentTime() {
+        const currentTimeElement = document.getElementById("current-time");
+        const currentTime = new Date();
+        currentTimeElement.textContent = currentTime.toLocaleTimeString();
+    }
+    // 初始更新
+    updateCurrentTime();
+    // 每秒更新一次
+    setInterval(updateCurrentTime, 1000);
+  </script>
+</head>
+<body>
+  <div class="overlay" id="overlay">
+    <div class="modal">
+        <p>本系統目前不支援手機操作，請使用平板電腦或電腦操作。<br>
+        <a href="https://funwithme2021.github.io/cyac43.github.io/43rd%E4%B8%AD%E5%8E%9F%E6%9C%83%E8%A8%88%E7%B3%BB%E7%B3%BB%E4%BB%A3%E6%9C%83%E6%AA%94%E6%A1%88%E4%B8%8A%E5%82%B3%E8%88%87%E6%9F%A5%E8%A9%A2%E7%B3%BB%E7%B5%B1/index.html"><strong>一般版本連結</strong></a></p>
+        <button class="modal-button" onclick="closeModal()">確定</button>
+    </div>
+</div>
+  <div class="maintenance-overlay" id="maintenanceOverlay">
+        <div class="maintenance-message">
+            <h1>目前網頁維護中，請稍後再試!<br>維護時段:每日13-14時及每週六0-6時</h1>
+        </div>
+    </div>
+
+<!-- 上方固定區域 -->
+<header class="header">
+    <!-- 左區塊 -->
+    <div class="left-section">
+        <div class="logo">
+            <img src="account.jpg" alt="Logo">
+        </div>
+    </div>
+    
+    <!-- 中區塊 -->
+    <div class="middle-section">
+        <div class="search-wrapper2">
+            <form action="https://www.google.com/search" method="GET" target="_blank">
+                <div class="search-bar2">
+                    <a href="https://www.google.com" target="_blank" id="googleLogo"></a>
+                    <input id="searchInput2" type="text" name="q" placeholder="輸入關鍵字" required>
+                    <input class="search-button2" type="submit" value="︱搜尋">
+                </div>
+            </form>
+        </div>
+        <div class="current-time" id="currentDateTime">
+            <p>現在時間: <span id="currentDateTime"></span></p>
+        </div>
+    </div>
+    
+    <!-- 右區塊 -->
+    <div class="right-section">
+        <nav class="navigation">
+            <a href="index.html"><strong>首頁</strong></a>
+            <a href="calendar.html"><strong>行事曆</strong></a>
+            <a href="announcement.html"><strong>公告事項</strong></a>
+            <a href="upload.html"><strong>檔案上傳系統</strong></a>
+            <a href="search.html"><strong>檔案查詢系統</strong></a>
+            <a href="key.html" ><strong>帳號密碼查詢</strong></a>
+            <a href="mailto:funwithme2021@gmail.com"><strong>問題回報</strong></a>
+        </nav>
+        <!--跑馬燈-->
+<div class="marquee-container">
+    <marquee behavior="scroll" direction="left"><div  id="marquee-content"></div></marquee>
+  </div>
+    </div>
+</header>
+
+<div class="content">
+    <div class="grid">
+        <div class="grid-item">
+            <h2>操作說明</h2>
+            <p align="left">
+                ◉點選左側「導航欄位」進入各頁面，即可開始使用。<br>
+                ◉點選上方「顯示/隱藏導航」按鈕即可隱藏或顯示導航區。<br>
+                ◉若需登入，請按提示輸入正確的帳號及密碼後即可登入頁面並繼續使用。<br>
+                ◉若有相關問題或發現錯誤，請使用「問題回報」。<br>
+                ◉若忘記帳號密碼或有相關疑問，請使用「帳號密碼查詢」。<br>
+            </p>
+            <button onclick="showMessage()">我已詳細閱讀</button>
+        </div>
+    </div>
+    <div class="grid">
+        <div class="grid2-item">
+            <h2>注意事項</h2>
+            <p align="left">
+                ◉若使用手機操作，iOS系統請先點選上方「顯示/隱藏導航」按鈕使資訊區展開；安卓系統請先至設定區切換至「電腦版網站」。<br>
+                ◉「檔案上傳系統」為了確保檔案完整且安全，登入並送出檔案後欲再次上傳檔案請重新登入。<br>
+                ◉「檔案上傳系統」需待檔案審核完成後才會上傳至「檔案查詢系統」，非同步運作。<br>
+            </p>
+            <button onclick="showMessage()">我已詳細閱讀</button>
+        </div>
+    </div>
+</div>
+
+<div class="usage-info">
+    <span id="usageCount"><!-- FC2計數器 開始 -->
+    <p>網頁累積使用次數：<script language="javascript" type="text/javascript" src="//counter1.fc2.com/counter.php?id=89504295"></script><noscript><img src="//counter1.fc2.com/counter_img.php?id=89504295" /></noscript>次
+  </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <span id="onlineUsersCount"><!-- FC2計數器 開始 -->
+    網頁目前在線人數：<script language="javascript" type="text/javascript" src="//counter1.fc2.com/views.php?id=89504295"></script><noscript><img src="//counter1.fc2.com/counter_now.php?id=89504295" /></noscript>人</p>
+  </span>
+  </div>
+    <div class="footer">
+        <p><font size="1">Copyright © 2023 邱偉軒. All rights reserved. | V5.0.20231010</font></p>
+    </div>
+</div>
+  <script>
+    function updateCurrentTime() {
+      const currentTimeElement = document.getElementById("current-time");
+      const now = new Date();
+      const formattedTime = now.toLocaleTimeString("zh-TW");
+      currentTimeElement.textContent = formattedTime;
+    }
+    function updateUsageCount() {
+      const usageCountElement = document.getElementById("usage-count");
+      // You can implement logic to update the usage count here
+      // For now, let's assume the count is 42
+      usageCountElement.textContent = "42";
+    }
+    function updateOnlineUsers() {
+      const onlineUsersElement = document.getElementById("online-users");
+      // You can implement logic to update the online users count here
+      // For now, let's assume the count is 5
+      onlineUsersElement.textContent = "5";
+    }
+    updateCurrentTime();
+    updateUsageCount();
+    updateOnlineUsers();
+    setInterval(updateCurrentTime, 1000);
+    // You can adjust the interval for updating usage count and online users
+    setInterval(updateUsageCount, 5000);
+    setInterval(updateOnlineUsers, 10000);
+     function updateCurrentTime() {
+        const currentTimeElement = document.getElementById("current-time");
+        const currentTime = new Date();
+        currentTimeElement.textContent = currentTime.toLocaleTimeString();
+    }
+    // 初始更新
+    updateCurrentTime();
+    // 每秒更新一次
+    setInterval(updateCurrentTime, 1000);
+</script>
+<script>
+    function updateCurrentTime() {
+        const currentTimeElement = document.getElementById("current-time");
+        const now = new Date();
+        const formattedTime = now.toLocaleTimeString("zh-TW");
+        currentTimeElement.textContent = formattedTime;
+    }
+    updateCurrentTime(); // 初始更新
+    setInterval(updateCurrentTime, 1000); // 每秒更新一次時間
+    document.getElementById("toggleSidebar").addEventListener("click", function () {
+    const sidebar = document.querySelector(".sidebar");
+    sidebar.classList.toggle("hide-sidebar");
+    const content = document.querySelector(".content");
+    content.classList.toggle("expanded");
+});
+</script>
+<script>
+  function updateCurrentTime() {
+      const currentTimeElement = document.getElementById("current-time");
+      const now = new Date();
+      const formattedTime = now.toLocaleTimeString("zh-TW");
+      currentTimeElement.textContent = formattedTime;
+  }
+
+  function disableInteractionsDuringMaintenance() {
+    const now = new Date();
+    const dayOfWeek = now.getDay(); // 0: 星期日, 1: 星期一, 2: 星期二, ... , 6: 星期六
+    const hour = now.getHours();
+
+    // 检查是否在要锁定的时段内（星期六的0点到6点和每日13点到14点）
+    if ((dayOfWeek === 6 && hour >= 0 && hour < 6) || (hour === 13)) {
+        const overlay = document.getElementById("maintenanceOverlay");
+        overlay.style.display = "flex";
+    } else {
+        const overlay = document.getElementById("maintenanceOverlay");
+        overlay.style.display = "none";
+    }
+}
+
+disableInteractionsDuringMaintenance(); // 检查维护状态
+
+</script>
+<script>
+  // 获取提示框和遮罩层的引用
+  const overlay = document.getElementById('overlay');
+
+  // 显示提示框
+  function openModal() {
+      overlay.style.display = 'flex';
+  }
+
+  // 关闭提示框
+  function closeModal() {
+      overlay.style.display = 'none';
+  }
+
+  // 在页面加载后显示提示框
+  window.addEventListener('load', openModal);
+</script>
+<script>
+  function updateCurrentDateTime() {
+     const currentDateTimeElement = document.getElementById("currentDateTime");
+     const currentTime = new Date();   
+     const year = currentTime.getFullYear();
+     const month = (currentTime.getMonth() + 1).toString().padStart(2, '0'); // +1 因為月份從 0 開始
+     const day = currentTime.getDate().toString().padStart(2, '0');   
+     const hours = currentTime.getHours().toString().padStart(2, '0');
+     const minutes = currentTime.getMinutes().toString().padStart(2, '0');
+     const seconds = currentTime.getSeconds().toString().padStart(2, '0');   
+     const dateTimeString = `${year}/${month}/${day} ${hours}:${minutes}:${seconds}`;
+     currentDateTimeElement.textContent = "現在時間: " + dateTimeString;
+ }
+ updateCurrentDateTime();
+ setInterval(updateCurrentDateTime, 1000);
+ window.addEventListener('DOMContentLoaded', updateTime);
+ </script>
+  <!--連結至跑馬燈marquee.js-->
+<script src="marquee.js"></script>
+</body>
+</html>
