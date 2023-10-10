@@ -4,15 +4,26 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=0.3">
   <title>歡迎來到43rd中原大學會計學系系代會檔案上傳與查詢系統</title>
-  <script>
-    window.onload=function AuotOrientate(){
-    if (screen.width >= screen.height ) {
-        document.location.href="index.general.html";
-    } else {
-        document.location.href="index.html"; 
-          }    
-    }
-    </script>
+
+    <script>
+      function redirectToComputerVersion() {
+          // 在此处设置电脑版的网址
+          var computerVersionURL = "index.general.html";
+          window.location.href = computerVersionURL;
+      }
+  
+      function redirectToMobileVersion() {
+          // 在此处设置手机版的网址
+          var mobileVersionURL = "index.html";
+          window.location.href = mobileVersionURL;
+      }
+  
+      function closeModal() {
+          // 关闭模态框的代码
+          var overlay = document.getElementById("overlay");
+          overlay.style.display = "none";
+      }
+  </script>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -220,9 +231,9 @@
 
   <div class="overlay" id="overlay">
     <div class="modal">
-        <p>若使用手機操作，<br>iOS系統請先點選上方「顯示/隱藏導航」按鈕使資訊區展開；安卓系統請先至設定區切換至「電腦版網站」。<br>
-        <a href="https://funwithme2021.github.io/43rdac.github.io/43rd%E4%B8%AD%E5%8E%9F%E6%9C%83%E8%A8%88%E7%B3%BB%E7%B3%BB%E5%AD%B8%E6%9C%83%E6%AA%94%E6%A1%88%E4%B8%8A%E5%82%B3%E8%88%87%E6%9F%A5%E8%A9%A2%E4%B8%8A%E5%82%B3%E7%B3%BB%E7%B5%B1/index.html"><strong>測試版本連結</strong></a></p>
-        <button class="modal-button" onclick="closeModal()">確定</button>
+        <p>請選擇要使用的版本：</p>
+        <button class="modal-button" onclick="redirectToComputerVersion()">電腦版</button>
+        <button class="modal-button" onclick="redirectToMobileVersion()">手機版</button>
     </div>
 </div>
 
@@ -257,6 +268,7 @@
       <a href="search.html">檔案查詢系統</a>
       <a href="key.html" >帳號密碼查詢</a>
       <a href="mailto:funwithme2021@gmail.com">問題回報</a>
+      <a href="index.general.html">電腦版本</a>
   </div>
   <button align="center" class="toggle-button" id="toggleSidebar">顯示/隱藏導航</button>
   <div class="content">
