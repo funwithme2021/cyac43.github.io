@@ -20,25 +20,33 @@
     }
     .content.expanded {
       margin-left: 0;
+      white-space: nowrap;
     }
     .answer-row {
       display: none;
+      white-space: nowrap;
     }
     .show-answer {
       display: table-row;
+      white-space: nowrap;
     }    
     .faq {
       font-family: Arial, sans-serif;
       margin: 20px;
+      white-space: nowrap;
+      margin-left: 100px;
+      margin-right: 100px;
     }    
     .faq h2 {
       font-size: 24px;
       margin-bottom: 20px;
       text-align: center;
+      white-space: nowrap;
     }    
     .faq-list {
       display: flex;
       flex-direction: column;
+      white-space: nowrap;
     }    
    /* 調整常見問題的樣式 */
 .faq-item {
@@ -47,6 +55,7 @@
   margin-bottom: 20px;
   box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
   overflow: hidden; /* 讓折疊效果適用 */
+  white-space: nowrap;
 }
 .faq-question {
   font-weight: bold;
@@ -55,18 +64,22 @@
   padding: 10px;
   cursor: pointer;
   transition: background-color 0.1s ease-in-out;
+  white-space: nowrap;
 }
 .faq-answer {
   font-size: 16px;
   padding: 15px;
   display: none;
   background-color: #c5c4c4; /* 避免答案與其他區塊混淆 */
+  white-space: nowrap;
 }
 .faq-question.active {
   background-color: #9f9d9d;
+  white-space: nowrap;
 }
 .faq-question.active + .faq-answer {
   display: block;
+  white-space: nowrap;
 }
      th, td {
       border: 1px solid #ccc;
@@ -100,18 +113,154 @@
           font-weight: bold;
           padding: 20px;
         }   
-         body {
-          font-family: Arial, sans-serif;
-          background-size: cover;
-          margin: 0;
-          padding: 0;
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
         }
+
         .header {
-          text-align: center;
-          padding: 5px;
-          background-color: #3498db;
-          color: #fff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #000000;
+            color: #fff;
+            padding: 10px 20px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
         }
+
+
+
+        /* 左侧区域 */
+.left-section {
+    display: flex-start;
+    flex-direction: column;
+    align-items: left;
+    margin-left: 0px;
+    float: left; /* 将左侧区域浮动到左侧 */
+    
+}
+
+/* 中间区域 */
+.middle-section {
+    display: flex-start;
+    flex-direction: column;
+    align-items: left;
+    margin-left: 5px;
+    float: left; /* 将中间区域浮动到左侧 */
+    
+}
+
+/* 右侧区域 */
+.right-section {
+    display: flex-end;
+    flex-direction: column;
+    align-items: right;
+    margin-left: 30px;
+    float: right; /* 将右侧区域浮动到右侧 */
+    white-space: nowrap;
+}
+
+        .logo img {
+            width: 220px;
+            height: 65px;
+            margin-left: 0%;
+            margin-top: 0cm;
+        }
+
+        .account1-info {
+            text-align: left;
+            margin-left: 0%;
+            margin-top: 0cm;
+        }
+
+        .search-bar2 {
+            display: flex;
+            align-items: center;
+            height: 15px; /* 调整搜索框的高度 */
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            overflow: hidden;
+            width: 225px;
+            padding: 5px;
+        }
+
+        .search-bar2 input {
+            flex: 1;
+            padding: 5px;
+            width: 100px;
+            border: none;
+            outline: none;
+        }
+
+        .search-bar2 button {
+    padding: px px; /* 调整按钮的大小 */
+    background-color: #6c6c6c;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    vertical-align: middle; /* 垂直居中对齐 */
+    margin-left: 0px; /* 调整按钮和搜索框之间的间距 */
+    white-space: nowrap; /* 防止文本换行 */
+}
+
+/* 移除按钮内部换行 */
+.search-bar2 button span {
+    white-space: nowrap;
+}
+
+        .search-button2 {
+    padding: 0px 4px; /* 调整搜索按钮的大小 */
+    background-color: #ffffff;
+    color: #050505;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    vertical-align: right; /* 垂直居中对齐 */
+    margin-left: 40px; /* 調整搜尋按鈕和搜尋框之間的間距 */
+}
+
+/* Google logo樣式 */
+#googleLogo {
+    background-image: url('google_logo.png'); 
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 25px; /* 调整 Google logo 图片的大小 */
+    height: 25px;
+    display: inline-block;
+    margin: 0 0px; /* 调整 Google logo 图片的左右间距，上下间距保持默认 */
+    border-radius: 50%; /* 使用50%的border-radius实现圆形 */
+}
+
+        .navigation a {
+            text-decoration: none;
+            color: #fff;
+            margin: 0 10px;
+            white-space: nowrap;
+        }
+
+        .marquee p {
+            white-space: nowrap;
+            position: absolute;
+            animation: marquee 2.5s linear infinite;
+            top: 100px; /* 将跑马灯的位置调整为更低 */
+        }
+
+        @keyframes marquee {
+            0% {
+                transform: translateX(100%);
+            }
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+
         .announcement {
           font-size: 18px;
           font-weight: bold;
@@ -158,14 +307,15 @@
           margin-left: 270px;
           padding: 20px;
         }
+        /* 頁尾樣式 */
         .usage-info {
-          display: flex;
-          justify-content: space-around;
-          align-items: center;
-          margin-top: 20px;
-          padding: 10px;
-          background-color: #ecf0f1;
-        }
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      margin-top: 5px;
+      padding: 1px;
+      background-color: #afb0b1;
+    }
         .footer {
           text-align: center;
           padding: 10px;
@@ -225,6 +375,9 @@
     .search-box {
       text-align: left;
       margin: 20px 0;
+      white-space: nowrap;
+      margin-left: 100px;
+      margin-right: 100px;
     }
     #searchButton {
       padding: 5px 10px;
@@ -249,7 +402,10 @@
       box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
       text-align: center;
       margin-bottom: 0px;
-      margin-top: 0px;
+      margin-top: 100px;
+      white-space: nowrap;
+      margin-left: 100px;
+      margin-right: 100px;
     }
       /* 添加遮罩层样式 */
  .maintenance-overlay {
@@ -274,43 +430,70 @@
         }
 </style>      
 </head>
+<script>
+window.addEventListener('DOMContentLoaded', function () {
+const questionRows = document.querySelectorAll('.faq-question');
+const answerRows = document.querySelectorAll('.faq-answer');
+questionRows.forEach((questionRow, index) => {
+    questionRow.addEventListener('click', () => {
+    answerRows[index].classList.toggle('show-answer');
+    });
+});
+if (answerRows.length > 0) {
+    answerRows[0].classList.add('show-answer');
+}
+});
+</script>
 <body>
   <div class="maintenance-overlay" id="maintenanceOverlay">
     <div class="maintenance-message">
         <h1>目前網頁維護中，請稍後再試!<br>維護時段:每日13-14時及每週六0-6時</h1>
     </div>
 </div>
-<div class="sidebar">
-  <div>
-     <img src="account.jpg" width="250" height="=90">
-  </div>
-<!--跑馬燈-->
+<!-- 上方固定區域 -->
+<header class="header">
+    <!-- 左區塊 -->
+    <div class="left-section">
+        <div class="logo">
+            <img src="account1.jpg" alt="Logo">
+        </div>
+    </div>
+    
+    <!-- 中區塊 -->
+    <div class="middle-section">
+        <div class="search-wrapper2">
+            <form action="https://www.google.com/search" method="GET" target="_blank">
+                <div class="search-bar2">
+                    <a href="https://www.google.com" target="_blank" id="googleLogo"></a>
+                    <input id="searchInput2" type="text" name="q" placeholder="輸入關鍵字" required>
+                    <input class="search-button2" type="submit" value="︱搜尋">
+                </div>
+            </form>
+        </div>
+        <div class="current-time" id="currentDateTime">
+            <p>現在時間: <span id="currentDateTime"></span></p>
+        </div>
+    </div>
+    
+    <!-- 右區塊 -->
+    <div class="right-section">
+        <nav class="navigation">
+            <a href="index.html"><strong>首頁</strong></a>
+            <a href="calendar.html"><strong>行事曆</strong></a>
+            <a href="announcement.html"><strong>公告事項</strong></a>
+            <a href="upload.html"><strong>檔案上傳系統</strong></a>
+            <a href="search.html"><strong>檔案查詢系統</strong></a>
+            <a href="key.html" ><strong>帳號密碼查詢</strong></a>
+            <a href="mailto:funwithme2021@gmail.com"><strong>問題回報</strong></a>
+        </nav>
+        <!--跑馬燈-->
 <div class="marquee-container">
   <marquee behavior="scroll" direction="left"><div  id="marquee-content"></div></marquee>
 </div>
-  <div id="searchBox">
-    <a href="https://www.google.com" target="_blank" id="googleLogo"></a>
-      <form action="https://www.google.com/search" method="GET" target="_blank">
-        <input type="text" name="q" placeholder="輸入關鍵字" required>
-        <input type="submit" value="搜尋">
-      </form>
-  </div>
-      <a href="index.html">首頁</a>
-      <a href="calendar.html">行事曆</a>
-      <a href="announcement.html">公告事項</a>
-      <a href="upload.html">檔案上傳系統</a>
-      <a href="search.html">檔案查詢系統</a>
-      <a href="key.html" >帳號密碼查詢</a>
-      <a href="mailto:funwithme2021@gmail.com">問題回報</a>
-  </div>
-     <button align="center" class="toggle-button" id="toggleSidebar">顯示/隱藏導航</button>
-  <div class="content">
-  <div class="header">
-    <h1>歡迎來到43rd中原大學會計學系系代會檔案上傳與查詢系統</h1>
-  </div>
-  <div class="info">
-    <p>現在時間：&nbsp;<span id="current-date"></span>&nbsp;&nbsp;&nbsp;&nbsp; <span id="current-time"></span></p>
-  </div>
+    </div>
+</header>
+
+  
   <div class="calendar-header">
      <h2 align="center">帳號密碼查詢</h2>
   </div>
@@ -409,31 +592,24 @@
       </span>
     </div>
     <div class="footer">
-      <p>Copyright © 2023 邱偉軒. All rights reserved. | V4.1.20230815</p>
+      <p>Copyright © 2023 邱偉軒. All rights reserved. | V5.0.20231010</p>
     </div>
   </div>
   <script>
-   function updateDateTime() {
-  const currentDateElement = document.getElementById("current-date");
-  const currentTimeElement = document.getElementById("current-time");
-
-  const now = new Date();
-
-  // 格式化日期
-  const formattedDate = now.toLocaleDateString("zh-TW");
-  currentDateElement.textContent = formattedDate;
-
-  // 格式化時間
-  const formattedTime = now.toLocaleTimeString("zh-TW");
-  currentTimeElement.textContent = formattedTime;
-}
-
-// 初始更新日期和時間
-updateDateTime();
-
-// 每秒更新一次
-setInterval(updateDateTime, 1000);
-
+    function updateCurrentTime() {
+      const currentTimeElement = document.getElementById("current-time");
+      const now = new Date();
+      const formattedTime = now.toLocaleTimeString("zh-TW");
+      currentTimeElement.textContent = formattedTime;
+    }
+    function updateUsageCount() {
+      const usageCountElement = document.getElementById("usage-count");
+      usageCountElement.textContent = "42";
+    }
+    function updateOnlineUsers() {
+      const onlineUsersElement = document.getElementById("online-users");
+      onlineUsersElement.textContent = "5";
+    }
     updateCurrentTime();
     updateUsageCount();
     updateOnlineUsers();
@@ -456,13 +632,8 @@ setInterval(updateDateTime, 1000);
     const content = document.querySelector(".content");
     content.classList.toggle("expanded");
 });
-const questionRows = document.querySelectorAll('.faq-question');
-const answerRows = document.querySelectorAll('.faq-answer');
-questionRows.forEach((questionRow, index) => {
-questionRow.addEventListener('click', () => {
-answerRows[index].classList.toggle('show-answer');
-});
-});
+
+
 </script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <!--連結至key.js-->
@@ -477,22 +648,42 @@ answerRows[index].classList.toggle('show-answer');
   }
 
   function disableInteractionsDuringMaintenance() {
-      const now = new Date();
-      const dayOfWeek = now.getDay(); // 0: 星期日, 1: 星期一, 2: 星期二, ... , 6: 星期六
-      const hour = now.getHours();
+    const now = new Date();
+    const dayOfWeek = now.getDay(); // 0: 星期日, 1: 星期一, 2: 星期二, ... , 6: 星期六
+    const hour = now.getHours();
 
-      // 檢查是否在要鎖定的時段內（星期六的0點到6點和每日13點到14點）
-      if ((dayOfWeek === 6 && hour >= 0 && hour < 6) || (hour >= 13 && hour < 14)) {
-          const overlay = document.getElementById("maintenanceOverlay");
-          overlay.style.display = "flex";
-      }
-  }
+    // 检查是否在要锁定的时段内（星期六的0点到6点和每日13点到14点）
+    if ((dayOfWeek === 6 && hour >= 0 && hour < 6) || (hour === 13)) {
+        const overlay = document.getElementById("maintenanceOverlay");
+        overlay.style.display = "flex";
+    } else {
+        const overlay = document.getElementById("maintenanceOverlay");
+        overlay.style.display = "none";
+    }
+}
 
-  updateCurrentTime();
-  setInterval(updateCurrentTime, 1000);
-  disableInteractionsDuringMaintenance(); // 检查维护状态
+disableInteractionsDuringMaintenance(); // 检查维护状态
+
+
 </script>
-<!--連結至跑馬燈marquee.js-->
+<script>
+    function updateCurrentDateTime() {
+       const currentDateTimeElement = document.getElementById("currentDateTime");
+       const currentTime = new Date();   
+       const year = currentTime.getFullYear();
+       const month = (currentTime.getMonth() + 1).toString().padStart(2, '0'); // +1 因為月份從 0 開始
+       const day = currentTime.getDate().toString().padStart(2, '0');   
+       const hours = currentTime.getHours().toString().padStart(2, '0');
+       const minutes = currentTime.getMinutes().toString().padStart(2, '0');
+       const seconds = currentTime.getSeconds().toString().padStart(2, '0');   
+       const dateTimeString = `${year}/${month}/${day} ${hours}:${minutes}:${seconds}`;
+       currentDateTimeElement.textContent = "現在時間: " + dateTimeString;
+   }
+   updateCurrentDateTime();
+   setInterval(updateCurrentDateTime, 1000);
+   window.addEventListener('DOMContentLoaded', updateTime);
+   </script>
+    <!--連結至跑馬燈marquee.js-->
 <script src="marquee.js"></script>
-  </body>
+</body>
 </html>

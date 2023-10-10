@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=0.3">
+  <title>歡迎來到43rd中原大學會計學系系代會檔案上傳與查詢系統</title>
+  <script>
+    window.onload=function AuotOrientate(){
+    if (screen.width >= screen.height ) {
+        document.location.href="https://funwithme2021.github.io/cyac43.github.io/43rd%E4%B8%AD%E5%8E%9F%E6%9C%83%E8%A8%88%E7%B3%BB%E7%B3%BB%E4%BB%A3%E6%9C%83%E6%AA%94%E6%A1%88%E4%B8%8A%E5%82%B3%E8%88%87%E6%9F%A5%E8%A9%A2%E7%B3%BB%E7%B5%B1/search.general.html";
+    } else {
+        document.location.href="https://funwithme2021.github.io/cyac43.github.io/43rd%E4%B8%AD%E5%8E%9F%E6%9C%83%E8%A8%88%E7%B3%BB%E7%B3%BB%E4%BB%A3%E6%9C%83%E6%AA%94%E6%A1%88%E4%B8%8A%E5%82%B3%E8%88%87%E6%9F%A5%E8%A9%A2%E7%B3%BB%E7%B5%B1/search.html"; 
+          }    
+    }
+    </script>
+  <style>
+
+    /* 較小螢幕時的調整 */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    padding: 20px;
+  }
+}
+
+    
+body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #000000;
+            color: #fff;
+            padding: 10px 20px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+        }
+
+
+
+        /* 左侧区域 */
+.left-section {
+    display: flex-start;
+    flex-direction: column;
+    align-items: left;
+    margin-left: 0px;
+    float: left; /* 将左侧区域浮动到左侧 */
+    
+}
+
+/* 中间区域 */
+.middle-section {
+    display: flex-start;
+    flex-direction: column;
+    align-items: left;
+    margin-left: 5px;
+    float: left; /* 将中间区域浮动到左侧 */
+    
+}
+
+/* 右侧区域 */
+.right-section {
+    display: flex-end;
+    flex-direction: column;
+    align-items: right;
+    margin-left: 30px;
+    float: right; /* 将右侧区域浮动到右侧 */
+    white-space: nowrap;
+}
+
+        .logo img {
+            width: 220px;
+            height: 65px;
+            margin-left: 0%;
+            margin-top: 0cm;
+        }
+
+        .account1-info {
+            text-align: left;
+            margin-left: 0%;
+            margin-top: 0cm;
+        }
+
+        .search-bar2 {
+            display: flex;
+            align-items: center;
+            height: 15px; /* 调整搜索框的高度 */
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            overflow: hidden;
+            width: 225px;
+            padding: 5px;
+        }
+
+        .search-bar2 input {
+            flex: 1;
+            padding: 5px;
+            width: 100px;
+            border: none;
+            outline: none;
+        }
+
+        .search-bar2 button {
+    padding: px px; /* 调整按钮的大小 */
+    background-color: #6c6c6c;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    vertical-align: middle; /* 垂直居中对齐 */
+    margin-left: 0px; /* 调整按钮和搜索框之间的间距 */
+    white-space: nowrap; /* 防止文本换行 */
+}
+
+/* 移除按钮内部换行 */
+.search-bar2 button span {
+    white-space: nowrap;
+}
+
+        .search-button2 {
+    padding: 0px 4px; /* 调整搜索按钮的大小 */
+    background-color: #ffffff;
+    color: #050505;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    vertical-align: right; /* 垂直居中对齐 */
+    margin-left: 40px; /* 調整搜尋按鈕和搜尋框之間的間距 */
+}
+
+/* Google logo樣式 */
+#googleLogo {
+    background-image: url('google_logo.png'); 
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 25px; /* 调整 Google logo 图片的大小 */
+    height: 25px;
+    display: inline-block;
+    margin: 0 0px; /* 调整 Google logo 图片的左右间距，上下间距保持默认 */
+    border-radius: 50%; /* 使用50%的border-radius实现圆形 */
+}
+
+        .navigation a {
+            text-decoration: none;
+            color: #fff;
+            margin: 0 10px;
+            white-space: nowrap;
+        }
+
+        .marquee p {
+            white-space: nowrap;
+            position: absolute;
+            animation: marquee 2.5s linear infinite;
+            top: 100px; /* 将跑马灯的位置调整为更低 */
+        }
+
+        @keyframes marquee {
+            0% {
+                transform: translateX(100%);
+            }
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+    .announcement {
+      font-size: 18px;
+      font-weight: bold;
+      margin-left: 100px;
+      margin-right: 100px;
+     
+    }
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+    .info {
+      text-align: center;
+      padding: 10px;
+      white-space: nowrap;
+    }
+   
+    .search-input {
+      flex: 1;
+      margin-right: 10px;
+    }
+    .search-button {
+      padding: 5px 10px;
+      background-color: #3498db;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+    }
+    .sidebar {
+      width: 250px;
+      height: 100%;
+      position: fixed;
+      top: 0;
+      left: 0;
+      background-color: #333;
+      color: #fff;
+      padding-top: 20px;
+
+
+      
+      display: block; /* 預設顯示導航區 */
+    }
+
+    .sidebar a {
+      display: block;
+      padding: 10px 20px;
+      color: #fff;
+      text-decoration: none;
+    }
+    .content {
+      margin-left: 270px;
+      padding: 20px;
+    }
+    /* 頁尾樣式 */
+    .usage-info {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      margin-top: 5px;
+      padding: 1px;
+      background-color: #afb0b1;
+    }
+    .footer {
+      text-align: center;
+      padding: 10px;
+      background-color: #333;
+      color: #fff;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px auto;
+      font-weight: normal;
+    }
+    th, td {
+      border: 1px solid #ccc;
+      padding: 8px;
+      text-align: center;
+    }
+    th {
+      background-color: #f2f2f2;
+    }
+    tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+
+
+
+ /* 按鈕樣式 */
+    .toggle-button {
+      position: fixed;
+      top: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      padding: 10px 20px;
+      background-color: #434547;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      z-index: 1000;
+    }
+  .hide-sidebar {
+    transform: translateX(-100%);
+    /* 在hide-sidebar類中新增這些規則 */
+.hide-sidebar .content {
+  width: 100%;
+  margin-left: 0;
+}
+  }
+    .content.expanded {
+  margin-left: 0;
+}
+.pagination {
+  text-align: center;
+  margin-top: 10px;
+  padding: 20px 0; /* 添加上下間距 */
+  border-top: 1px solid #ccc; /* 添加上方邊框 */
+}
+.filter-bar {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.items-per-page,
+.search-bar {
+  margin-right: 10px;
+}
+.login-area {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: opacity 0.3s ease; /* 添加淡入淡出效果 */
+  margin: 100px;
+  white-space: nowrap;
+}
+.login-area h2 {
+  color: #070707;
+}
+.login-area h5 {
+  color: #727272;
+}
+.login-area input[type="text"],
+.login-area input[type="password"] {
+  width: 13%;
+  padding: 8px;
+  margin: 1px 0;
+  border: 1px solid #7c7c7c;
+  border-radius: 5px;
+}
+.login-area button {
+  padding: 8px 13px;
+  background-color: #3498db;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.login-area button:hover {
+  background-color: #2980b9;
+}
+ /* 添加遮罩层样式 */
+ .maintenance-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.884);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+        .maintenance-message {
+            text-align: center;
+            color: white;
+            padding: 20px;
+            border: 2px solid white;
+            max-width: 80%;
+        }
+    /* 增加檔案列表的設計 */
+#announcementTable {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  font-weight: normal;
+  background-color: #fff; /* 白色背景 */
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* 微小陰影效果 */
+  white-space: nowrap;
+}
+
+#announcementTable th, #announcementTable td {
+  border: none;
+  padding: 12px;
+  text-align: left;
+}
+
+#announcementTable th {
+  background-color: #e5e5e5; /* 淺灰背景 */
+  font-weight: bold;
+}
+
+#announcementTable tbody tr:nth-child(even) {
+  background-color: #f9f9f9; /* 更淺的灰背景 */
+}
+
+#announcementTable tbody tr:hover {
+  background-color: #f0f0f0; /* 鼠標懸停時的效果 */
+}
+
+#announcementTable a {
+  text-decoration: none;
+  color: #3498db; /* 蓝色链接颜色 */
+}
+
+#announcementTable a:hover {
+  text-decoration: underline;
+}
+/* 弹出框样式 */
+.popup-container {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #01415e; /* 显眼的橙色背景 */
+      color: #fff; /* 白色文本颜色 */
+      border: 2px solid #fff; /* 白色边框 */
+      border-radius: 10px; /* 圆角 */
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+      padding: 20px;
+      text-align: center;
+      z-index: 9999;
+    }
+
+    /* 倒计时样式 */
+    .countdown {
+      font-size: 36px; /* 更大的字体 */
+      font-weight: bold;
+      margin-top: 10px;
+    }
+  </style>
+
+
+</head>
+<body>
+<!-- 添加维护遮罩层和维护提示信息 -->
+<div class="maintenance-overlay" id="maintenanceOverlay">
+  <div class="maintenance-message">
+      <h1>目前網頁維護中，請稍後再試!<br>維護時段:每日13-14時及每週六0-6時</h1>
+  </div>
+</div>
+<!-- 上方固定區域 -->
+<header class="header">
+    <!-- 左區塊 -->
+    <div class="left-section">
+        <div class="logo">
+            <img src="account1.jpg" alt="Logo">
+        </div>
+    </div>
+    
+    <!-- 中區塊 -->
+    <div class="middle-section">
+        <div class="search-wrapper2">
+            <form action="https://www.google.com/search" method="GET" target="_blank">
+                <div class="search-bar2">
+                    <a href="https://www.google.com" target="_blank" id="googleLogo"></a>
+                    <input id="searchInput2" type="text" name="q" placeholder="輸入關鍵字" required>
+                    <input class="search-button2" type="submit" value="︱搜尋">
+                </div>
+            </form>
+        </div>
+        <div class="current-time" id="currentDateTime">
+            <p>現在時間: <span id="currentDateTime"></span></p>
+        </div>
+    </div>
+    
+    <!-- 右區塊 -->
+    <div class="right-section">
+        <nav class="navigation">
+            <a href="index.html"><strong>首頁</strong></a>
+            <a href="calendar.html"><strong>行事曆</strong></a>
+            <a href="announcement.html"><strong>公告事項</strong></a>
+            <a href="upload.html"><strong>檔案上傳系統</strong></a>
+            <a href="search.html"><strong>檔案查詢系統</strong></a>
+            <a href="key.html" ><strong>帳號密碼查詢</strong></a>
+            <a href="mailto:funwithme2021@gmail.com"><strong>問題回報</strong></a>
+        </nav>
+        <!--跑馬燈-->
+<div class="marquee-container">
+  <marquee behavior="scroll" direction="left"><div  id="marquee-content"></div></marquee>
+</div>
+    </div>
+</header>
+<div class="info"> 
+        <div class="login-area">
+          <h2>帳號密碼登入</h2><h5>(請先登入再查看檔案列表)</h5>
+          <input type="text" id="username" placeholder="帳號" required>
+          <input type="password" id="password" placeholder="密碼" required>
+          <button id="loginButton">登入</button>
+          <div id="loginResult"></div>
+          <a href="key.html"style="color:#fafafa">帳號密碼查詢</a>
+        </div>
+
+        <div class="announcement" id="announcementSection" style="display: none;">
+          <h2>檔案列表(維修中)</h2>
+            <div class="filter-bar">
+            
+              <div class="items-per-page">
+                顯示每頁
+                <select id="itemsPerPageSelect">
+                  <option value="5">5</option>
+                  <option value="10" selected>10</option>
+                  <option value="15">15</option>
+                  <option value="20">20</option>
+                  <option value="25">25</option>
+                  <option value="30">30</option>
+                  <option value="40">40</option>
+                  <option value="50">50</option>
+                </select>
+                筆資料
+              </div>
+              <div class="search-bar">
+                    <input type="text" id="searchInput" placeholder="輸入關鍵字" required>
+                    <button id="searchButton">依關鍵字搜尋</button>
+                  </div>
+                  <div class="search-bar">
+                    <select id="keywordSelect">
+                      <option value="">全部檔案類別</option>
+                  <option value="開會通知">開會通知</option>
+                  <option value="會議簽到">會議簽到</option>
+                  <option value="會議紀錄">會議紀錄</option>
+                  <option value="預算表">預算表</option>
+                  <option value="預算明細表">預算明細表</option>
+                  <option value="決算表">決算表</option>
+                  <option value="決算明細表">決算明細表</option>
+                  <option value="結算表">結算表</option>
+                  <option value="結算明細表">結算明細表</option>
+                  <option value="查核表">查核表</option>
+                  <option value="發預算表">發預算表</option>
+                  <option value="預算領取簽證">預算領取簽證</option>
+                  <option value="應收退預算表">應收退預算表</option>
+                  <option value="現金帳">現金帳</option>
+                  <option value="現金收支帳">現金收支帳</option>
+                  <option value="帳簿">帳簿</option>
+                  <option value="其他">其他</option>
+                </select>
+                <button id="keywordSearchButton">依類別搜尋</button>
+              </div></div>
+            
+            
+        <table id="announcementTable">
+          <!-- 在此显示公告内容 -->
+        </table>
+    
+      <div class="pagination" id="paginationSection" style="display: none;">
+        <button id="prevPageBtn">上一頁</button>
+        <span>第 <span id="currentPage">1</span> 頁 / 共 <span id="totalPages">1</span> 頁</span>
+        <button id="nextPageBtn">下一頁</button>
+      </div></div>
+    
+    <div class="usage-info">
+        <span id="usageCount"><!-- FC2計數器 開始 -->
+      <p>網頁累積使用次數：<script language="javascript" type="text/javascript" src"//counter1.fc2.com/counter.php?id=89504295"></script><noscript><img src="//counter1.fc2.com/counter_img.php?id=89504295" /></noscript>次
+    </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <span id="onlineUsersCount"><!-- FC2計數器 開始 -->
+      網頁目前在線人數：<script language="javascript" type="text/javascript" src"//counter1.fc2.com/views.php?id=89504295"></script><noscript><img src="//counter1.fc2.com/counter_now.php?id=89504295" /></noscript>人</p>
+    </span>
+    </div>
+    <div class="footer">
+      <p>Copyright © 2023 邱偉軒. All rights reserved. | V5.0.20231010</p>
+    </div>
+  </div>
+  <script>
+    function updateCurrentTime() {
+      const currentTimeElement = document.getElementById("current-time");
+      const now = new Date();
+      const formattedTime = now.toLocaleTimeString("zh-TW");
+      currentTimeElement.textContent = formattedTime;
+    }
+
+    function updateUsageCount() {
+      const usageCountElement = document.getElementById("usage-count");
+      // You can implement logic to update the usage count here
+      // For now, let's assume the count is 42
+      usageCountElement.textContent = "42";
+    }
+
+    function updateOnlineUsers() {
+      const onlineUsersElement = document.getElementById("online-users");
+      // You can implement logic to update the online users count here
+      // For now, let's assume the count is 5
+      onlineUsersElement.textContent = "5";
+    }
+
+    updateCurrentTime();
+    updateUsageCount();
+    updateOnlineUsers();
+
+    setInterval(updateCurrentTime, 1000);
+    // You can adjust the interval for updating usage count and online users
+    setInterval(updateUsageCount, 5000);
+    setInterval(updateOnlineUsers, 10000);
+   
+  </script>
+
+<script>
+    function updateCurrentTime() {
+        const currentTimeElement = document.getElementById("current-time");
+        const now = new Date();
+        const formattedTime = now.toLocaleTimeString("zh-TW");
+        currentTimeElement.textContent = formattedTime;
+    }
+
+    updateCurrentTime(); // 初始更新
+
+    setInterval(updateCurrentTime, 1000); // 每秒更新一次時間
+
+document.getElementById("toggleSidebar").addEventListener("click", function () {
+    const sidebar = document.querySelector(".sidebar");
+    sidebar.classList.toggle("hide-sidebar");
+
+    const content = document.querySelector(".content");
+    content.classList.toggle("expanded");
+});
+</script>
+
+<!--連結至search.js-->
+<script src="search.js"></script>
+
+  <script>
+    function updateCurrentTime() {
+        const currentTimeElement = document.getElementById("current-time");
+        const now = new Date();
+        const formattedTime = now.toLocaleTimeString("zh-TW");
+        currentTimeElement.textContent = formattedTime;
+    }
+
+    function disableInteractionsDuringMaintenance() {
+    const now = new Date();
+    const dayOfWeek = now.getDay(); // 0: 星期日, 1: 星期一, 2: 星期二, ... , 6: 星期六
+    const hour = now.getHours();
+
+    // 检查是否在要锁定的时段内（星期六的0点到6点和每日13点到14点）
+    if ((dayOfWeek === 6 && hour >= 0 && hour < 6) || (hour === 13)) {
+        const overlay = document.getElementById("maintenanceOverlay");
+        overlay.style.display = "flex";
+    } else {
+        const overlay = document.getElementById("maintenanceOverlay");
+        overlay.style.display = "none";
+    }
+}
+
+disableInteractionsDuringMaintenance(); // 检查维护状态
+</script>
+<script>
+    function updateCurrentDateTime() {
+       const currentDateTimeElement = document.getElementById("currentDateTime");
+       const currentTime = new Date();   
+       const year = currentTime.getFullYear();
+       const month = (currentTime.getMonth() + 1).toString().padStart(2, '0'); // +1 因為月份從 0 開始
+       const day = currentTime.getDate().toString().padStart(2, '0');   
+       const hours = currentTime.getHours().toString().padStart(2, '0');
+       const minutes = currentTime.getMinutes().toString().padStart(2, '0');
+       const seconds = currentTime.getSeconds().toString().padStart(2, '0');   
+       const dateTimeString = `${year}/${month}/${day} ${hours}:${minutes}:${seconds}`;
+       currentDateTimeElement.textContent = "現在時間: " + dateTimeString;
+   }
+   updateCurrentDateTime();
+   setInterval(updateCurrentDateTime, 1000);
+   window.addEventListener('DOMContentLoaded', updateTime);
+   </script>
+    <!--連結至跑馬燈marquee.js-->
+<script src="marquee.js"></script>
+
+<script>
+  // 当页面加载完成时执行
+  window.addEventListener('load', function() {
+    // 创建弹出框容器
+    var popupContainer = document.createElement('div');
+    popupContainer.className = 'popup-container';
+  
+    // 创建弹出框内容
+    var popupContent = document.createElement('div');
+    popupContent.innerHTML = '由於系統異常，將於 <span class="countdown">5</span> 秒後切換至一般版本頁面，造成不便敬請見諒。';
+    popupContainer.appendChild(popupContent);
+  
+    // 将弹出框容器添加到页面
+    document.body.appendChild(popupContainer);
+  
+    // 获取倒计时元素
+    var countdownElement = document.querySelector('.countdown');
+    var countdownTime = 5; // 设置倒计时时间（秒）
+  
+    // 更新倒计时显示
+    function updateCountdown() {
+      countdownElement.textContent = countdownTime;
+      countdownTime--;
+  
+      if (countdownTime < 0) {
+        // 跳转到指定页面
+        window.location.href = 'https://funwithme2021.github.io/cyac43.github.io/43rd%E4%B8%AD%E5%8E%9F%E6%9C%83%E8%A8%88%E7%B3%BB%E7%B3%BB%E4%BB%A3%E6%9C%83%E6%AA%94%E6%A1%88%E4%B8%8A%E5%82%B3%E8%88%87%E6%9F%A5%E8%A9%A2%E7%B3%BB%E7%B5%B1/search.html';
+      }
+    }
+  
+    // 启动倒计时
+    setInterval(updateCountdown, 1000);
+  
+  });
+  </script>
+
+
+</body>
+</html>
