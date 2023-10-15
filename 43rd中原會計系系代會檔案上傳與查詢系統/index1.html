@@ -4,13 +4,28 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=0.3">
   <title>歡迎來到43rd中原大學會計學系系代會檔案上傳與查詢系統</title>
+
+    <script>
+      function redirectToComputerVersion() {
+          // 在此处设置电脑版的网址
+          var computerVersionURL = "index.general.html";
+          window.location.href = computerVersionURL;
+      }
+  
+      function redirectToMobileVersion() {
+          // 在此处设置手机版的网址
+          var mobileVersionURL = "index.html";
+          window.location.href = mobileVersionURL;
+      }
+  
+      function closeModal() {
+          // 关闭模态框的代码
+          var overlay = document.getElementById("overlay");
+          overlay.style.display = "none";
+      }
+  </script>
   <style>
-    a {
-    text-decoration:none;
-    color: #fff;
-    font-size: 12px;
-}
-   body {
+    body {
       font-family: Arial, sans-serif;
       background-image: url('底圖的URL');
       background-size: cover;
@@ -23,16 +38,24 @@
       background-color: #3498db;
       color: #fff;
     }
-    .marquee {
-      font-size: 16px;
-      white-space: nowrap;
-      overflow: hidden;
-      animation: marquee 10s linear infinite;
-    }
-    @keyframes marquee {
-      0% { transform: translateX(100%); }
-      100% { transform: translateX(-100%); }
-    }
+    .marquee-container {
+  width: 100%; /* 設置容器寬度，可以根據需要調整 */
+  height: 30px; /* 設置容器高度，可以根據需要調整 */
+  overflow: hidden; /* 隱藏溢出的內容 */
+}
+
+.marquee {
+  font-size: 16px;
+  white-space: nowrap;
+  overflow: hidden;
+  animation: marquee 10s linear infinite;
+  /* 這裡的樣式與你已經定義的一致 */
+}
+
+@keyframes marquee {
+  0% { transform: translateX(100%); } /* 從右側開始 */
+  100% { transform: translateX(-100%); } /* 向左側移動 */
+}
     .announcement {
       font-size: 18px;
       font-weight: bold;
@@ -54,7 +77,7 @@
     .search-button {
       padding: 5px 10px;
       background-color: #3498db;
-      color: #fff;
+      color: #ffffff;
       border: none;
       cursor: pointer;
     }
@@ -67,16 +90,8 @@
       background-color: #333;
       color: #fff;
       padding-top: 20px;
-
-
-      
       display: block; /* 預設顯示導航區 */
     }
-
-
-
-
-    
     .sidebar a {
       display: block;
       padding: 10px 20px;
@@ -101,13 +116,25 @@
       background-color: #333;
       color: #fff;
     }
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-gap: 20px;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     }
-    
- /* 按鈕樣式 */
+    .grid-item {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      text-align: center;
+    }
+    .grid-item h2 {
+      margin-top: 0;
+    }   
+     /* 按鈕樣式 */
     .toggle-button {
       position: fixed;
       top: 10px;
@@ -132,62 +159,8 @@
     .content.expanded {
   margin-left: 0;
 }
-
-.start-button {
-      display: inline-block;
-      padding: 15px 30px;
-      background-color: #e74c3c;
-      color: #fff;
-      border: none;
-      border-radius: 10px;
-      cursor: pointer;
-      font-size: 18px;
-      font-weight: bold; /* 新增這一行 */
-      margin-top: 40px;
-      transition: background-color 0.3s ease;
-      text-align: center;
-      text-decoration: none;
-      display: inline-block;
-    }
-
-    .start-button:hover {
-      background-color: #c0392b;
-      text-align: center;
-    }
-
-    /* 新增步驟樣式 */
-    .step-container {
-      display: flex;
-      align-items: center;
-      margin-bottom: 20px;
-      border: 2px solid #3498db;
-      padding: 10px;
-      border-radius: 10px;
-    }
-
-    .step-image {
-      flex: 1;
-      max-width: 40%;
-      padding: 10px;
-      text-align: center; /* 將圖片置中 */
-    }
-
-    .step-image img {
-      max-width: 100%; /* 讓圖片符合父容器寬度 */
-      height: auto; /* 保持原圖比例 */
-    }
-
-    .step-text {
-      flex: 1;
-      padding: 10px;
-    }
-
-    .step-text h3 {
-      font-size: 20px;
-      margin-top: 0;
-    }
-   /* 添加遮罩层样式 */
-        .maintenance-overlay {
+  /* 添加遮罩层样式 */
+ .maintenance-overlay {
             position: fixed;
             top: 0;
             left: 0;
@@ -207,120 +180,135 @@
             border: 2px solid white;
             max-width: 80%;
         }
+
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+            z-index: 9999; /* 确保遮罩层在最顶层 */
+        }
+
+        /* 样式用于提示框 */
+        .modal {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+
+        /* 样式用于确定按钮 */
+        .modal-button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+        a {
+    text-decoration:none;
+    color: #fff;
+    font-size: 12px;
+}
   </style>
-
-
+  <script>
+    function showMessage() {
+      alert("哇!你太棒了!");
+    }
+     function updateCurrentTime() {
+        const currentTimeElement = document.getElementById("current-time");
+        const currentTime = new Date();
+        currentTimeElement.textContent = currentTime.toLocaleTimeString();
+    }
+    // 初始更新
+    updateCurrentTime();
+    // 每秒更新一次
+    setInterval(updateCurrentTime, 1000);
+  </script>
 </head>
 <body>
-<div class="maintenance-overlay" id="maintenanceOverlay">
+
+  <div class="overlay" id="overlay">
+    <div class="modal">
+        <p>請選擇要使用的版本：</p>
+        <button class="modal-button" onclick="redirectToComputerVersion()">電腦版</button>
+        <button class="modal-button" onclick="closeModal()">手機版</button>
+    </div>
+</div>
+
+
+  <div class="maintenance-overlay" id="maintenanceOverlay">
         <div class="maintenance-message">
             <h1>目前網頁維護中，請稍後再試!<br>維護時段:每日13-14時及每週六0-6時</h1>
         </div>
     </div>
-
 <div class="sidebar">
     <div>
         <img src="account.jpg" width="250" height="=90">
     </div>
-<!--跑馬燈-->
+
+   <!--跑馬燈-->
 <div class="marquee-container">
   <marquee behavior="scroll" direction="left"><div  id="marquee-content"></div></marquee>
 </div>
-    <div id="searchBox">
-        <a href="https://www.google.com" target="_blank" id="googleLogo"></a>
+
+
+<div id="searchBox">
+     <a href="https://www.google.com" target="_blank" id="googleLogo"></a>
         <form action="https://www.google.com/search" method="GET" target="_blank">
           <input type="text" name="q" placeholder="輸入關鍵字" required>
           <input type="submit" value="搜尋">
         </form>
-      </div>
-    <a href="index1.html">首頁</a>
-    <a href="calendar.html">行事曆</a>
-    <a href="announcement.html">公告事項</a>
-    <a href="upload.html">檔案上傳系統</a>
-    <a href="search.html">檔案查詢系統</a>
-    <a href="key.html" >帳號密碼查詢</a>
-    <a href="mailto:funwithme2021@gmail.com">問題回報🔗</a>
-    <a href="https://itouch.cycu.edu.tw/home/?p=666309#/includeProc/id=21HA0008&f=3&p=366072">iTOUCH🔗</a>
+ </div>
+      <a href="index.html">首頁</a>
+      <a href="calendar.html">行事曆</a>
+      <a href="announcement.html">公告事項</a>
+      <a href="upload.html">檔案上傳系統</a>
+      <a href="search.html">檔案查詢系統</a>
+      <a href="key.html" >帳號密碼查詢</a>
+      <a href="mailto:funwithme2021@gmail.com">問題回報🔗</a>
+      <a href="https://itouch.cycu.edu.tw/home/?p=666309#/includeProc/id=21HA0008&f=3&p=366072">iTOUCH🔗</a>
   </div>
-
-  
-
-  <button align="center" class="toggle-button" id="toggleSidebar">顯示/隱藏導航</button>  
-
-
-  
-  <div class="content"> 
+  <button align="center" class="toggle-button" id="toggleSidebar">顯示/隱藏導航</button>
+  <div class="content">
     <div class="header">
       <h1>歡迎來到43rd中原大學會計學系系代會檔案上傳與查詢系統</h1>
     </div>
     <div class="info">
       <p>現在時間：&nbsp;<span id="current-date"></span>&nbsp;&nbsp;&nbsp;&nbsp; <span id="current-time"></span></p>
     </div>
-    <div class="start-button">
-        <a href="https://script.google.com/macros/s/AKfycbxhBiVae4jQPp_mohhN7iA5K-Mqzelfmv2wARIvkUEJrR1cKbZctVpFDG6aSaxzJAOb/exec"style="color:#fafafa">開始登入檔案上傳系統🔗</a>
-    </div>
-      <h2 align="center">操作說明</h2>
-      
-          <div class="step-container">
-            <div class="step-image">
-              <img src="step1.jpg" alt="步驟 1">
-            </div>
-            <div class="step-text">
-              <h3>步驟 1</h3>
-              <p>1.點擊上方「開始登入檔案上傳系統」按鈕進入系統頁面。</p>
-            </div>
-          </div>
-      
-          <div class="step-container">
-            <div class="step-image">
-              <img src="step2.jpg" alt="步驟 2">
-            </div>
-            <div class="step-text">
-              <h3>步驟 2</h3>
-              <p>1.請依序輸入帳號及密碼。<br>
-                 2.帳號的組成規則即為您的「全名」，請使用繁體字型輸入。<br>
-                 3.密碼的組成規則即為「a」+您的「學號」，例如「a11000000」，請注意英文字母大小寫。<br>
-                 4.點擊下方「登入」按鈕進入上傳頁面。</p>
-            </div></div>
-        
-            <div class="step-container">
-                <div class="step-image">
-                  <img src="step3.jpg" alt="步驟 1">
-                </div>
-                <div class="step-text">
-                  <h3>步驟 3</h3>
-                  <p>1.請依序輸入檔案類別及您的姓名。<br>
-                     2.不同類別之檔案請分開上傳，例如:預算表、決算表、查核表......等。<br>
-                     3.您的姓名請使用繁體字型輸入。</p>
-                </div>
-              </div>
-
-              <div class="step-container">
-                <div class="step-image">
-                  <img src="step4.jpg" alt="步驟 1">
-                </div>
-                <div class="step-text">
-                  <h3>步驟 4</h3>
-                  <p>1.請點擊「選擇檔案」按鈕開始選擇欲上傳之檔案。<br>
-                     2.請確認檔名是否正確完整。<br>
-                     3.一次上限上傳五個檔案，若超過限制請分批上傳<br>。
-                     4.上傳檔案完成後請點擊「上傳檔案」按鈕開始上傳檔案</p>
-                </div>
-              </div>
-
-              <div class="step-container">
-                <div class="step-image">
-                  <img src="step5.jpg" alt="步驟 1">
-                </div>
-                <div class="step-text">
-                  <h3>步驟 5</h3>
-                  <p>1.若看見「選擇上傳成功」字樣即代表檔案已成功上傳。</p>
-                </div>
-              
-          <!-- ... 添加更多步驟 ... -->
-      
-          <!-- ... (原有的內容)... -->
+      <div class="grid">
+        <div class="grid-item">
+          <h2 align="center">操作說明</h2>
+                   
+    <p align="left">
+        ◉點選左側「導航欄位」進入各頁面，即可開始使用。<br>
+        ◉點選上方「顯示/隱藏導航」按鈕即可隱藏或顯示導航區。<br>
+        ◉若需登入，請按提示輸入正確的帳號及密碼後即可登入頁面並繼續使用。<br>
+        ◉若有相關問題或發現錯誤，請使用「問題回報」。<br>
+        ◉若忘記帳號密碼或有相關疑問，請使用「帳號密碼查詢」。<br>
+        </p>
+          <button onclick="showMessage()">我已詳細閱讀</button>
         </div>
+        <div class="grid-item">
+          <h2 align="center">注意事項</h2>
+          <p align="left">
+             ◉「檔案上傳系統」為了確保檔案完整且安全，登入並送出檔案後欲再次上傳檔案請重新登入。<br>
+             ◉「檔案上傳系統」需待檔案審核完成後才會上傳至「檔案查詢系統」，非同步運作。<br>
+             ◉ 若欲切換至「電腦版本」頁面，請點選下側欄位「電腦版本網頁」進行切換。<br>
+             ◉ 若無法登入或無法查詢帳號密碼，請使用「問題回報」進行反應。<br>
+             ◉ 為保障您的權利，請先閱讀下側欄位「隱私權政策」及「著作權申明」。<br>
+            </p>
+             <button onclick="showMessage()">我已詳細閱讀</button>
+        </div>
+      </div>
+    
     <div class="usage-info">
       <span id="usageCount"><!-- FC2計數器 開始 -->
       <p>網頁累積使用次數：<script language="javascript" type="text/javascript" src="//counter1.fc2.com/counter.php?id=89504295"></script><noscript><img src="//counter1.fc2.com/counter_img.php?id=89504295" /></noscript>次
@@ -332,9 +320,9 @@
     <div class="footer">
       <a href="privacy.html">隱私權政策</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       <a href="copyright.html">著作權申明</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      <a href="upload.general.html">電腦版網頁</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <a href="index.general.html">電腦版網頁</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       <font color="white"><a>網站更新時間：2023/10/11</a></font>
-      <p>Copyright © 2023 邱偉軒. All rights reserved. | V4.1.20230815</p>
+      <p><font size="1">Copyright © 2023 邱偉軒. All rights reserved. | V4.1.20230815</font></p>
     </div>
   </div>
   <script>
@@ -359,9 +347,7 @@ updateDateTime();
 // 每秒更新一次
 setInterval(updateDateTime, 1000);
 
-  </script>
-
-
+</script>
 <script>
     function updateCurrentTime() {
         const currentTimeElement = document.getElementById("current-time");
@@ -369,26 +355,16 @@ setInterval(updateDateTime, 1000);
         const formattedTime = now.toLocaleTimeString("zh-TW");
         currentTimeElement.textContent = formattedTime;
     }
-
     updateCurrentTime(); // 初始更新
-
     setInterval(updateCurrentTime, 1000); // 每秒更新一次時間
-
-  
-
- 
-
-document.getElementById("toggleSidebar").addEventListener("click", function () {
+    document.getElementById("toggleSidebar").addEventListener("click", function () {
     const sidebar = document.querySelector(".sidebar");
     sidebar.classList.toggle("hide-sidebar");
-
     const content = document.querySelector(".content");
     content.classList.toggle("expanded");
 });
-
-
 </script>
-   <script>
+<script>
         function updateCurrentTime() {
             const currentTimeElement = document.getElementById("current-time");
             const now = new Date();
@@ -413,7 +389,26 @@ document.getElementById("toggleSidebar").addEventListener("click", function () {
         setInterval(updateCurrentTime, 1000);
         disableInteractionsDuringMaintenance(); // 检查维护状态
     </script>
-    <!--連結至跑馬燈marquee.js-->
+    <script>
+      // 获取提示框和遮罩层的引用
+      const overlay = document.getElementById('overlay');
+
+      // 显示提示框
+      function openModal() {
+          overlay.style.display = 'flex';
+      }
+
+      // 关闭提示框
+      function closeModal() {
+          overlay.style.display = 'none';
+      }
+
+      // 在页面加载后显示提示框
+      window.addEventListener('load', openModal);
+
+  </script>
+
+<!--連結至跑馬燈marquee.js-->
 <script src="marquee.js"></script>
 </body>
 </html>

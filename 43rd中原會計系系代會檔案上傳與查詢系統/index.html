@@ -1,165 +1,91 @@
 <!DOCTYPE html>
-<html lang="zh-TW">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=0.3">
-  <title>歡迎來到43rd中原大學會計學系系代會檔案上傳與查詢系統</title>
-
-    <script>
-      function redirectToComputerVersion() {
-          // 在此处设置电脑版的网址
-          var computerVersionURL = "index.general.html";
-          window.location.href = computerVersionURL;
-      }
-  
-      function redirectToMobileVersion() {
-          // 在此处设置手机版的网址
-          var mobileVersionURL = "index.html";
-          window.location.href = mobileVersionURL;
-      }
-  
-      function closeModal() {
-          // 关闭模态框的代码
-          var overlay = document.getElementById("overlay");
-          overlay.style.display = "none";
-      }
-  </script>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-image: url('底圖的URL');
-      background-size: cover;
-      margin: 0;
-      padding: 0;
-    }
-    .header {
-      text-align: center;
-      padding: 20px;
-      background-color: #3498db;
-      color: #fff;
-    }
-    .marquee-container {
-  width: 100%; /* 設置容器寬度，可以根據需要調整 */
-  height: 30px; /* 設置容器高度，可以根據需要調整 */
-  overflow: hidden; /* 隱藏溢出的內容 */
-}
-
-.marquee {
-  font-size: 16px;
-  white-space: nowrap;
-  overflow: hidden;
-  animation: marquee 10s linear infinite;
-  /* 這裡的樣式與你已經定義的一致 */
-}
-
-@keyframes marquee {
-  0% { transform: translateX(100%); } /* 從右側開始 */
-  100% { transform: translateX(-100%); } /* 向左側移動 */
-}
-    .announcement {
-      font-size: 18px;
-      font-weight: bold;
-      animation: blink 1s infinite;
-    }
-    @keyframes blink {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0; }
-    }
-    .info {
-      text-align: center;
-      padding: 10px;
-    }
-   
-    .search-input {
-      flex: 1;
-      margin-right: 10px;
-    }
-    .search-button {
-      padding: 5px 10px;
-      background-color: #3498db;
-      color: #ffffff;
-      border: none;
-      cursor: pointer;
-    }
-    .sidebar {
-      width: 250px;
-      height: 100%;
-      position: fixed;
-      top: 0;
-      left: 0;
-      background-color: #333;
-      color: #fff;
-      padding-top: 20px;
-      display: block; /* 預設顯示導航區 */
-    }
-    .sidebar a {
-      display: block;
-      padding: 10px 20px;
-      color: #fff;
-      text-decoration: none;
-    }
-    .content {
-      margin-left: 270px;
-      padding: 20px;
-    }
-    .usage-info {
-      display: flex;
-      justify-content: space-around;
-      align-items: center;
-      margin-top: 20px;
-      padding: 10px;
-      background-color: #ecf0f1;
-    }
-    .footer {
-      text-align: center;
-      padding: 10px;
-      background-color: #333;
-      color: #fff;
-    }
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      grid-gap: 20px;
-      background-color: #fff;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    }
-    .grid-item {
-      padding: 10px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      text-align: center;
-    }
-    .grid-item h2 {
-      margin-top: 0;
-    }   
-     /* 按鈕樣式 */
-    .toggle-button {
-      position: fixed;
-      top: 10px;
-      left: 50%;
-      transform: translateX(-50%);
-      padding: 10px 20px;
-      background-color: #434547;
-      color: #fff;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      z-index: 1000;
-    }
-  .hide-sidebar {
-    transform: translateX(-100%);
-    /* 在hide-sidebar類中新增這些規則 */
-.hide-sidebar .content {
-  width: 100%;
-  margin-left: 0;
-}
-  }
-    .content.expanded {
-  margin-left: 0;
-}
-  /* 添加遮罩层样式 */
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=0.6">
+    <title>歡迎來到43rd中原大學會計學系系代會檔案上傳與查詢系統</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            height: 100vh;
+            background-image: url('background.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        #container {
+            max-width: 400px;
+            padding: 40px;
+            text-align: center;
+            background: #ffffff49;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        #logo {
+            width: 150px;
+            height: 50px;
+            border-radius: 0%;
+            margin-bottom: 5px;
+        }
+        #header {
+            color: #fefefe;
+            font-size: 24px;
+            margin-bottom: 0px;
+        }
+        #system {
+            color: #fefefe;
+            margin-bottom: 5px;
+        }
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 5px;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .btn:hover {
+            background-color: #5f26e4;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.4);
+        }
+        .modal-content {
+            background-color: #fefefe;
+            margin: 10% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            border-radius: 5px;
+        }
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        /* 添加遮罩层样式 */
  .maintenance-overlay {
             position: fixed;
             top: 0;
@@ -194,221 +120,102 @@
             z-index: 9999; /* 确保遮罩层在最顶层 */
         }
 
-        /* 样式用于提示框 */
-        .modal {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-        }
-
-        /* 样式用于确定按钮 */
-        .modal-button {
-            background-color: #007bff;
-            color: #fff;
-            border: none;
-            padding: 10px 20px;
-            margin-top: 10px;
-            cursor: pointer;
-        }
-        a {
-    text-decoration:none;
-    color: #fff;
-    font-size: 12px;
-}
-  </style>
-  <script>
-    function showMessage() {
-      alert("哇!你太棒了!");
-    }
-     function updateCurrentTime() {
-        const currentTimeElement = document.getElementById("current-time");
-        const currentTime = new Date();
-        currentTimeElement.textContent = currentTime.toLocaleTimeString();
-    }
-    // 初始更新
-    updateCurrentTime();
-    // 每秒更新一次
-    setInterval(updateCurrentTime, 1000);
-  </script>
+    </style>
 </head>
 <body>
-
-  <div class="overlay" id="overlay">
-    <div class="modal">
-        <p>請選擇要使用的版本：</p>
-        <button class="modal-button" onclick="redirectToComputerVersion()">電腦版</button>
-        <button class="modal-button" onclick="closeModal()">手機版</button>
-    </div>
-</div>
-
-
-  <div class="maintenance-overlay" id="maintenanceOverlay">
+    <div class="maintenance-overlay" id="maintenanceOverlay">
         <div class="maintenance-message">
             <h1>目前網頁維護中，請稍後再試!<br>維護時段:每日13-14時及每週六0-6時</h1>
         </div>
     </div>
-<div class="sidebar">
-    <div>
-        <img src="account.jpg" width="250" height="=90">
+    <div id="container">
+        <img id="logo" src="account1.jpg" alt="logo">
+        <div id="header">Welcome</div>
+        <div id="system">請依操作系統選擇使用版本</div>
+        <button class="btn" onclick="showModal('desktop')">電腦版網頁</button>
+        <button class="btn" onclick="showModal('mobile')">手機版網頁</button>
     </div>
 
-   <!--跑馬燈-->
-<div class="marquee-container">
-  <marquee behavior="scroll" direction="left"><div  id="marquee-content"></div></marquee>
-</div>
-
-
-<div id="searchBox">
-     <a href="https://www.google.com" target="_blank" id="googleLogo"></a>
-        <form action="https://www.google.com/search" method="GET" target="_blank">
-          <input type="text" name="q" placeholder="輸入關鍵字" required>
-          <input type="submit" value="搜尋">
-        </form>
- </div>
-      <a href="index.html">首頁</a>
-      <a href="calendar.html">行事曆</a>
-      <a href="announcement.html">公告事項</a>
-      <a href="upload.html">檔案上傳系統</a>
-      <a href="search.html">檔案查詢系統</a>
-      <a href="key.html" >帳號密碼查詢</a>
-      <a href="mailto:funwithme2021@gmail.com">問題回報🔗</a>
-      <a href="https://itouch.cycu.edu.tw/home/?p=666309#/includeProc/id=21HA0008&f=3&p=366072">iTOUCH🔗</a>
-  </div>
-  <button align="center" class="toggle-button" id="toggleSidebar">顯示/隱藏導航</button>
-  <div class="content">
-    <div class="header">
-      <h1>歡迎來到43rd中原大學會計學系系代會檔案上傳與查詢系統</h1>
-    </div>
-    <div class="info">
-      <p>現在時間：&nbsp;<span id="current-date"></span>&nbsp;&nbsp;&nbsp;&nbsp; <span id="current-time"></span></p>
-    </div>
-      <div class="grid">
-        <div class="grid-item">
-          <h2 align="center">操作說明</h2>
-                   
-    <p align="left">
-        ◉點選左側「導航欄位」進入各頁面，即可開始使用。<br>
-        ◉點選上方「顯示/隱藏導航」按鈕即可隱藏或顯示導航區。<br>
-        ◉若需登入，請按提示輸入正確的帳號及密碼後即可登入頁面並繼續使用。<br>
-        ◉若有相關問題或發現錯誤，請使用「問題回報」。<br>
-        ◉若忘記帳號密碼或有相關疑問，請使用「帳號密碼查詢」。<br>
-        </p>
-          <button onclick="showMessage()">我已詳細閱讀</button>
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <p><strong>⚠️重要公告！請詳細閱讀:</strong><br>
+                -<br>
+                <strong>🐣開系代前須知</strong><br>
+                ➊所需檔案請於開會當日前七日由上傳系統上傳，檔案格式依網站公告指示為準。<br>
+                ➋檔名之活動名稱請與活動名稱相同，請勿簡寫或另外命名。<br>
+                ➌超過一定金額之預算需有估價單，請於開會前七日直接上傳至群組。<br>
+                ➍含美宣費之預算需有草稿，請於開會前七日直接上傳至群組。<br>
+                ➎若格式內容有誤將另行通知更改。<br>
+                -<br>
+                <strong>🐣開系代後須知</strong><br>
+                ➊ 已更正之檔案請於開會當日後三日由上傳系統上傳，檔案格式依網站公告指示為準。<br>
+                ➋檔名之活動名稱請與活動名稱相同，請勿簡寫或另外命名。<br>
+                ➌已更正之預算表、預算明細表請使用Word檔直接上傳至群組。<br>
+                ➍會議紀錄、簽到表請於開會當日由上傳系統上傳。<br>
+                ➎發預算金額將於開會後七日內公告，公告後即可開始領取預算金額。<br>
+                -<br>
+                <strong>🐣結帳須知</strong><br>
+                ➊請於結帳當日攜帶完整發票與收據。<br>
+                ➋若有缺之相關資料請於結帳日後五日補足，未補足之資料視同逾期未結帳，結算金額為零並將已發之相關金額收回（特殊狀況者除外）。<br>
+                ➌應收退金額將於結帳後七日內公告，公告後依出納指示並公告。<br>
+                ➍查核表請於結帳後三日由上傳系統上傳，格式依網站公告為準，檔名之活動名稱請與活動名稱相同，請勿簡寫或另外命名。</p>
+            <input type="checkbox" id="agreeCheck" />我已閱讀完畢並同意
+            <br />
+            <button class="btn" onclick="redirectPage()">確定</button>
         </div>
-        <div class="grid-item">
-          <h2 align="center">注意事項</h2>
-          <p align="left">
-             ◉「檔案上傳系統」為了確保檔案完整且安全，登入並送出檔案後欲再次上傳檔案請重新登入。<br>
-             ◉「檔案上傳系統」需待檔案審核完成後才會上傳至「檔案查詢系統」，非同步運作。<br>
-             ◉ 若欲切換至「電腦版本」頁面，請點選下側欄位「電腦版本網頁」進行切換。<br>
-             ◉ 若無法登入或無法查詢帳號密碼，請使用「問題回報」進行反應。<br>
-             ◉ 為保障您的權利，請先閱讀下側欄位「隱私權政策」及「著作權申明」。<br>
-            </p>
-             <button onclick="showMessage()">我已詳細閱讀</button>
-        </div>
-      </div>
+        <input type="hidden" id="platform" />
+    </div>
     
-    <div class="usage-info">
-      <span id="usageCount"><!-- FC2計數器 開始 -->
-      <p>網頁累積使用次數：<script language="javascript" type="text/javascript" src="//counter1.fc2.com/counter.php?id=89504295"></script><noscript><img src="//counter1.fc2.com/counter_img.php?id=89504295" /></noscript>次
-    </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <span id="onlineUsersCount"><!-- FC2計數器 開始 -->
-      網頁目前在線人數：<script language="javascript" type="text/javascript" src="//counter1.fc2.com/views.php?id=89504295"></script><noscript><img src="//counter1.fc2.com/counter_now.php?id=89504295" /></noscript>人</p>
-    </span>
-    </div>
-    <div class="footer">
-      <a href="privacy.html">隱私權政策</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      <a href="copyright.html">著作權申明</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      <a href="index.general.html">電腦版網頁</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      <font color="white"><a>網站更新時間：2023/10/11</a></font>
-      <p><font size="1">Copyright © 2023 邱偉軒. All rights reserved. | V4.1.20230815</font></p>
-    </div>
-  </div>
-  <script>
-    function updateDateTime() {
-  const currentDateElement = document.getElementById("current-date");
-  const currentTimeElement = document.getElementById("current-time");
 
-  const now = new Date();
-
-  // 格式化日期
-  const formattedDate = now.toLocaleDateString("zh-TW");
-  currentDateElement.textContent = formattedDate;
-
-  // 格式化時間
-  const formattedTime = now.toLocaleTimeString("zh-TW");
-  currentTimeElement.textContent = formattedTime;
-}
-
-// 初始更新日期和時間
-updateDateTime();
-
-// 每秒更新一次
-setInterval(updateDateTime, 1000);
-
-</script>
-<script>
-    function updateCurrentTime() {
-        const currentTimeElement = document.getElementById("current-time");
-        const now = new Date();
-        const formattedTime = now.toLocaleTimeString("zh-TW");
-        currentTimeElement.textContent = formattedTime;
-    }
-    updateCurrentTime(); // 初始更新
-    setInterval(updateCurrentTime, 1000); // 每秒更新一次時間
-    document.getElementById("toggleSidebar").addEventListener("click", function () {
-    const sidebar = document.querySelector(".sidebar");
-    sidebar.classList.toggle("hide-sidebar");
-    const content = document.querySelector(".content");
-    content.classList.toggle("expanded");
-});
-</script>
-<script>
-        function updateCurrentTime() {
-            const currentTimeElement = document.getElementById("current-time");
-            const now = new Date();
-            const formattedTime = now.toLocaleTimeString("zh-TW");
-            currentTimeElement.textContent = formattedTime;
+    <script>
+        function showModal(platform) {
+            var modal = document.getElementById("myModal");
+            modal.style.display = "block";
+            document.getElementById("platform").value = platform;
         }
 
-        function disableInteractionsDuringMaintenance() {
-            const now = new Date();
-            const dayOfWeek = now.getDay(); // 0: 星期日, 1: 星期一, 2: 星期二, ... , 6: 星期六
-            const hour = now.getHours();
+        function closeModal() {
+            var modal = document.getElementById("myModal");
+            modal.style.display = "none";
+        }
 
-            // 檢查是否在要鎖定的時段內（星期六的0點到6點和每日13點到14點）
-            if ((dayOfWeek === 6 && hour >= 0 && hour < 6) || (hour >= 13 && hour < 14)) {
-                // 显示遮罩层
-                const overlay = document.getElementById("maintenanceOverlay");
-                overlay.style.display = "flex";
+        function redirectPage() {
+            var checkbox = document.getElementById("agreeCheck");
+            if (checkbox.checked) {
+                var platform = document.getElementById("platform").value;
+                if (platform === 'desktop') {
+                    window.location.href = 'index.general.html'; // 確保這個 URL 正確
+                } else if (platform === 'mobile') {
+                    window.location.href = 'index1.html'; // 確保這個 URL 正確
+                }
+            } else {
+                alert("您必須同意才能繼續。");
             }
         }
+        function updateCurrentTime() {
+      const currentTimeElement = document.getElementById("current-time");
+      const now = new Date();
+      const formattedTime = now.toLocaleTimeString("zh-TW");
+      currentTimeElement.textContent = formattedTime;
+  }
 
-        updateCurrentTime();
-        setInterval(updateCurrentTime, 1000);
-        disableInteractionsDuringMaintenance(); // 检查维护状态
+  function disableInteractionsDuringMaintenance() {
+    const now = new Date();
+    const dayOfWeek = now.getDay(); // 0: 星期日, 1: 星期一, 2: 星期二, ... , 6: 星期六
+    const hour = now.getHours();
+
+    // 检查是否在要锁定的时段内（星期六的0点到6点和每日13点到14点）
+    if ((dayOfWeek === 6 && hour >= 0 && hour < 6) || (hour === 13)) {
+        const overlay = document.getElementById("maintenanceOverlay");
+        overlay.style.display = "flex";
+    } else {
+        const overlay = document.getElementById("maintenanceOverlay");
+        overlay.style.display = "none";
+    }
+}
+
+disableInteractionsDuringMaintenance(); // 检查维护状态
     </script>
-    <script>
-      // 获取提示框和遮罩层的引用
-      const overlay = document.getElementById('overlay');
-
-      // 显示提示框
-      function openModal() {
-          overlay.style.display = 'flex';
-      }
-
-      // 关闭提示框
-      function closeModal() {
-          overlay.style.display = 'none';
-      }
-
-      // 在页面加载后显示提示框
-      window.addEventListener('load', openModal);
-
-  </script>
-
-<!--連結至跑馬燈marquee.js-->
-<script src="marquee.js"></script>
 </body>
 </html>
