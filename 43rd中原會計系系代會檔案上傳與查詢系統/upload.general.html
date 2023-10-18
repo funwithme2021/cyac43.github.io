@@ -340,6 +340,79 @@
             border: 2px solid white;
             max-width: 80%;
         }
+
+        .confirmation-box {
+    width: 600px;
+    background-color: #f9f9f9;
+    border: 2px solid #3498db;
+    border-radius: 10px;
+    padding: 30px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: '微軟正黑體', sans-serif;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 999;
+  }
+
+  .confirmation-box h2 {
+    color: #3498db;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .confirmation-box p {
+    color: #333;
+    margin-bottom: 20px;
+  }
+
+  .confirmation-box ol {
+    color: #333;
+  }
+
+  .confirmation-box label {
+    color: #333;
+  }
+
+  .confirmation-box select {
+    padding: 10px;
+    border-radius: 5px;
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .confirmation-box input[type="checkbox"] {
+    margin-right: 10px;
+  }
+
+  .confirmation-box button {
+    padding: 12px 24px;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 20px;
+    display: block;
+    width: 30%;
+    transition: background-color 0.3s;
+  }
+
+  .confirmation-box button:hover {
+    background-color: #2980b9;
+  }
+
+  .exit-button {
+    background-color: #e74c3c;
+    margin-top: 10px;
+  }
+
+  .exit-button:hover {
+    background-color: #c0392b;
+  }
+
   </style>
 
 
@@ -395,9 +468,69 @@
     </div>
 </header>
 
+<div id="confirmationBox" class="confirmation-box" style="display: none;">
+  <h2>注意事項</h2>
+  <p>一、請仔細閱讀以下注意事項：</p>
+  <ol>
+    <li>「<b>檔名之活動名稱</b>」請與<b>「預算表之活動名稱」一致</b>。</li>
+    <li>「<b>已更正之預算表、已更正之預算明細表</b>」請使用<b>Word檔</b>直接上傳至群組。</li>
+    <li>「<b>草稿、估價單</b>」請<b>直接上傳至群組</b>。</li>
+    <li>
+      「<b>預算表、預算明細表</b>」請使用<b>pdf檔</b>上傳；<br>
+      「<b>查核表</b>」請使用<b>Excel檔</b>上傳；<br>
+      「<b>現金帳、帳簿、發預算表、應收退預算表</b>」請<b>截圖後使用圖片</b>上傳；<br>
+      「<b>其他檔案</b>」請使用<b>pdf檔</b>上傳。</li>
+    <li>請完成以下題目並勾選下方的確認框以繼續。</li>
+  </ol>
+  <br />
+  <p>二、請完成以下題目：</p>
+  <label for="fileCategory">1.我這次要上傳的檔案類別為：</label>
+  <select id="fileCategory">
+    <option value="">請選擇</option>
+    <option value="預算表">預算表(系代前)</option>
+    <option value="已更正之預算表">已更正之預算表(系代後)</option>
+    <option value="預算明細表">預算明細表(系代前)</option>
+    <option value="已更正之預算明細表">已更正之預算明細表(系代後)</option>
+    <option value="草稿">草稿(系代前)</option>
+    <option value="估價單">估價單(系代前)</option>
+    <option value="查核表">查核表(結帳後)</option>
+    <option value="現金帳">現金帳(結帳後)</option>
+    <option value="帳簿">帳簿(結帳後)</option>
+    <option value="發預算表">發預算表</option>
+    <option value="應收退預算表">應收退預算表</option>
+    <option value="其他檔案">其他檔案</option>
+  </select>
+  
+  <label for="uploadType">我應該使用什麼方式上傳：</label>
+  <select id="uploadType">
+    <option value="">請選擇</option>
+    <option value="pdf檔">pdf檔</option>
+    <option value="Excel檔">Excel檔</option>
+    <option value="截圖後使用圖片">截圖後使用圖片</option>
+    <option value="直接上傳至群組">直接上傳至群組</option>
+    <option value="Word檔直接上傳至群組">Word檔直接上傳至群組</option>
+  </select>
+  
+  <label for="eventName">2.企劃書上的活動為「青春洋溢，會樂與你」，則輸入的檔名之活動名稱應為：</label>
+  <select id="eventName">
+    <option value="">請選擇</option>
+    <option value="迎茶">迎茶</option>
+    <option value="迎新茶會">迎新茶會</option>
+    <option value="青春洋溢，快樂與你">青春洋溢，快樂與你</option>
+    <option value="青春洋溢，會樂與你">青春洋溢，會樂與你</option>
+  </select>
+  
+  <p>三、請勾選確認框：</p>
+  <label for="confirmCheckbox"><input type="checkbox" id="confirmCheckbox" /> 我已詳細閱讀並確認</label><br /><br />
+  <button onclick="validateAnswers()">進入檔案上傳系統</button>
+  <button class="exit-button" id="exitButton">不繼續作答並離開</button>
+</div>
+
+
+
     </div>
     <div class="start-button">
-        <a href="https://script.google.com/macros/s/AKfycbyDPcMimY3fyy117f7SdSG8ohlgzYdqZjKzYKtwtGeaaWld4OcVZsNIx72HT-eRr5J0/exec"style="color:#fafafa">開始登入檔案上傳系統🔗</a>
+      <a href="#" style="color:#fafafa" onclick="displayConfirmationBox()">開始登入檔案上傳系統🔗</a>
     </div>
       <h2 align="center">操作說明</h2>
       
@@ -581,5 +714,87 @@ disableInteractionsDuringMaintenance(); // 检查维护状态
        </script>
         <!--連結至跑馬燈marquee.js-->
 <script src="marquee.js"></script>
+<script>
+  function displayConfirmationBox() {
+    const confirmationBox = document.getElementById('confirmationBox');
+    confirmationBox.style.display = 'block';
+  }
+
+  function validateAnswers() {
+    const category = document.getElementById('fileCategory').value;
+    const uploadType = document.getElementById('uploadType').value;
+    const eventName = document.getElementById('eventName').value;
+    const checkbox = document.getElementById('confirmCheckbox').checked;
+
+    if (!checkbox) {
+      alert('請勾選確認框後繼續。');
+    } else if (category === '' || uploadType === '' || eventName === '') {
+      alert('請回答所有問題。');
+    } else {
+      if (
+        (category === '預算表' || category === '預算明細表' || category === '其他檔案') && uploadType === 'pdf檔'
+      ) {
+        if (eventName === '青春洋溢，會樂與你') {
+          alert('很棒喔!答案正確，進入系統。');
+          // 在这里执行继续的操作
+
+          // 在这里进行页面跳转
+          window.location.href = "https://script.google.com/macros/s/AKfycbxbpy5DPG01Akd7XnHroLgQ0_MOKVTrJzUHWA4NstMgjx4OCPsPaIUnQ296QyzTUHSY/exec";
+        } else {
+          alert('答案錯誤，請仔細閱讀後並重新選擇。');
+        }
+      } else if (category === '查核表' && uploadType === 'Excel檔') {
+        if (eventName === '青春洋溢，會樂與你') {
+          alert('很棒喔!答案正確，進入系統。');
+          // 在这里执行继续的操作
+
+          // 在这里进行页面跳转
+          window.location.href = "https://script.google.com/macros/s/AKfycbxbpy5DPG01Akd7XnHroLgQ0_MOKVTrJzUHWA4NstMgjx4OCPsPaIUnQ296QyzTUHSY/exec";
+        } else {
+          alert('答案錯誤，請仔細閱讀後並重新選擇。');
+        }
+      } else if (category === '草稿' || category === '估價單'  && uploadType === '直接上傳至群組') {
+        if (eventName === '青春洋溢，會樂與你') {
+          alert('很棒喔!答案正確，不要進入系統，直接上傳至群組。');
+          // 在这里执行继续的操作
+
+          // 在这里进行页面跳转
+          window.location.href = "index.html";
+        } else {
+          alert('答案錯誤，請仔細閱讀後並重新選擇。');
+        }
+      } else if (category === '已更正之預算表' || category === '已更正之預算明細表' && uploadType === 'Word檔直接上傳至群組') {
+        if (eventName === '青春洋溢，會樂與你') {
+          alert('很棒喔!答案正確，不要進入系統，直接使用Word檔上傳至群組。');
+          // 在这里执行继续的操作
+
+          // 在这里进行页面跳转
+          window.location.href = "index.html";
+        } else {
+          alert('答案錯誤，請仔細閱讀後並重新選擇。');
+        }
+      } else if (
+        (category === '現金帳' || category === '帳簿' || category === '發預算表' || category === '應收退預算表') &&
+        uploadType === '截圖後使用圖片'
+      ) {
+        if (eventName === '青春洋溢，會樂與你') {
+          alert('很棒喔!答案正確，進入系統。');
+          // 在这里执行继续的操作
+
+          // 在这里进行页面跳转
+          window.location.href = "https://script.google.com/macros/s/AKfycbxbpy5DPG01Akd7XnHroLgQ0_MOKVTrJzUHWA4NstMgjx4OCPsPaIUnQ296QyzTUHSY/exec";
+        } else {
+          alert('答案錯誤，請仔細閱讀後並重新選擇。');
+        }
+      } else {
+        alert('答案錯誤，請仔細閱讀後並重新選擇。');
+      }
+    }
+  }
+  document.getElementById('exitButton').addEventListener('click', function() {
+  document.getElementById('confirmationBox').style.display = 'none';
+});
+
+</script>
 </body>
 </html>
