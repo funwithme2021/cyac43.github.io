@@ -210,11 +210,11 @@
 
 
         .confirmation-box {
-    width: 600px;
+    width: 75%;
     background-color: #f9f9f9;
     border: 2px solid #3498db;
     border-radius: 10px;
-    padding: 30px;
+    padding: 10px;
     position: fixed;
     top: 50%;
     left: 50%;
@@ -246,7 +246,7 @@
   .confirmation-box select {
     padding: 10px;
     border-radius: 5px;
-    width: 100%;
+    width: 20%;
     margin-bottom: 10px;
   }
 
@@ -263,7 +263,7 @@
     cursor: pointer;
     font-size: 16px;
     margin-top: 20px;
-    display: block;
+    display: inline;
     width: 30%;
     transition: background-color 0.3s;
   }
@@ -285,11 +285,6 @@
             width: 500px;
             height: 250px;
         }
-
-
-
-
-
   </style>
 
 
@@ -327,19 +322,13 @@
     <a href="https://itouch.cycu.edu.tw/home/?p=666309#/includeProc/id=21HA0008&f=3&p=366072">iTOUCH🔗</a>
   </div>
 
-  
-
   <button align="center" class="toggle-button" id="toggleSidebar">顯示/隱藏導航</button>  
-
-
-
-
 
   <div id="confirmationBox" class="confirmation-box" style="display: none;">
     <h2>注意事項</h2>
     <p>一、請仔細閱讀以下注意事項：</p>
     <ol>
-      <li>「<b>檔名之活動名稱</b>」請與<b>「預算表之活動名稱」一致</b>。</li>
+      <li>「<b>檔名之活動名稱</b>」請與<b>「企劃書之活動名稱」一致</b>。</li>
       <li>「<b>已更正之預算表、已更正之預算明細表</b>」請使用<b>Word檔</b>直接上傳至群組。</li>
       <li>「<b>草稿、估價單</b>」請<b>直接上傳至群組</b>。</li>
       <li>
@@ -349,9 +338,9 @@
         「<b>其他檔案</b>」請使用<b>pdf檔</b>上傳。</li>
       <li>請完成以下題目並勾選下方的確認框以繼續。</li>
     </ol>
-    <br />
+    <label for="confirmCheckbox"><input type="checkbox" id="confirmCheckbox" /> 我已詳細閱讀並確認。</label><br /><br />
     <p>二、請完成以下題目：</p>
-    <label for="fileCategory">1.我這次要上傳的檔案類別為：</label>
+    <label for="fileCategory">1.我這次要上傳的檔案類別為</label>
     <select id="fileCategory">
       <option value="">請選擇</option>
       <option value="預算表">預算表(系代前)</option>
@@ -368,7 +357,7 @@
       <option value="其他檔案">其他檔案</option>
     </select>
     
-    <label for="uploadType">我應該使用什麼方式上傳：</label>
+    <label for="uploadType">，我應該使用</label>
     <select id="uploadType">
       <option value="">請選擇</option>
       <option value="pdf檔">pdf檔</option>
@@ -376,28 +365,22 @@
       <option value="截圖後使用圖片">截圖後使用圖片</option>
       <option value="直接上傳至群組">直接上傳至群組</option>
       <option value="Word檔直接上傳至群組">Word檔直接上傳至群組</option>
-    </select>
-    
-    <label for="eventName">2.企劃書上的活動為「青春洋溢，會樂與你」，則輸入的檔名之活動名稱應為：</label>
+    </select>上傳。
+    <br>
+    <label for="eventName">2.企劃書上的活動為「青春洋溢，會樂與你」，則檔名之活動名稱應輸入</label>
     <select id="eventName">
       <option value="">請選擇</option>
       <option value="迎茶">迎茶</option>
       <option value="迎新茶會">迎新茶會</option>
       <option value="青春洋溢，快樂與你">青春洋溢，快樂與你</option>
       <option value="青春洋溢，會樂與你">青春洋溢，會樂與你</option>
-    </select>
-    
-    <p>三、請勾選確認框：</p>
-    <label for="confirmCheckbox"><input type="checkbox" id="confirmCheckbox" /> 我已詳細閱讀並確認</label><br /><br />
+    </select>。
+    <br>
     <button onclick="validateAnswers()">進入檔案上傳系統</button>
     <button class="exit-button" id="exitButton">不繼續作答並離開</button>
   </div>
   
 
-
-
-
-  
   <div class="content"> 
     <div class="header">
       <h1>歡迎來到43rd中原大學會計學系系代會檔案上傳與查詢系統</h1>
@@ -411,10 +394,6 @@
       <a href="#" style="color:#fafafa" onclick="displayConfirmationBox()">開始登入檔案上傳系統🔗</a>
     </div>
 
-
-   
-
-  
       <h2 align="center">操作說明</h2>
       
           <div class="step-container">
@@ -479,10 +458,10 @@
         </div>
     <div class="usage-info">
       <span id="usageCount"><!-- FC2計數器 開始 -->
-      <p>網頁累積使用次數：<script language="javascript" type="text/javascript" src="//counter1.fc2.com/counter.php?id=89504295"></script><noscript><img src="//counter1.fc2.com/counter_img.php?id=89504295" /></noscript>次
+      <p>網頁累積使用次數：<script language="javascript" type="text/javascript" src"//counter1.fc2.com/counter.php?id=89504295"></script><noscript><img src="//counter1.fc2.com/counter_img.php?id=89504295" /></noscript>次
     </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <span id="onlineUsersCount"><!-- FC2計數器 開始 -->
-      網頁目前在線人數：<script language="javascript" type="text/javascript" src="//counter1.fc2.com/views.php?id=89504295"></script><noscript><img src="//counter1.fc2.com/counter_now.php?id=89504295" /></noscript>人</p>
+      網頁目前在線人數：<script language="javascript" type="text/javascript" src"//counter1.fc2.com/views.php?id=89504295"></script><noscript><img src="//counter1.fc2.com/counter_now.php?id=89504295" /></noscript>人</p>
     </span>
     </div>
     <div class="footer">
@@ -531,9 +510,6 @@ setInterval(updateDateTime, 1000);
     setInterval(updateCurrentTime, 1000); // 每秒更新一次時間
 
   
-
- 
-
 document.getElementById("toggleSidebar").addEventListener("click", function () {
     const sidebar = document.querySelector(".sidebar");
     sidebar.classList.toggle("hide-sidebar");
