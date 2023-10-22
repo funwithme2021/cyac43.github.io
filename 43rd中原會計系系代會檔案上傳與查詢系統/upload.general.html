@@ -343,8 +343,8 @@
 
         .confirmation-box {
     width: 75%;
-    background-color: #f9f9f9;
-    border: 2px solid #3498db;
+    background-color: #d2d2d2;
+    border: 50000px solid #006a7d;
     border-radius: 10px;
     padding: 10px;
     position: fixed;
@@ -758,7 +758,7 @@ disableInteractionsDuringMaintenance(); // 检查维护状态
         } else {
           alert('答案錯誤，請仔細閱讀後並重新選擇。');
         }
-      } else if (category === '草稿' || category === '估價單'  && uploadType === '直接上傳至群組') {
+      } else if( (category === '草稿' || category === '估價單' )&& uploadType === '直接上傳至群組') {
         if (eventName === '青春洋溢，會樂與你') {
           alert('很棒喔!答案正確，不要進入系統，直接上傳至群組。');
           // 在这里执行继续的操作
@@ -768,7 +768,7 @@ disableInteractionsDuringMaintenance(); // 检查维护状态
         } else {
           alert('答案錯誤，請仔細閱讀後並重新選擇。');
         }
-      } else if (category === '已更正之預算表' || category === '已更正之預算明細表' && uploadType === 'Word檔直接上傳至群組') {
+      } else if ((category === '已更正之預算表' || category === '已更正之預算明細表' )&& uploadType === 'Word檔直接上傳至群組') {
         if (eventName === '青春洋溢，會樂與你') {
           alert('很棒喔!答案正確，不要進入系統，直接使用Word檔上傳至群組。');
           // 在这里执行继续的操作
