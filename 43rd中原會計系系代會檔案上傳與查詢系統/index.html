@@ -221,7 +221,7 @@
     const hour = now.getHours();
 
     // 检查是否在要锁定的时段内（星期六的0点到6点和每日13点到14点）
-    if ((dayOfWeek === 6 && hour >= 0 && hour < 6) || (hour === 12)) {
+    if ((dayOfWeek === 6 && hour >= 0 && hour < 6) || (hour === 13)) {
         const overlay = document.getElementById("maintenanceOverlay");
         overlay.style.display = "flex";
     } else {
