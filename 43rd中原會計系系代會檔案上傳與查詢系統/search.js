@@ -371,22 +371,52 @@ passwordInput.value = "";
     note: "<a href='https://reurl.cc/0Z9ejY'>常會(上)(1121)</a>"
   },
   {
-    date: "2023-10-15",
-    title: "開會通知",
-    note: "<a href='https:'>112年10月份(1121)</a>"
+    date: "2023-10-24",
+    title: "預算領取簽證",
+    note: "<a href='https://reurl.cc/dmqNmV'>食字路口(1121)</a>"
   },
   {
-    date: "2023-10-23",
+    date: "2023-10-24",
+    title: "預算領取簽證",
+    note: "<a href='https://reurl.cc/jvmzvD'>六系聯合萬聖趴(一)(1121)</a>"
+  },
+  {
+    date: "2023-10-24",
+    title: "預算領取簽證",
+    note: "<a href='https://reurl.cc/4WbKWL'>六系聯合萬聖趴(二)(1121)</a>"
+  },
+  {
+    date: "2023-10-24",
+    title: "預算領取簽證",
+    note: "<a href='https://reurl.cc/MyMpyL'>青春洋溢，會樂與你(1121)</a>"
+  },
+  {
+    date: "2023-10-24",
+    title: "預算領取簽證",
+    note: "<a href='https://reurl.cc/Wv86v9'>校慶運動會(1121)</a>"
+  },
+  {
+    date: "2023-10-24",
+    title: "預算領取簽證",
+    note: "<a href='https://reurl.cc/NyNvyk'>分區迎新(1121)</a>"
+  },
+  {
+    date: "2023-10-24",
+    title: "開會通知",
+    note: "<a href='https://reurl.cc/2El1z6'>112年10月份(1121)</a>"
+  },
+  {
+    date: "2023-10-30",
     title: "會議簽到",
     note: "<a href='https:'>112年10月份(1121)</a>"
   },
   {
-    date: "2023-10-23",
+    date: "2023-10-30",
     title: "會議紀錄",
     note: "<a href='https:'>112年10月份(1121)</a>"
   },
   {
-    date: "2023-10-24",
+    date: "2023-10-30",
     title: "決算表",
     note: "<a href='https:'>(1121)</a>"
   },
