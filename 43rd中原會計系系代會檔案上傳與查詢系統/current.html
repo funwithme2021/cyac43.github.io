@@ -271,6 +271,25 @@
             width: 500px;
             height: 250px;
         }
+ 
+        table, th, td {
+            border: 1px solid #ccc;
+        }
+        th, td {
+            padding: 10px;
+            text-align: center;
+        }
+        th {
+            background-color: #ccc;
+        }
+        .completed {
+            color: green;
+            font-weight: bold;
+        }
+        .incomplete {
+            color: red;
+            font-weight: bold;
+        }
   </style>
 
 
@@ -328,63 +347,33 @@
         </div>
 
         <div class="announcement" id="announcementSection" style="display: none;">
-          <h2>檔案列表</h2>
-            <div class="filter-bar">
-            
-              <div class="items-per-page">
-                顯示每頁
-                <select id="itemsPerPageSelect">
-                  <option value="5">5</option>
-                  <option value="10" selected>10</option>
-                  <option value="15">15</option>
-                  <option value="20">20</option>
-                  <option value="25">25</option>
-                  <option value="30">30</option>
-                  <option value="40">40</option>
-                  <option value="50">50</option>
-                </select>
-                筆資料
-              </div>
-              <div class="search-bar">
-                    <input type="text" id="searchInput" placeholder="輸入關鍵字" required>
-                    <button id="searchButton">依關鍵字搜尋</button>
-                  </div>
-                  <div class="search-bar">
-                    <select id="keywordSelect">
-                  <option value="">全部檔案類別</option>
-                  <option value="開會通知">開會通知</option>
-                  <option value="會議簽到">會議簽到</option>
-                  <option value="會議紀錄">會議紀錄</option>
-                  <option value="預算表">預算表</option>
-                  <option value="預算明細表">預算明細表</option>
-                  <option value="決算表">決算表</option>
-                  <option value="決算明細表">決算明細表</option>
-                  <option value="結算表">結算表</option>
-                  <option value="結算明細表">結算明細表</option>
-                  <option value="查核表">查核表</option>
-                  <option value="發預算表">發預算表</option>
-                  <option value="預算領取簽證">預算領取簽證</option>
-                  <option value="應收退預算表">應收退預算表</option>
-                  <option value="現金帳">現金帳</option>
-                  <option value="現金收支帳">現金收支帳</option>
-                  <option value="帳簿">帳簿</option>
-                  <option value="檢討會">檢討會</option>
-                  <option value="企劃書">企劃書</option>
-                  <option value="其他">其他</option>
-                </select>
-                <button id="keywordSearchButton">依類別搜尋</button>
-              </div></div>
-            
-            
-        <table id="announcementTable">
-          <!-- 在此显示公告内容 -->
-        </table>
-    
-      <div class="pagination" id="paginationSection" style="display: none;">
-        <button id="prevPageBtn">上一頁</button>
-        <span>第 <span id="currentPage">1</span> 頁 / 共 <span id="totalPages">1</span> 頁</span>
-        <button id="nextPageBtn">下一頁</button>
-      </div></div>
+
+            <h2>活動進度查詢</h2>
+
+    <div>
+        <label for="filterStatus">篩選狀態:</label>
+        <select id="filterStatus" onchange="filterTable()">
+            <option value="all">全部</option>
+            <option value="completed">已完成</option>
+            <option value="incomplete">尚未完成</option>
+        </select>
+        <label for="searchActivity">搜尋活動名稱:</label>
+        <input type="text" id="searchActivity" onkeyup="searchTable()">
+    </div>
+
+
+    <table id="activityTable">
+        <tr>
+            <th>活動名稱</th>
+            <th>系代會</th>
+            <th>檢討會</th>
+            <th>結帳</th>
+            <th>活動狀態</th>
+        </tr>
+    </table>
+
+
+        
     
     <div class="usage-info">
         <span id="usageCount"><!-- FC2計數器 開始 -->
@@ -397,7 +386,7 @@
     <div class="footer">
       <a href="privacy.html">隱私權政策</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       <a href="copyright.html">著作權申明</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      <a href="search.general.html">電腦版網頁</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <a href="current.general.html">電腦版網頁</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       <font color="white"><a>網站更新時間：2023/10/11</a></font>
       <p>Copyright © 2023 邱偉軒. All rights reserved. | V5.1.20231010</p>
     </div>
@@ -449,6 +438,7 @@ document.getElementById("toggleSidebar").addEventListener("click", function () {
 
 <!--連結至search.js-->
 <script src="search.js"></script>
+<script src="current.js"></script>
 
   <script>
     function updateCurrentTime() {

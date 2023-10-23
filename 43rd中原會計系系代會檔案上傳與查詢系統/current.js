@@ -1,76 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
-            text-align: center;
-        }
-        h1 {
-            background-color: #333;
-            color: #fff;
-            padding: 20px;
-        }
-        table {
-            border-collapse: collapse;
-            width: 80%;
-            margin: 20px auto;
-            background-color: #fff;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        table, th, td {
-            border: 1px solid #ccc;
-        }
-        th, td {
-            padding: 10px;
-            text-align: center;
-        }
-        th {
-            background-color: #ccc;
-        }
-        .completed {
-            color: green;
-            font-weight: bold;
-        }
-        .incomplete {
-            color: red;
-            font-weight: bold;
-        }
-    </style>
-</head>
-<body>
-    <h1>活動進度查詢</h1>
 
-    <div>
-        <label for="filterStatus">篩選狀態:</label>
-        <select id="filterStatus" onchange="filterTable()">
-            <option value="all">全部</option>
-            <option value="completed">已完成</option>
-            <option value="incomplete">尚未完成</option>
-        </select>
-        <label for="searchActivity">搜尋活動名稱:</label>
-        <input type="text" id="searchActivity" onkeyup="searchTable()">
-    </div>
-
-
-    <table id="activityTable">
-        <tr>
-            <th>活動名稱</th>
-            <th>系代會</th>
-            <th>檢討會</th>
-            <th>結帳</th>
-            <th>活動狀態</th>
-        </tr>
-    </table>
-
-    <script>
         const activities = [
-            { name: "活動1", status: ["incomplete", "incomplete", "incomplete"] },
-            { name: "活動2", status: ["completed", "completed", "completed"] },
-            { name: "活動3", status: ["incomplete", "completed", "incomplete"] },
+            { name: "海綿寶寶會救我!有怪獸!", status: ["completed", "completed", "completed"] },
+            { name: "金計機國的闖關者", status: ["completed", "completed", "completed"] },
+            { name: "新生手冊", status: ["completed", "completed", "completed"] },
+            { name: "分區迎新", status: ["completed", "incomplete", "completed"] },
+            { name: "新生搬宿", status: ["completed", "completed", "completed"] },
+            { name: "新生註冊", status: ["completed", "incomplete", "completed"] },
+            { name: "十字路口", status: ["completed", "incomplete", "completed"] },
+            { name: "迎新宿營", status: ["completed", "incomplete", "incomplete"] },
+            { name: "常會(上)", status: ["completed", "incomplete", "incomplete"] },
+            { name: "青春洋溢，會樂與你", status: ["completed", "incomplete", "incomplete"] },
+            { name: "六系聯合萬聖趴", status: ["completed", "incomplete", "incomplete"] },
+            { name: "校慶運動會", status: ["completed", "incomplete", "incomplete"] },
+            { name: "期初佈置", status: ["completed", "incomplete", "incomplete"] },
         ];
 
         function addActivity() {
@@ -140,7 +82,5 @@
         }
 
         updateTable();
-    </script>
-</body>
-</html>
+    
 

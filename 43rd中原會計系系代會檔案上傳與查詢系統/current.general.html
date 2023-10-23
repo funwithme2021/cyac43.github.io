@@ -10,7 +10,21 @@
     color: #fff;
     font-size: 12px;
 }
-     body {
+
+    /* 較小螢幕時的調整 */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    padding: 20px;
+  }
+}
+
+    
+body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
@@ -157,11 +171,12 @@
                 transform: translateX(-100%);
             }
         }
-
     .announcement {
       font-size: 18px;
       font-weight: bold;
-      animation: blink 1s infinite;
+      margin-left: 100px;
+      margin-right: 100px;
+     
     }
     @keyframes blink {
       0%, 100% { opacity: 1; }
@@ -170,6 +185,7 @@
     .info {
       text-align: center;
       padding: 10px;
+      white-space: nowrap;
     }
    
     .search-input {
@@ -178,11 +194,10 @@
     }
     .search-button {
       padding: 5px 10px;
-      background-color: #fb7f03da;
+      background-color: #3498db;
       color: #fff;
       border: none;
       cursor: pointer;
-      border-radius: 5px;
     }
     .sidebar {
       width: 250px;
@@ -192,9 +207,13 @@
       left: 0;
       background-color: #333;
       color: #fff;
-      padding-top: 20px;      
+      padding-top: 20px;
+
+
+      
       display: block; /* 預設顯示導航區 */
     }
+
     .sidebar a {
       display: block;
       padding: 10px 20px;
@@ -217,7 +236,7 @@
     .footer {
       text-align: center;
       padding: 10px;
-      background-color: #000000;
+      background-color: #333;
       color: #fff;
     }
     body {
@@ -229,9 +248,10 @@
       width: 100%;
       border-collapse: collapse;
       margin: 20px auto;
+      font-weight: normal;
     }
     th, td {
-      border: 1px solid #c91717;
+      border: 1px solid #ccc;
       padding: 8px;
       text-align: center;
     }
@@ -241,23 +261,10 @@
     tr:nth-child(even) {
       background-color: #f2f2f2;
     }
- /* 按鈕樣式 */
-    .toggle-button {
-      position: fixed;
-      top: 10px;
-      left: 50%;
-      transform: translateX(-50%);
-      padding: 10px 20px;
-      background-color: #434547;
-      color: #fff;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      z-index: 1000;
-    }
   .hide-sidebar {
     transform: translateX(-100%);
-  .hide-sidebar .content {
+    /* 在hide-sidebar類中新增這些規則 */
+.hide-sidebar .content {
   width: 100%;
   margin-left: 0;
 }
@@ -265,7 +272,57 @@
     .content.expanded {
   margin-left: 0;
 }
-/* 維護時間樣式 */
+.pagination {
+  text-align: center;
+  margin-top: 10px;
+  padding: 20px 0; /* 添加上下間距 */
+  border-top: 1px solid #ccc; /* 添加上方邊框 */
+}
+.filter-bar {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.items-per-page,
+.search-bar {
+  margin-right: 10px;
+}
+.login-area {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: opacity 0.3s ease; /* 添加淡入淡出效果 */
+  margin: 100px;
+  white-space: nowrap;
+}
+.login-area h2 {
+  color: #070707;
+}
+.login-area h5 {
+  color: #727272;
+}
+.login-area input[type="text"],
+.login-area input[type="password"] {
+  width: 13%;
+  padding: 8px;
+  margin: 1px 0;
+  border: 1px solid #7c7c7c;
+  border-radius: 5px;
+}
+.login-area button {
+  padding: 8px 13px;
+  background-color: #3498db;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.login-area button:hover {
+  background-color: #2980b9;
+}
+ /* 添加遮罩层样式 */
  .maintenance-overlay {
             position: fixed;
             top: 0;
@@ -278,7 +335,6 @@
             align-items: center;
             z-index: 9999;
         }
-
         .maintenance-message {
             text-align: center;
             color: white;
@@ -286,99 +342,101 @@
             border: 2px solid white;
             max-width: 80%;
         }
-        
-/* 行事曆標題樣式 */
-.calendar-header {
-      background-color: #fb7f03da;
-      color: #fff;
-      padding: 0.1px;
-      border-radius: 5px;
-      box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-      text-align: center;
-      margin-bottom: 3px;
-      margin-top: 100px;
-      margin-left: 100px;
-      margin-right: 100px;
-    }
-
-    /* 行事曆的外觀 */
-    .calendar-container {
-      background-color: #fff;
-      border-radius: 10px;
-      overflow: hidden;
-      box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.1);
-      white-space: nowrap;
-      margin-left: 100px;
-      margin-right: 100px;
-    }
-
-    /* 行事曆內容區域 */
-    .calendar-content {
-      padding: 20px;
-      white-space: nowrap;
-    }
-
-/* 更新活動項目的樣式 */
-.event-info {
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-  display: flex;
-  align-items: center;
-  padding: 5px;
-  border: 1px solid #e74d3c00;
-  border-radius: 6px;
-  margin-bottom: 13px;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-  background-color: #f5f5f5;
-  border-left: 4px solid #ff6b6b;
+    /* 增加檔案列表的設計 */
+#announcementTable {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  font-weight: normal;
+  background-color: #fff; /* 白色背景 */
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* 微小陰影效果 */
   white-space: nowrap;
 }
 
-.event-date {
-  flex: 3;
-  font-size: 24px;
-  font-weight: bold;
-  text-align:center ;
-  color: #e74c3c;
-  white-space: nowrap;
-}
-
-.event-time {
-  flex: 3;
-  font-size: 20px;
-  color: #555;
+#announcementTable th, #announcementTable td {
+  border: none;
+  padding: 12px;
   text-align: left;
-  white-space: nowrap;
 }
 
-.event-name {
-  flex: 3;
-  font-size: 30px;
+#announcementTable th {
+  background-color: #e5e5e5; /* 淺灰背景 */
   font-weight: bold;
-  padding-left: 40px;
-  color: #333;
-  text-align:left ;
-  white-space: nowrap;
 }
-    /* 調整連結顏色 */
-    .content a {
-      color: #3498db;
+
+#announcementTable tbody tr:nth-child(even) {
+  background-color: #f9f9f9; /* 更淺的灰背景 */
+}
+
+#announcementTable tbody tr:hover {
+  background-color: #f0f0f0; /* 鼠標懸停時的效果 */
+}
+
+#announcementTable a {
+  text-decoration: none;
+  color: #3498db; /* 蓝色链接颜色 */
+}
+
+#announcementTable a:hover {
+  text-decoration: underline;
+}
+/* 弹出框样式 */
+.popup-container {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #01415e; /* 显眼的橙色背景 */
+      color: #fff; /* 白色文本颜色 */
+      border: 2px solid #fff; /* 白色边框 */
+      border-radius: 10px; /* 圆角 */
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+      padding: 20px;
+      text-align: center;
+      z-index: 9999;
+    }
+
+    /* 倒计时样式 */
+    .countdown {
+      font-size: 36px; /* 更大的字体 */
+      font-weight: bold;
+      margin-top: 10px;
     }
     #maintain
         {
             width: 500px;
             height: 250px;
         }
-  
+        table, th, td {
+            border: 1px solid #ccc;
+        }
+        th, td {
+            padding: 10px;
+            text-align: center;
+        }
+        th {
+            background-color: #ccc;
+        }
+        .completed {
+            color: green;
+            font-weight: bold;
+        }
+        .incomplete {
+            color: red;
+            font-weight: bold;
+        }
   </style>
+
+
 </head>
 <body>
+<!-- 添加维护遮罩层和维护提示信息 -->
 <div class="maintenance-overlay" id="maintenanceOverlay">
-        <div class="maintenance-message">
-            <h1>目前網頁維護中，請稍後再試!<br>維護時段:每日13-14時及每週六0-6時</h1>
-            <img id="maintain" src="maintain.png" alt="maintain">
-        </div>
-    </div>
-
+  <div class="maintenance-message">
+      <h1>目前網頁維護中，請稍後再試!<br>維護時段:每日13-14時及每週六0-6時</h1>
+      <img id="maintain" src="maintain.png" alt="maintain">
+  </div>
+</div>
 <!-- 上方固定區域 -->
 <header class="header">
     <!-- 左區塊 -->
@@ -423,38 +481,44 @@
 </div>
     </div>
 </header>
+<button align="center" class="toggle-button" id="toggleSidebar">顯示/隱藏導航</button>    
+<div class="info"> 
+        <div class="login-area">
+          <h2>帳號密碼登入</h2><h5>(請先登入再查看檔案列表)</h5>
+          <input type="text" id="username" placeholder="帳號" required>
+          <input type="password" id="password" placeholder="密碼" required>
+          <button id="loginButton">登入</button>
+          <button id="loginButton"><a style="color:#fafafa" href="key.general.html">忘記密碼</a></button>
+          <div id="loginResult"></div>
+        </div>
 
-    <div class="calendar-header">
-      <h2 class="calendar-title">精彩時刻&nbsp;&nbsp;即刻而至</h2>
-    </div>
-    <div class="calendar-container">
-    <br><span class="search-box">
-      &nbsp;&nbsp;&nbsp;&nbsp;<strong class="search-label">活動查詢:</strong>&nbsp;&nbsp;
-      ◉&nbsp;&nbsp;<input type="text" id="searchKeyword" placeholder="輸入關鍵字" required>
-      <button class="search-button" onclick="searchByKeyword()">名稱搜尋</button>
-      <button class="search-button" onclick="clearSearch()">清除</button>
-    </span>&nbsp;&nbsp;
-    <span class="search-box">
-      ◉&nbsp;&nbsp;<input type="date" id="startDate" required>
-      至<input type="date" id="endDate" required>
-      <button class="search-button" onclick="searchByDateRange()">時間搜尋</button>
-      <button class="search-button" onclick="clearDateSearch()">清除</button>
-    </span>
-    <p class="search-result" id="searchResult"></p>
-    <div class="calendar-content" id="upcomingEvents">
-      <!-- 活動將在這裡動態添加 -->
-    </div>     </div> 
-   
-    <div class="calendar-header">
-      <h2 align="center">行事曆</h2>
-    </div>
-    <div class="info">
-      <div class="calendar-container">
-        <iframe src="https://calendar.google.com/calendar/embed?src=funwithme2021%40gmail.com&ctz=Asia%2FTaipei" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
-      </div>
-    </div>
+        <div class="announcement" id="announcementSection" style="display: none;">
+            <h2>活動進度查詢</h2>
+
+            <div>
+                <label for="filterStatus">篩選狀態:</label>
+                <select id="filterStatus" onchange="filterTable()">
+                    <option value="all">全部</option>
+                    <option value="completed">已完成</option>
+                    <option value="incomplete">尚未完成</option>
+                </select>
+                <label for="searchActivity">搜尋活動名稱:</label>
+                <input type="text" id="searchActivity" onkeyup="searchTable()">
+            </div>
+        
+        
+            <table id="activityTable">
+                <tr>
+                    <th>活動名稱</th>
+                    <th>系代會</th>
+                    <th>檢討會</th>
+                    <th>結帳</th>
+                    <th>活動狀態</th>
+                </tr>
+            </table>
+    
     <div class="usage-info">
-      <span id="usageCount"><!-- FC2計數器 開始 -->
+        <span id="usageCount"><!-- FC2計數器 開始 -->
       <p>網頁累積使用次數：<script language="javascript" type="text/javascript" src="//counter1.fc2.com/counter.php?id=89504295"></script><noscript><img src="//counter1.fc2.com/counter_img.php?id=89504295" /></noscript>次
     </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <span id="onlineUsersCount"><!-- FC2計數器 開始 -->
@@ -464,24 +528,77 @@
     <div class="footer">
       <a href="privacy.html">隱私權政策</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       <a href="copyright.html">著作權申明</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      <a href="calendar.html">手機版網頁</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <a href="current.html">手機版網頁</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       <font color="white"><a>網站更新時間：2023/10/11</a></font>
       <p>Copyright © 2023 邱偉軒. All rights reserved. | V5.1.20231010</p>
     </div>
   </div>
+  <script>
+    function updateCurrentTime() {
+      const currentTimeElement = document.getElementById("current-time");
+      const now = new Date();
+      const formattedTime = now.toLocaleTimeString("zh-TW");
+      currentTimeElement.textContent = formattedTime;
+    }
 
-<!-- 連結至 calendar.js-->
-<script src="calendar.js"></script>
+    function updateUsageCount() {
+      const usageCountElement = document.getElementById("usage-count");
+      // You can implement logic to update the usage count here
+      // For now, let's assume the count is 42
+      usageCountElement.textContent = "42";
+    }
+
+    function updateOnlineUsers() {
+      const onlineUsersElement = document.getElementById("online-users");
+      // You can implement logic to update the online users count here
+      // For now, let's assume the count is 5
+      onlineUsersElement.textContent = "5";
+    }
+
+    updateCurrentTime();
+    updateUsageCount();
+    updateOnlineUsers();
+
+    setInterval(updateCurrentTime, 1000);
+    // You can adjust the interval for updating usage count and online users
+    setInterval(updateUsageCount, 5000);
+    setInterval(updateOnlineUsers, 10000);
+   
+  </script>
 
 <script>
-        function updateCurrentTime() {
-            const currentTimeElement = document.getElementById("current-time");
-            const now = new Date();
-            const formattedTime = now.toLocaleTimeString("zh-TW");
-            currentTimeElement.textContent = formattedTime;
-        }
+    function updateCurrentTime() {
+        const currentTimeElement = document.getElementById("current-time");
+        const now = new Date();
+        const formattedTime = now.toLocaleTimeString("zh-TW");
+        currentTimeElement.textContent = formattedTime;
+    }
 
-        function disableInteractionsDuringMaintenance() {
+    updateCurrentTime(); // 初始更新
+
+    setInterval(updateCurrentTime, 1000); // 每秒更新一次時間
+
+document.getElementById("toggleSidebar").addEventListener("click", function () {
+    const sidebar = document.querySelector(".sidebar");
+    sidebar.classList.toggle("hide-sidebar");
+
+    const content = document.querySelector(".content");
+    content.classList.toggle("expanded");
+});
+</script>
+
+<!--連結至search.js-->
+<script src="search.js"></script>
+
+  <script>
+    function updateCurrentTime() {
+        const currentTimeElement = document.getElementById("current-time");
+        const now = new Date();
+        const formattedTime = now.toLocaleTimeString("zh-TW");
+        currentTimeElement.textContent = formattedTime;
+    }
+
+    function disableInteractionsDuringMaintenance() {
     const now = new Date();
     const dayOfWeek = now.getDay(); // 0: 星期日, 1: 星期一, 2: 星期二, ... , 6: 星期六
     const hour = now.getHours();
@@ -497,37 +614,30 @@
 }
 
 disableInteractionsDuringMaintenance(); // 检查维护状态
-
-        document.addEventListener("DOMContentLoaded", function() {
-  const toggleButton = document.getElementById("toggleSidebar");
-  const sidebar = document.querySelector(".sidebar");
-  const content = document.querySelector(".content");
-
-  toggleButton.addEventListener("click", function() {
-    sidebar.classList.toggle("hide-sidebar");
-    content.classList.toggle("expanded");
-  });
-});
-
-    </script>
-    <script>
-        function updateCurrentDateTime() {
-           const currentDateTimeElement = document.getElementById("currentDateTime");
-           const currentTime = new Date();   
-           const year = currentTime.getFullYear();
-           const month = (currentTime.getMonth() + 1).toString().padStart(2, '0'); // +1 因為月份從 0 開始
-           const day = currentTime.getDate().toString().padStart(2, '0');   
-           const hours = currentTime.getHours().toString().padStart(2, '0');
-           const minutes = currentTime.getMinutes().toString().padStart(2, '0');
-           const seconds = currentTime.getSeconds().toString().padStart(2, '0');   
-           const dateTimeString = `${year}/${month}/${day} ${hours}:${minutes}:${seconds}`;
-           currentDateTimeElement.textContent = "現在時間: " + dateTimeString;
-       }
-       updateCurrentDateTime();
-       setInterval(updateCurrentDateTime, 1000);
-       window.addEventListener('DOMContentLoaded', updateTime);
-       </script>
-        <!--連結至跑馬燈marquee.js-->
+</script>
+<script>
+    function updateCurrentDateTime() {
+       const currentDateTimeElement = document.getElementById("currentDateTime");
+       const currentTime = new Date();   
+       const year = currentTime.getFullYear();
+       const month = (currentTime.getMonth() + 1).toString().padStart(2, '0'); // +1 因為月份從 0 開始
+       const day = currentTime.getDate().toString().padStart(2, '0');   
+       const hours = currentTime.getHours().toString().padStart(2, '0');
+       const minutes = currentTime.getMinutes().toString().padStart(2, '0');
+       const seconds = currentTime.getSeconds().toString().padStart(2, '0');   
+       const dateTimeString = `${year}/${month}/${day} ${hours}:${minutes}:${seconds}`;
+       currentDateTimeElement.textContent = "現在時間: " + dateTimeString;
+   }
+   updateCurrentDateTime();
+   setInterval(updateCurrentDateTime, 1000);
+   window.addEventListener('DOMContentLoaded', updateTime);
+   </script>
+    <!--連結至跑馬燈marquee.js-->
 <script src="marquee.js"></script>
+<script src="current.js"></script>
+
+
+
+
 </body>
 </html>
