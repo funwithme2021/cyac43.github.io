@@ -6,13 +6,15 @@
             { name: "分區迎新", status: ["completed", "incomplete", "completed"] },
             { name: "新生搬宿", status: ["completed", "completed", "completed"] },
             { name: "新生註冊", status: ["completed", "incomplete", "completed"] },
-            { name: "十字路口", status: ["completed", "incomplete", "completed"] },
+            { name: "食字路口", status: ["completed", "incomplete", "completed"] },
             { name: "迎新宿營", status: ["completed", "incomplete", "incomplete"] },
             { name: "常會(上)", status: ["completed", "incomplete", "incomplete"] },
             { name: "青春洋溢，會樂與你", status: ["completed", "incomplete", "incomplete"] },
             { name: "六系聯合萬聖趴", status: ["completed", "incomplete", "incomplete"] },
             { name: "校慶運動會", status: ["completed", "incomplete", "incomplete"] },
             { name: "期初佈置", status: ["completed", "incomplete", "incomplete"] },
+            { name: "全員逃走中", status: ["incomplete", "incomplete", "incomplete"] },
+            { name: "公關傳情", status: ["incomplete", "incomplete", "incomplete"] },
         ];
 
         function addActivity() {
