@@ -425,6 +425,15 @@ body {
             color: red;
             font-weight: bold;
         }
+      
+        .partially-completed {
+            color: orange;
+            font-weight: bold;
+        }
+        .legend {
+            margin-top: 10px;
+            font-weight: bold;
+        }
   </style>
 
 
@@ -500,12 +509,18 @@ body {
                 <select id="filterStatus" onchange="filterTable()">
                     <option value="all">全部</option>
                     <option value="completed">已完成</option>
+                    <option value="partially-completed">部份完成</option>
                     <option value="incomplete">尚未完成</option>
                 </select>
                 <label for="searchActivity">搜尋活動名稱:</label>
                 <input type="text" id="searchActivity" onkeyup="searchTable()">
             </div>
-        
+
+            <div class="legend">
+              <span class="completed">O 已上傳資料且已完成</span>&nbsp;&nbsp;
+              <span class="partially-completed">△ 已上傳資料但未完成</span>&nbsp;&nbsp;
+              <span class="incomplete">X 未上傳資料且未完成</span>
+          </div>
         
             <table id="activityTable">
                 <tr>
@@ -516,6 +531,7 @@ body {
                     <th>活動狀態</th>
                 </tr>
             </table>
+            
         </div>
     
     <div class="usage-info">
