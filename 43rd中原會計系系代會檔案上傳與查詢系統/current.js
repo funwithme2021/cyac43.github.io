@@ -2,7 +2,7 @@ const activities = [
     { name: "海綿寶寶會救我!有怪獸!", status: ["completed", "completed", "completed"] },
     { name: "金計機國的闖關者", status: ["completed", "completed", "completed"] },
     { name: "新生手冊", status: ["completed", "completed", "completed"] },
-    { name: "分區迎新", status: ["completed", "incomplete", "completed"] },
+    { name: "分區迎新", status: ["completed", "partially-completed", "completed"] },
     { name: "新生搬宿", status: ["completed", "completed", "completed"] },
     { name: "新生註冊", status: ["completed", "partially-completed", "completed"] },
     { name: "食字路口", status: ["completed", "incomplete", "completed"] },
