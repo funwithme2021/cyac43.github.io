@@ -14,6 +14,8 @@ const activities = [
     { name: "期初佈置", status: ["completed", "incomplete", "incomplete"] },
     { name: "全員逃走中", status: ["partially-completed", "incomplete", "incomplete"] },
     { name: "公關傳情", status: ["partially-completed", "incomplete", "incomplete"] },
+    { name: "學術演講", status: ["partially-completed", "incomplete", "incomplete"] },
+    { name: "讀書週暨暖心期中宵", status: ["partially-completed", "incomplete", "incomplete"] },
 ];
 
 function addActivity() {
