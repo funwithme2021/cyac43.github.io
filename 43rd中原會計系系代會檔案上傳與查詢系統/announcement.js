@@ -11,14 +11,14 @@ title: "每日13-14時及每週六0-6時為維護時段，暫停使用。",
 note: "網頁維護公告"
 },
 {
+  date: "2023-10-25",
+  title: "112年11月13日21時0分，於中原大學商學大樓系聯辦理1121學年度10月份結帳。",
+  note: "結帳通知公告"
+},
+{
 date: "2023-10-11",
 title: "電腦與手機版本網頁已完成修復，同步上線中，歡迎使用。",
 note: "網頁上線公告"
-},
-{
-date: "2023-10-09",
-title: "112年11月13日21時0分，於中原大學商學大樓系聯辦理1121學年度10月份結帳。",
-note: "結帳通知公告"
 },
 {
 date: "2023-10-09",
@@ -48,12 +48,12 @@ note: "網頁停止公告"
 {
 date: "2023-08-05",
 title: "電腦版本網頁",
-note: "<a href='https://funwithme2021.github.io/cyac43.github.io/43rd%E4%B8%AD%E5%8E%9F%E6%9C%83%E8%A8%88%E7%B3%BB%E7%B3%BB%E4%BB%A3%E6%9C%83%E6%AA%94%E6%A1%88%E4%B8%8A%E5%82%B3%E8%88%87%E6%9F%A5%E8%A9%A2%E7%B3%BB%E7%B5%B1/index.html'>點擊進入系統</a>"
+note: "網頁上線公告"
 },
 {
 date: "2023-07-20",
 title: "簡易版本網頁",
-note: "<a href='https://unwithme2021.github.io/43rdac.github.io/43rd%E4%B8%AD%E5%8E%9F%E6%9C%83%E8%A8%88%E7%B3%BB%E7%B3%BB%E5%AD%B8%E6%9C%83%E6%AA%94%E6%A1%88%E4%B8%8A%E5%82%B3%E8%88%87%E6%9F%A5%E8%A9%A2%E4%B8%8A%E5%82%B3%E7%B3%BB%E7%B5%B1/index.html?fbclid=IwAR0FnADHDKRIGK2IvE-0p7Yri8e7WUJvBoaqs2dGFdnWpgcSBU2annykUyw'>點擊進入系統</a>"
+note: "網頁上線公告"
 },
 {
 date: "2023-07-15",

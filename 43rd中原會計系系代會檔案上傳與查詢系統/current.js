@@ -6,7 +6,7 @@ const activities = [
     { name: "新生搬宿", status: ["completed", "completed", "completed"] },
     { name: "新生註冊", status: ["completed", "partially-completed", "completed"] },
     { name: "食字路口", status: ["completed", "partially-completed", "completed"] },
-    { name: "迎新宿營", status: ["completed", "incomplete", "incomplete"] },
+    { name: "迎新宿營", status: ["completed", "partially-completed", "incomplete"] },
     { name: "常會(上)", status: ["completed", "incomplete", "incomplete"] },
     { name: "青春洋溢，會樂與你", status: ["completed", "partially-completed", "incomplete"] },
     { name: "六系聯合萬聖趴", status: ["completed", "incomplete", "incomplete"] },
