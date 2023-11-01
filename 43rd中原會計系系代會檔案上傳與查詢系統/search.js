@@ -495,6 +495,16 @@ passwordInput.value = "";
     title: "決算明細表",
     note: "<a href=''>學術演講(1121)</a>"
   },
+  {
+    date: "2023-11-02",
+    title: "決算表",
+    note: "<a href='https://reurl.cc/RyDaXZ'>公關傳情(1121)</a>"
+  },
+  {
+    date: "2023-11-02",
+    title: "決算明細表",
+    note: "<a href='https://reurl.cc/z6XmN0'>公關傳情(1121)</a>"
+  },
 
   {
     date: "2023-11-13",
