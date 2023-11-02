@@ -433,7 +433,7 @@ passwordInput.value = "";
   {
     date: "2023-11-01",
     title: "企劃書",
-    note: "<a href=''>讀書週暨暖心期中宵(1121)</a>"
+    note: "<a href='https://reurl.cc/0ZypQl'>讀書週暨暖心期中宵(1121)</a>"
   },
   {
     date: "2023-11-01",
@@ -468,22 +468,22 @@ passwordInput.value = "";
   {
     date: "2023-11-02",
     title: "決算表",
-    note: "<a href=''>讀書週暨暖心期中宵(1121)</a>"
+    note: "<a href='https://reurl.cc/3eZo4L'>讀書週暨暖心期中宵(1121)</a>"
   },
   {
     date: "2023-11-02",
     title: "決算明細表",
-    note: "<a href=''>讀書週暨暖心期中宵(1121)</a>"
+    note: "<a href='https://reurl.cc/L6Zml9'>讀書週暨暖心期中宵(1121)</a>"
   },
   {
     date: "2023-11-02",
     title: "決算表",
-    note: "<a href=''>全員逃走中(1121)</a>"
+    note: "<a href='https://reurl.cc/a47nZY'>全員逃走中(1121)</a>"
   },
   {
     date: "2023-11-02",
     title: "決算明細表",
-    note: "<a href=''>全員逃走中(1121)</a>"
+    note: "<a href='https://reurl.cc/nLR1m2'>全員逃走中(1121)</a>"
   },
   {
     date: "2023-11-02",
@@ -505,6 +505,13 @@ passwordInput.value = "";
     title: "決算明細表",
     note: "<a href='https://reurl.cc/z6XmN0'>公關傳情(1121)</a>"
   },
+  {
+    date: "2023-11-02",
+    title: "發預算表",
+    note: "<a href='https://reurl.cc/E1arr1'>112年10月份(1121)</a>"
+  },
+
+
 
   {
     date: "2023-11-13",
