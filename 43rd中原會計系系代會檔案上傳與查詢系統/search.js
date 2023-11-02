@@ -488,12 +488,12 @@ passwordInput.value = "";
   {
     date: "2023-11-02",
     title: "決算表",
-    note: "<a href=''>學術演講(1121)</a>"
+    note: "<a href='https://reurl.cc/6QeEdM'>學術演講(1121)</a>"
   },
   {
     date: "2023-11-02",
     title: "決算明細表",
-    note: "<a href=''>學術演講(1121)</a>"
+    note: "<a href='https://reurl.cc/gaE0GR'>學術演講(1121)</a>"
   },
   {
     date: "2023-11-02",
