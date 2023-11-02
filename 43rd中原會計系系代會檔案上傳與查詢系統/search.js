@@ -343,7 +343,7 @@ passwordInput.value = "";
   {
     date: "2023-10-02",
     title: "發預算表",
-    note: "<a href='https://reurl.cc/Nyyqrk'>112年9月份(1121)</a>"
+    note: "<a href='https://reurl.cc/1GpenD'>112年9月份(1121)</a>"
   },
   {
     date: "2023-10-02",
