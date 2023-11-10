@@ -535,7 +535,7 @@ document.getElementById("toggleSidebar").addEventListener("click", function () {
             const hour = now.getHours();
 
             // 檢查是否在要鎖定的時段內（星期六的0點到6點和每日13點到14點）
-            if ((dayOfWeek === 6 && hour >= 0 && hour < 6) || (hour >= 13 && hour < 14)) {
+            if ((dayOfWeek === 6 && hour >= 0 && hour < 2) || (hour >= 13 && hour < 14)) {
                 // 显示遮罩层
                 const overlay = document.getElementById("maintenanceOverlay");
                 overlay.style.display = "flex";
@@ -573,7 +573,7 @@ document.getElementById("toggleSidebar").addEventListener("click", function () {
           // 在这里执行继续的操作
 
           // 在这里进行页面跳转
-          window.location.href = "https://script.google.com/macros/s/AKfycbxbpy5DPG01Akd7XnHroLgQ0_MOKVTrJzUHWA4NstMgjx4OCPsPaIUnQ296QyzTUHSY/exec";
+          window.location.href = "https://script.google.com/macros/s/AKfycbxxIunodng2j4cJe5Do-eEWNcsiisvJ2dqAu716UW3iarvUQKngAiIZoNDWj8svVHsL/exec";
         } else {
           alert('答案錯誤，請仔細閱讀後並重新選擇。');
         }
