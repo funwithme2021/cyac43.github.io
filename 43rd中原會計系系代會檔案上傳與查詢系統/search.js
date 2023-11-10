@@ -423,12 +423,12 @@ passwordInput.value = "";
   {
     date: "2023-11-01",
     title: "企劃書",
-    note: "<a href=''>全員逃走中(1121)</a>"
+    note: "<a href='https://reurl.cc/Xmbl8M'>全員逃走中(1121)</a>"
   },
   {
     date: "2023-11-01",
     title: "企劃書",
-    note: "<a href=''>學術演講(1121)</a>"
+    note: "<a href='https://reurl.cc/jvegE2'>學術演講(1121)</a>"
   },
   {
     date: "2023-11-01",
@@ -448,22 +448,22 @@ passwordInput.value = "";
   {
     date: "2023-11-01",
     title: "檢討會",
-    note: "<a href=''>迎新宿營(1121)</a>"
+    note: "<a href='https://reurl.cc/2EOoR9'>迎新宿營(1121)</a>"
   },
   {
     date: "2023-11-01",
     title: "檢討會",
-    note: "<a href=''>食字路口(1121)</a>"
+    note: "<a href='https://reurl.cc/V4o5b6'>食字路口(1121)</a>"
   },
   {
     date: "2023-11-01",
     title: "檢討會",
-    note: "<a href=''>青春洋溢，會樂與你(1121)</a>"
+    note: "<a href='https://reurl.cc/OjokKA'>青春洋溢，會樂與你(1121)</a>"
   },
   {
     date: "2023-11-01",
     title: "檢討會",
-    note: "<a href=''>校慶運動會(1121)</a>"
+    note: "<a href='https://reurl.cc/QZo6q0'>校慶運動會(1121)</a>"
   },
   {
     date: "2023-11-02",
@@ -510,56 +510,94 @@ passwordInput.value = "";
     title: "發預算表",
     note: "<a href='https://reurl.cc/E1arr1'>112年10月份(1121)</a>"
   },
+  {
+    date: "2023-11-11",
+    title: "現金帳",
+    note: "<a href='https://reurl.cc/Y0ojzo'>112年08月份(1112)</a>"
+  },
+  {
+    date: "2023-11-11",
+    title: "帳簿",
+    note: "<a href='https://reurl.cc/MyoklX'>112年08月份(1112)(01)</a>"
+  },
+  {
+    date: "2023-11-11",
+    title: "帳簿",
+    note: "<a href='https://reurl.cc/9R95Kv'>112年08月份(1112)(02)</a>"
+  },
+  {
+    date: "2023-11-11",
+    title: "現金帳",
+    note: "<a href=''>112年07月份(1112)(無)</a>"
+  },
+  {
+    date: "2023-11-11",
+    title: "帳簿",
+    note: "<a href=''>112年07月份(1112)(無)</a>"
+  },
+  {
+    date: "2023-11-11",
+    title: "現金帳",
+    note: "<a href='https://reurl.cc/9R95la'>112年06月份(1112)</a>"
+  },
+  {
+    date: "2023-11-11",
+    title: "帳簿",
+    note: "<a href='https://reurl.cc/6QRDoy'>112年06月份(1112)</a>"
+  },
+
+
+
 
 
 
   {
-    date: "2023-11-13",
+    date: "2023-11-14",
     title: "結算表",
     note: "<a href='https:'>迎新宿營(1121)</a>"
   },
   {
-    date: "2023-11-13",
+    date: "2023-11-14",
     title: "結算明細表",
     note: "<a href='https:'>迎新宿營(1121)</a>"
   },
   {
-    date: "2023-11-13",
+    date: "2023-11-14",
     title: "查核表",
     note: "<a href='https:'>迎新宿營(1121)</a>"
   },
   {
-    date: "2023-11-13",
+    date: "2023-11-17",
     title: "開會通知",
     note: "<a href='htt'>112年11月份(1121)</a>"
   },
   {
-    date: "2023-11-13",
+    date: "2023-11-20",
     title: "會議簽到",
     note: "<a href='https:'>112年11月份(1121)</a>"
   },
   {
-    date: "2023-11-13",
+    date: "2023-11-20",
     title: "會議紀錄",
     note: "<a href='https:'>112年11月份(1121)</a>"
   },
   {
-    date: "2023-11-13",
+    date: "2023-11-20",
     title: "決算表",
     note: "<a href='https:'>(1121)</a>"
   },
   {
-    date: "2023-11-13",
+    date: "2023-11-20",
     title: "結算表",
     note: "<a href='https:'>(1121)</a>"
   },
   {
-    date: "2023-11-13",
+    date: "2023-11-20",
     title: "結算明細表",
     note: "<a href='https:'>(1121)</a>"
   },
   {
-    date: "2023-11-13",
+    date: "2023-11-20",
     title: "查核表",
     note: "<a href='https:'>(1121)</a>"
   },
