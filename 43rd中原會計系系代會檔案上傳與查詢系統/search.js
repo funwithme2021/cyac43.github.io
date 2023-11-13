@@ -548,25 +548,56 @@ passwordInput.value = "";
   {
     date: "2023-11-14",
     title: "結算表",
-    note: "<a href='https://reurl.cc/m0b9V7'>迎新宿營(1121)</a>"
+    note: "<a href=''>迎新宿營(1121)</a>"
   },
   {
     date: "2023-11-14",
     title: "結算明細表",
-    note: "<a href='https://reurl.cc/Xmrk7e'>迎新宿營(1121)</a>"
+    note: "<a href=''>迎新宿營(1121)</a>"
   },
-
-
-
-
-
-
-
+  {
+    date: "2023-11-14",
+    title: "結算表",
+    note: "<a href='https://reurl.cc/kabZd3'>青春洋溢，會樂與你(1121)</a>"
+  },
+  {
+    date: "2023-11-14",
+    title: "結算明細表",
+    note: "<a href='https://reurl.cc/K3zAky'>青春洋溢，會樂與你(1121)</a>"
+  },
+  {
+    date: "2023-11-14",
+    title: "結算表",
+    note: "<a href='https://reurl.cc/Ry70d6'>校慶運動會(1121)</a>"
+  },
+  {
+    date: "2023-11-14",
+    title: "結算明細表",
+    note: "<a href='https://reurl.cc/x6bGDe'>校慶運動會(1121)</a>"
+  },
   {
     date: "2023-11-14",
     title: "查核表",
-    note: "<a href='https:'>迎新宿營(1121)</a>"
+    note: "<a href=''>迎新宿營(1121)</a>"
   },
+  {
+    date: "2023-11-14",
+    title: "查核表",
+    note: "<a href='https://reurl.cc/kabZM9'>青春洋溢，會樂與你(1121)</a>"
+  },
+  {
+    date: "2023-11-14",
+    title: "查核表",
+    note: "<a href='https://reurl.cc/E1Nngn'>校慶運動會(1121)</a>"
+  },
+  {
+    date: "2023-11-04",
+    title: "應收退預算表",
+    note: "<a href='https://reurl.cc/A0WkkK'>112年10月份(1121)</a>"
+  },
+
+
+
   {
     date: "2023-11-17",
     title: "開會通知",
