@@ -545,22 +545,23 @@ passwordInput.value = "";
     title: "帳簿",
     note: "<a href='https://reurl.cc/6QRDoy'>112年06月份(1112)</a>"
   },
-
-
-
-
-
-
   {
     date: "2023-11-14",
     title: "結算表",
-    note: "<a href='https:'>迎新宿營(1121)</a>"
+    note: "<a href='https://reurl.cc/m0b9V7'>迎新宿營(1121)</a>"
   },
   {
     date: "2023-11-14",
     title: "結算明細表",
-    note: "<a href='https:'>迎新宿營(1121)</a>"
+    note: "<a href='https://reurl.cc/Xmrk7e'>迎新宿營(1121)</a>"
   },
+
+
+
+
+
+
+
   {
     date: "2023-11-14",
     title: "查核表",
