@@ -651,24 +651,54 @@ if (answerRows.length > 0) {
 }
 
 disableInteractionsDuringMaintenance(); // 检查维护状态
+
+
+  function updateCurrentDateTime() {
+     const currentDateTimeElement = document.getElementById("currentDateTime");
+     const currentTime = new Date();   
+     const year = currentTime.getFullYear();
+     const month = (currentTime.getMonth() + 1).toString().padStart(2, '0'); // +1 因為月份從 0 開始
+     const day = currentTime.getDate().toString().padStart(2, '0');   
+     const hours = currentTime.getHours().toString().padStart(2, '0');
+     const minutes = currentTime.getMinutes().toString().padStart(2, '0');
+     const seconds = currentTime.getSeconds().toString().padStart(2, '0');   
+     const dateTimeString = `${year}/${month}/${day} ${hours}:${minutes}:${seconds}`;
+     currentDateTimeElement.textContent = "現在時間: " + dateTimeString;
+ }
+ updateCurrentDateTime();
+ setInterval(updateCurrentDateTime, 1000);
+ window.addEventListener('DOMContentLoaded', updateTime);
+ </script>
 </script>
+
+
 <script>
-    function updateCurrentDateTime() {
-       const currentDateTimeElement = document.getElementById("currentDateTime");
-       const currentTime = new Date();   
-       const year = currentTime.getFullYear();
-       const month = (currentTime.getMonth() + 1).toString().padStart(2, '0'); // +1 因為月份從 0 開始
-       const day = currentTime.getDate().toString().padStart(2, '0');   
-       const hours = currentTime.getHours().toString().padStart(2, '0');
-       const minutes = currentTime.getMinutes().toString().padStart(2, '0');
-       const seconds = currentTime.getSeconds().toString().padStart(2, '0');   
-       const dateTimeString = `${year}/${month}/${day} ${hours}:${minutes}:${seconds}`;
-       currentDateTimeElement.textContent = "現在時間: " + dateTimeString;
-   }
-   updateCurrentDateTime();
-   setInterval(updateCurrentDateTime, 1000);
-   window.addEventListener('DOMContentLoaded', updateTime);
-   </script>
+    function showNotification() {
+        alert("此頁面目前非開放，請於開放時間內再試。");
+    }
+
+    function hidePageAndShowNotification() {
+        // 隱藏整個內容
+        document.body.style.display = "none";
+        // 顯示提示框
+        showNotification();
+    }
+
+    // 頁面進入時立即執行檢查
+    (function () {
+        const currentDate = new Date();
+        const openDate = new Date("2023-12-03T16:00:00+08:00");
+        const closeDate = new Date("2023-12-06T15:59:00+08:00");
+
+        if (currentDate >= openDate && currentDate <= closeDate) {
+            // 在開放時間範圍內，不進行任何操作
+        } else {
+            // 不在開放時間範圍內，隱藏整個內容並顯示提示框
+            hidePageAndShowNotification();
+        }
+    })();
+</script>
+
    
   
     <!--連結至跑馬燈marquee.js-->
