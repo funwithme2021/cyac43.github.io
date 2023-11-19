@@ -10,11 +10,11 @@
     var statusButton = document.getElementById("statusButton");
 
     // 定義開放時間範圍
-    var signupOpenTime = new Date("2023-11-20T04:00:00+08:00");
-    var signupCloseTime = new Date("2023-12-01T15:59:00+08:00");
+    var signupOpenTime = new Date("2023-11-20T12:00:00+08:00");
+    var signupCloseTime = new Date("2023-12-01T23:59:00+08:00");
 
-    var statusOpenTime = new Date("2023-12-03T16:00:00+08:00");
-    var statusCloseTime = new Date("2023-12-06T15:59:00+08:00");
+    var statusOpenTime = new Date("2023-12-04T00:00:00+08:00");
+    var statusCloseTime = new Date("2023-12-06T23:59:00+08:00");
 
     signupButton.addEventListener("click", function () {
         checkOpenTime(signupOpenTime, signupCloseTime);
