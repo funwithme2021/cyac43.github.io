@@ -595,14 +595,14 @@ passwordInput.value = "";
     title: "應收退預算表",
     note: "<a href='https://reurl.cc/A0WkkK'>112年10月份(1121)</a>"
   },
-
-
-
   {
     date: "2023-11-17",
     title: "開會通知",
-    note: "<a href='htt'>112年11月份(1121)</a>"
+    note: "<a href='https://reurl.cc/gayNob'>112年11月份(1121)</a>"
   },
+
+
+
   {
     date: "2023-11-20",
     title: "會議簽到",
@@ -632,6 +632,21 @@ passwordInput.value = "";
     date: "2023-11-20",
     title: "查核表",
     note: "<a href='https:'>(1121)</a>"
+  },
+  {
+    date: "2023-12-05",
+    title: "開會通知",
+    note: "<a href='htt'>112年12月份(1121)</a>"
+  },  
+  {
+    date: "2023-12-20",
+    title: "會議簽到",
+    note: "<a href='https:'>112年11月份(1121)</a>"
+  },
+  {
+    date: "2023-12-20",
+    title: "會議紀錄",
+    note: "<a href='https:'>112年11月份(1121)</a>"
   },
 
   // 輸入公告區// 輸入公告區// 輸入公告區// 輸入公告區// 輸入公告區// 輸入公告區// 輸入公告區// 輸入公告區// 輸入公告區
