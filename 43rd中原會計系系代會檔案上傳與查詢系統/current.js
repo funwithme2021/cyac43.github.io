@@ -9,14 +9,15 @@ const activities = [
     { name: "迎新宿營", status: ["completed", "completed", "incomplete"] },
     { name: "常會(上)", status: ["completed", "incomplete", "incomplete"] },
     { name: "青春洋溢，會樂與你", status: ["completed", "completed", "completed"] },
-    { name: "六系聯合萬聖趴", status: ["completed", "incomplete", "incomplete"] },
+    { name: "六系聯合萬聖趴", status: ["completed", "partially-completed", "incomplete"] },
     { name: "校慶運動會", status: ["completed", "completed", "completed"] },
     { name: "期初佈置", status: ["completed", "partially-completed", "incomplete"] },
     { name: "全員逃走中", status: ["completed", "incomplete", "incomplete"] },
     { name: "公關傳情", status: ["completed", "incomplete", "incomplete"] },
     { name: "學術演講", status: ["completed", "incomplete", "incomplete"] },
-    { name: "讀書週暨暖心期中宵", status: ["completed", "incomplete", "incomplete"] },
-    { name: "致富導航器", status: ["incomplete", "incomplete", "incomplete"] },
+    { name: "讀書週暨暖心期中宵", status: ["completed", "partially-completed", "incomplete"] },
+    { name: "致富導航器", status: ["partially-completed", "incomplete", "incomplete"] },
+    { name: "企業參訪", status: ["partially-completed", "incomplete", "incomplete"] },
 ];
 
 function addActivity() {
