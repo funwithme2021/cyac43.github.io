@@ -499,8 +499,8 @@ if (answerRows.length > 0) {
      <h2 align="center">帳號密碼查詢</h2>
   </div>
     <div class="search-box">
-      <label for="searchName">姓名：</label>
-      <input type="text" id="searchName" placeholder="請輸入姓名" required>
+      <label for="searchName">手機號碼：</label>
+      <input type="text" id="searchName" placeholder="請輸入手機號碼" required>
       <label for="searchStudentId">學號：</label>
       <input type="text" id="searchStudentId" placeholder="請輸入學號" required>
       <button id="searchButton">查詢</button>    
@@ -510,9 +510,11 @@ if (answerRows.length > 0) {
           <tr>
             <th>姓名</th>
             <th>學號</th>
+            <th>活動名稱</th>
             <th>報名狀態(報名序號)</th>
-            <th>姓名</th>
-            <th>學號</th>
+            <th>應繳金額</th>
+            <th>備註一</th>
+            <th>備註二</th>
           </tr>
         </thead>
         <tbody id="tableBody">
@@ -688,8 +690,8 @@ disableInteractionsDuringMaintenance(); // 检查维护状态
     // 頁面進入時立即執行檢查
     (function () {
         const currentDate = new Date();
-        const openDate = new Date("2023-11-27T12:00:00+08:00");
-        const closeDate = new Date("2023-12-15T23:59:00+08:00");
+        const openDate = new Date("2023-11-23T12:00:00+08:00");
+        const closeDate = new Date("2023-11-23T17:59:00+08:00");
 
         if (currentDate >= openDate && currentDate <= closeDate) {
             // 在開放時間範圍內，不進行任何操作
