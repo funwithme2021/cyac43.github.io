@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=0.6">
+    <title>歡迎來到43rd中原大學會計學系系代會檔案上傳與查詢系統</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            height: 100vh;
+            background-image: url('background.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        #container {
+            max-width: 400px;
+            padding: 40px;
+            text-align: center;
+            background: #ffffff49;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        #logo {
+            width: 150px;
+            height: 50px;
+            border-radius: 0%;
+            margin-bottom: 5px;
+        }
+        #header {
+            color: #fefefe;
+            font-size: 24px;
+            margin-bottom: 0px;
+        }
+        #system {
+            color: #fefefe;
+            margin-bottom: 5px;
+        }
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 5px;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .btn:hover {
+            background-color: #5f26e4;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.4);
+        }
+        .modal-content {
+            background-color: #fefefe;
+            margin: 10% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            border-radius: 5px;
+        }
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        /* 添加遮罩层样式 */
+ .maintenance-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgb(0, 0, 0);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+
+        .maintenance-message {
+            text-align: center;
+            color: white;
+            padding: 20px;
+            border: 2px solid white;
+            max-width: 100%;
+        }
+
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgb(0, 0, 0);
+            justify-content: center;
+            align-items: center;
+            z-index: 9999; /* 确保遮罩层在最顶层 */
+        }
+        #maintain
+        {
+            width: 500px;
+            height: 250px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="maintenance-overlay" id="maintenanceOverlay">
+        <div class="maintenance-message">
+            <h1>目前網頁維護中，請稍後再試!<br>維護時段:每日13-14時及每週六0-6時</h1>
+            <img id="maintain" src="maintain.png" alt="maintain">
+        </div>
+    </div>
+    <div id="container">
+        <img id="logo" src="account1.jpg" alt="logo">
+        <div id="header">Welcome</div>
+        <div id="system">請先閱讀並同意注意事項</div>
+        <button class="btn" onclick="showModal('desktop')">同意開始閱讀</button>
+        <button class="btn" onclick>不同意並離開</button>
+    </div>
+
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <p><strong>⚠️重要公告！請詳細閱讀:</strong><br>
+                -<br>
+                <strong>🐣開系代前須知</strong><br>
+                ➊所需檔案請於開會當日前七日由上傳系統上傳，檔案格式依網站公告指示為準。<br>
+                ➋檔名之活動名稱請與活動名稱相同，請勿簡寫或另外命名。<br>
+                ➌超過一定金額之預算需有估價單，請於開會前七日直接上傳至群組。<br>
+                ➍含美宣費之預算需有草稿，請於開會前七日直接上傳至群組。<br>
+                ➎若格式內容有誤將另行通知更改。<br>
+                -<br>
+                <strong>🐣開系代後須知</strong><br>
+                ➊ 已更正之檔案請於開會當日後三日由上傳系統上傳，檔案格式依網站公告指示為準。<br>
+                ➋檔名之活動名稱請與活動名稱相同，請勿簡寫或另外命名。<br>
+                ➌已更正之預算表、預算明細表請使用Word檔直接上傳至群組。<br>
+                ➍會議紀錄、簽到表請於開會當日由上傳系統上傳。<br>
+                ➎發預算金額將於開會後七日內公告，公告後即可開始領取預算金額。<br>
+                -<br>
+                <strong>🐣結帳須知</strong><br>
+                ➊請於結帳當日攜帶完整發票與收據。<br>
+                ➋若有缺之相關資料請於結帳日後五日補足，未補足之資料視同逾期未結帳，結算金額為零並將已發之相關金額收回（特殊狀況者除外）。<br>
+                ➌應收退金額將於結帳後七日內公告，公告後依出納指示並公告。<br>
+                ➍查核表請於結帳後三日由上傳系統上傳，格式依網站公告為準，檔名之活動名稱請與活動名稱相同，請勿簡寫或另外命名。</p>
+            <input type="checkbox" id="agreeCheck" />我已閱讀完畢並同意
+            <br />
+            <button class="btn" onclick="redirectPage()">確定</button>
+        </div>
+        <input type="hidden" id="platform" />
+
+        <div class="usage-info">
+            <span id="usageCount"><!-- FC2計數器 開始 -->
+            <p>網頁累積使用次數：<script language="javascript" type="text/javascript" src="//counter1.fc2.com/counter.php?id=89504295"></script><noscript><img src="//counter1.fc2.com/counter_img.php?id=89504295" /></noscript>次
+          </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <span id="onlineUsersCount"><!-- FC2計數器 開始 -->
+            網頁目前在線人數：<script language="javascript" type="text/javascript" src="//counter1.fc2.com/views.php?id=89504295"></script><noscript><img src="//counter1.fc2.com/counter_now.php?id=89504295" /></noscript>人</p>
+          </span>
+          </div>
+    </div>
+    
+ 
+    <script>
+        function showModal(platform) {
+            var modal = document.getElementById("myModal");
+            modal.style.display = "block";
+            document.getElementById("platform").value = platform;
+        }
+
+        function closeModal() {
+            var modal = document.getElementById("myModal");
+            modal.style.display = "none";
+        }
+
+        function redirectPage() {
+            var checkbox = document.getElementById("agreeCheck");
+            if (checkbox.checked) {
+                var platform = document.getElementById("platform").value;
+                if (platform === 'desktop') {
+                    window.location.href = 'index0.html'; // 確保這個 URL 正確
+                } else if (platform === 'mobile') {
+                    window.location.href = 'index1.html'; // 確保這個 URL 正確
+                }
+            } else {
+                alert("您必須同意才能繼續。");
+            }
+        }
+        function updateCurrentTime() {
+      const currentTimeElement = document.getElementById("current-time");
+      const now = new Date();
+      const formattedTime = now.toLocaleTimeString("zh-TW");
+      currentTimeElement.textContent = formattedTime;
+  }
+
+  function disableInteractionsDuringMaintenance() {
+    const now = new Date();
+    const dayOfWeek = now.getDay(); // 0: 星期日, 1: 星期一, 2: 星期二, ... , 6: 星期六
+    const hour = now.getHours();
+
+    // 检查是否在要锁定的时段内（星期六的0点到6点和每日13点到14点）
+    if ((dayOfWeek === 6 && hour >= 0 && hour < 6) || (hour === 13)) {
+        const overlay = document.getElementById("maintenanceOverlay");
+        overlay.style.display = "flex";
+    } else {
+        const overlay = document.getElementById("maintenanceOverlay");
+        overlay.style.display = "none";
+    }
+}
+
+disableInteractionsDuringMaintenance(); // 检查维护状态
+    </script>
+</body>
+</html>
