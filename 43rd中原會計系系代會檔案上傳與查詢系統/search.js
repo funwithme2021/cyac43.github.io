@@ -600,31 +600,75 @@ passwordInput.value = "";
     title: "開會通知",
     note: "<a href='https://reurl.cc/gayNob'>112年11月份(1121)</a>"
   },
-
-
-
   {
-    date: "2023-11-20",
+    date: "2023-11-27",
     title: "會議簽到",
-    note: "<a href='https:'>112年11月份(1121)</a>"
+    note: "<a href='https://reurl.cc/Wv9eL9'>112年11月份(1121)</a>"
   },
   {
-    date: "2023-11-20",
+    date: "2023-11-27",
     title: "會議紀錄",
-    note: "<a href='https:'>112年11月份(1121)</a>"
+    note: "<a href='https://reurl.cc/Y0zMW0'>112年11月份(1121)</a>"
   },
+  {
+    date: "2023-11-27",
+    title: "應收退預算表",
+    note: "<a href='https://reurl.cc/nLgQ3X'>112年11月份(1121)</a>"
+  },
+  {
+    date: "2023-11-27",
+    title: "結算表",
+    note: "<a href='https:'>(1121)</a>"
+  },
+  {
+    date: "2023-11-27",
+    title: "結算表",
+    note: "<a href='https://reurl.cc/a4W0v4'>六系聯合萬聖趴(1121)</a>"
+  },
+  {
+    date: "2023-11-27",
+    title: "結算表",
+    note: "<a href='https://reurl.cc/Ojy713'>期初佈置(1121)</a>"
+  },
+  {
+    date: "2023-11-27",
+    title: "結算明細表",
+    note: "<a href='https://reurl.cc/2EdM0E'>讀書週暨暖心期中宵(1121)</a>"
+  },
+  {
+    date: "2023-11-27",
+    title: "結算表",
+    note: "<a href='https://reurl.cc/1G5jQX'>讀書週暨暖心期中宵(1121)</a>"
+  },
+  {
+    date: "2023-11-27",
+    title: "檢討會",
+    note: "<a href='https://reurl.cc/a4W054'>讀書週暨暖心期中宵(1121)</a>"
+  },
+  {
+    date: "2023-11-27",
+    title: "檢討會",
+    note: "<a href='https://reurl.cc/Ny71rQ'>期初佈置(1121)</a>"
+  },
+  {
+    date: "2023-11-27",
+    title: "檢討會",
+    note: "<a href='https://reurl.cc/Wv2aXD'>六系聯合萬聖趴(1121)</a>"
+  },
+
+
   {
     date: "2023-11-20",
     title: "決算表",
     note: "<a href='https:'>(1121)</a>"
   },
   {
-    date: "2023-11-20",
+    date: "2023-11-27",
     title: "結算表",
     note: "<a href='https:'>(1121)</a>"
   },
   {
-    date: "2023-11-20",
+    date: "2023-11-27",
     title: "結算明細表",
     note: "<a href='https:'>(1121)</a>"
   },
