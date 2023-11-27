@@ -496,7 +496,7 @@ if (answerRows.length > 0) {
 
   
   <div class="calendar-header">
-     <h2 align="center">帳號密碼查詢</h2>
+     <h2 align="center">報名狀態(資訊)查詢</h2>
   </div>
     <div class="search-box">
       <label for="searchName">手機號碼：</label>
@@ -690,8 +690,8 @@ disableInteractionsDuringMaintenance(); // 检查维护状态
     // 頁面進入時立即執行檢查
     (function () {
         const currentDate = new Date();
-        const openDate = new Date("2023-11-23T12:00:00+08:00");
-        const closeDate = new Date("2023-11-24T22:59:00+08:00");
+        const openDate = new Date("2023-11-27T12:00:00+08:00");
+        const closeDate = new Date("2023-12-15T23:59:00+08:00");
 
         if (currentDate >= openDate && currentDate <= closeDate) {
             // 在開放時間範圍內，不進行任何操作

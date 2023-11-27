@@ -37,6 +37,19 @@ $(document).ready(function () {
     { "name": "汪育賢", "studentId": "11043223", "role": "致富導航器","activityName": "正取20(AC0025)", "paymentAmount": "新台幣0元整", "gmail": "", "phone": "0985061030","remark": "","remar": "eason10305678@gmail.com"  },
     { "name": "", "studentId": "11043", "role": "致富導航器","activityName": "正取(AC00)", "paymentAmount": "新台幣0元整", "gmail": "", "phone": "","remark": "","remar": ""  },
     { "name": "", "studentId": "11043", "role": "致富導航器","activityName": "正取(AC00)", "paymentAmount": "新台幣0元整", "gmail": "", "phone": "","remark": "","remar": ""  },
+    
+    { "name": "陳茹筠", "studentId": "11043337", "role": "企業參訪","activityName": "正取1(BU0001)", "paymentAmount": "新台幣100元整", "gmail": "", "phone": "0935166578","remark": "11/29 12:00-13:10於會計系聯收取保證金。","remar": "tiffany920312@yahoo.com.tw"  },
+    { "name": "莊凱伊", "studentId": "11043127", "role": "企業參訪","activityName": "正取2(BU0004)", "paymentAmount": "新台幣100元整", "gmail": "", "phone": "0933127665","remark": "11/29 12:00-13:10於會計系聯收取保證金。","remar": "tina08191102@gmail.com"  },
+    { "name": "孫巧柔", "studentId": "11143214", "role": "企業參訪","activityName": "正取3(BU0005)", "paymentAmount": "新台幣100元整", "gmail": "", "phone": "0902331715","remark": "11/29 12:00-13:10於會計系聯收取保證金。","remar": "qiaorous@gmail.com"  },
+    { "name": "孫巧馨", "studentId": "11143114", "role": "企業參訪","activityName": "正取4(BU0006)", "paymentAmount": "新台幣100元整", "gmail": "", "phone": "0906171170","remark": "11/29 12:00-13:10於會計系聯收取保證金。","remar": "0905802445c@gmail.com"  },
+    { "name": "張恩瑋", "studentId": "11143126", "role": "企業參訪","activityName": "正取5(BU0007)", "paymentAmount": "新台幣100元整", "gmail": "", "phone": "0926766244","remark": "11/29 12:00-13:10於會計系聯收取保證金。","remar": "teen930323@gmail.com"  },
+    { "name": "郭唐伶", "studentId": "11143137", "role": "企業參訪","activityName": "正取6(BU0008)", "paymentAmount": "新台幣100元整", "gmail": "", "phone": "0900751668","remark": "11/29 12:00-13:10於會計系聯收取保證金。","remar": "shmps40118@gmail.com"  },
+    { "name": "陳儀祐", "studentId": "11143226", "role": "企業參訪","activityName": "正取7(BU0009)", "paymentAmount": "新台幣100元整", "gmail": "", "phone": "0908692002","remark": "11/29 12:00-13:10於會計系聯收取保證金。","remar": "yoyo20031208@gmail.com"  },
+    { "name": "郭宜睿", "studentId": "11143227", "role": "企業參訪","activityName": "正取8(BU0011)", "paymentAmount": "新台幣100元整", "gmail": "", "phone": "0900350435","remark": "11/29 12:00-13:10於會計系聯收取保證金。","remar": "eva1230913@gmail.com"  },
+    { "name": "陳綵瑜", "studentId": "11143352", "role": "企業參訪","activityName": "正取9(BU0012)", "paymentAmount": "新台幣100元整", "gmail": "", "phone": "0971763957","remark": "11/29 12:00-13:10於會計系聯收取保證金。","remar": "rosa20040711@gmail.com"  },
+    { "name": "", "studentId": "11043", "role": "企業參訪","activityName": "正取10(BU00)", "paymentAmount": "新台幣100元整", "gmail": "", "phone": "","remark": "11/29 12:00-13:10於會計系聯收取保證金。","remar": ""  },
+    { "name": "", "studentId": "11043", "role": "企業參訪","activityName": "正取11(BU00)", "paymentAmount": "新台幣100元整", "gmail": "", "phone": "","remark": "11/29 12:00-13:10於會計系聯收取保證金。","remar": ""  },
+    { "name": "", "studentId": "11043", "role": "企業參訪","activityName": "正取12(BU00)", "paymentAmount": "新台幣100元整", "gmail": "", "phone": "","remark": "11/29 12:00-13:10於會計系聯收取保證金。","remar": ""  },
     ];
   
         const matchingAnnouncements = announcements.filter(announcement => {
