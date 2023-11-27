@@ -655,18 +655,39 @@ passwordInput.value = "";
     title: "檢討會",
     note: "<a href='https://reurl.cc/Wv2aXD'>六系聯合萬聖趴(1121)</a>"
   },
-
-
   {
-    date: "2023-11-20",
-    title: "決算表",
-    note: "<a href='https:'>(1121)</a>"
+    date: "2023-11-27",
+    title: "發預算表",
+    note: "<a href='https://reurl.cc/GK3Zlv'>112年11月份(1121)</a>"
   },
+  {
+    date: "2023-11-27",
+    title: "決算表",
+    note: "<a href='https://reurl.cc/GK3ZvW'>企業參訪(1121)</a>"
+  },
+  {
+    date: "2023-11-27",
+    title: "決算明細表",
+    note: "<a href='https://reurl.cc/kazNWr'>企業參訪(1121)</a>"
+  },
+  {
+    date: "2023-11-27",
+    title: "決算表",
+    note: "<a href='https://reurl.cc/V4dpg5'>致富導航器(1121)</a>"
+  },
+  {
+    date: "2023-11-27",
+    title: "決算明細表",
+    note: "<a href='https://reurl.cc/v6Z32L'>致富導航器(1121)</a>"
+  },
+
+
   {
     date: "2023-11-27",
     title: "結算表",
     note: "<a href='https:'>(1121)</a>"
   },
+
   {
     date: "2023-11-27",
     title: "結算明細表",
