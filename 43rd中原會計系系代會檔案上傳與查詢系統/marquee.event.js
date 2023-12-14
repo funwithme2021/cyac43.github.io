@@ -15,7 +15,7 @@
     var signupCloseTime = new Date("2023-12-01T23:59:00+08:00");
 
     var signup2OpenTime = new Date("2023-11-22T17:00:00+08:00");
-    var signup2CloseTime = new Date("2023-12-15T12:00:00+08:00");
+    var signup2CloseTime = new Date("2023-12-05T12:00:00+08:00");
 
     var statusOpenTime = new Date("2023-11-27T12:00:00+08:00");
     var statusCloseTime = new Date("2023-12-15T23:59:00+08:00");
