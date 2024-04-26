@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>各站點平均運量</title>
+    <style>
+        /* 添加一些基本樣式，可根據需要調整 */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <a href="index.html"><strong><font size="3">時刻表</font></strong></a>
+    <a href="train-info.html"><strong><font size="3">車站資訊板</font></strong></a>
+    <a href="train-info4.html"><strong><font size="3">多站車站資訊板</font></strong></a>
+    <a href="people.html"><strong><font size="3">運量查詢</font></strong></a>
+
+
+    <h1>各站點平均運量</h1>
+    <table border="1">
+        <tr>
+            <th>排名</th>
+            <th>站點</th>
+            <th>平均運量</th>
+            <th>總列車數</th>
+            <th>新自強</th>
+            <th>普悠瑪</th>
+            <th>自強號</th>
+            <th>莒光號</th>
+            <th>復興號</th>
+            <th>區間快</th>
+            <th>區間車</th>
+            <th>加班車</th>
+        </tr>
+
+        <!-- 站點運量數據將在這裡插入 -->
+
+    </table>
+
+    <h2>站點排名</h2>
+<table border="1">
+    <tr>
+        <th>站點</th>
+        <th>排名</th>
+        <th>平均運量</th>
+    </tr>
+
+
+    <script src="train-schedule.js"></script>
+    <script>
+        // 存儲站點和排名的對應關係
+        var stationRankings = [];
+
+
+        var stationMaxCapacities = {
+            '新自強': 638,
+            '普悠瑪': 406,
+            '自強號': 866,
+            '莒光號': 1000,
+            '復興號': 1000,
+            '區間快': 1700,
+            '區間車': 1700,
+            '加班車': 638,
+            // 其他車種的最大運量可以繼續添加
+        };
+
+        var stationTotalLoads = {};
+        var stationTrainCounts = {};  // 新增的統計各站各車種數量的變數
+        var stationTotalTrains = {};  // 新增的統計各站總列車數的變數
+
+        // 遍歷列車時刻表
+        for (var trainNumber in trainSchedule) {
+            if (trainSchedule.hasOwnProperty(trainNumber)) {
+                var train = trainSchedule[trainNumber];
+
+                // 獲取車種的最大運量
+                var maxCapacityPerTrain = stationMaxCapacities[train['車種']] || 100;
+
+                // 遍歷每列車的經過站點和時間
+                for (var i = 0; i < train['車站時間'].length; i++) {
+                    var station = train['車站時間'][i][0];
+
+                    // 初始化站點運量信息
+                    if (!stationTotalLoads[station]) {
+                        stationTotalLoads[station] = {
+                            totalLoad: 0,
+                            trainCount: 0,
+                        };
+                    }
+
+                    // 初始化站點車種數量信息
+                    if (!stationTrainCounts[station]) {
+                        stationTrainCounts[station] = {
+                            '新自強': 0,
+                            '普悠瑪': 0,
+                            '自強號': 0,
+                            '莒光號': 0,
+                            '復興號': 0,
+                            '區間快': 0,
+                            '區間車': 0,
+                            '加班車': 0,
+                        };
+                    }
+
+                    // 初始化站點總列車數
+                    if (!stationTotalTrains[station]) {
+                        stationTotalTrains[station] = 0;
+                    }
+
+                    // 計算該站點的實際運量（使用一個符合邏輯的隨機公式）
+                    var load = Math.floor(Math.random() * maxCapacityPerTrain) + 1;
+                    stationTotalLoads[station].totalLoad += load;
+                    stationTotalLoads[station].trainCount++;
+
+                    // 累加該站點的各車種數量
+                    stationTrainCounts[station][train['車種']]++;
+
+                    // 累加該站點的總列車數
+                    stationTotalTrains[station]++;
+                }
+            }
+        }
+
+        // 將站點運量由高到低排序
+        var sortedStations = Object.keys(stationTotalLoads).sort(function (a, b) {
+            return stationTotalLoads[b].totalLoad - stationTotalLoads[a].totalLoad;
+        });
+
+        // 在HTML中插入站點運量數據
+        var table = document.querySelector('table');
+        for (var i = 0; i < sortedStations.length; i++) {
+            var station = sortedStations[i];
+            var row = table.insertRow();
+            var cell1 = row.insertCell(0);
+            var cell2 = row.insertCell(1);
+            var cell3 = row.insertCell(2);
+            var cell4 = row.insertCell(3);
+            var cell5 = row.insertCell(4);
+            var cell6 = row.insertCell(5);
+            var cell7 = row.insertCell(6);
+            var cell8 = row.insertCell(7);
+            var cell9 = row.insertCell(8);
+            var cell10 = row.insertCell(9);
+            var cell11 = row.insertCell(10);
+            var cell12 = row.insertCell(11);
+            
+
+            cell1.innerHTML = i + 1;  // 排名
+            cell2.innerHTML = station;
+            cell3.innerHTML = stationTotalLoads[station].totalLoad.toFixed(0); // 保留兩位小數
+            cell4.innerHTML = stationTotalTrains[station];
+            cell5.innerHTML = stationTrainCounts[station]['新自強'];
+            cell6.innerHTML = stationTrainCounts[station]['普悠瑪'];
+            cell7.innerHTML = stationTrainCounts[station]['自強號'];
+            cell8.innerHTML = stationTrainCounts[station]['莒光號'];
+            cell9.innerHTML = stationTrainCounts[station]['復興號'];
+            cell10.innerHTML = stationTrainCounts[station]['區間快'];
+            cell11.innerHTML = stationTrainCounts[station]['區間車'];
+            cell12.innerHTML = stationTrainCounts[station]['加班車'];
+        }
+
+
+    </script>
+
+<script>
+     var stationsOrder = [
+            '臺東', '鹿野', '關山', '池上', '富里', '玉里', '瑞穗', '光復', '萬榮', '鳳林',
+            '壽豐', '志學', '吉安', '花蓮', '新城', '和平', '南澳', '東澳', '蘇澳新', '冬山',
+            '羅東', '中里', '二結', '宜蘭', '礁溪', '頭城', '外澳', '龜山', '大溪', '大里', '石城', '福隆', '雙溪', '猴硐', '瑞芳', '基隆','三坑', '八堵', '七堵',
+            '汐止', '汐科', '南港', '松山', '臺北', '萬華', '板橋', '樹林', '鶯歌', '桃園','內壢',
+            '中壢', '楊梅', '湖口', '竹北', '新竹', '竹南', '苗栗', '銅鑼', '三義', '后里',
+            '豐原', '潭子', '臺中', '新烏日', '彰化', '員林', '社頭', '田中', '二水', '斗六',
+            '斗南', '民雄', '嘉義', '新營', '善化', '永康', '臺南', '岡山', '新左營', '高雄',
+            '鳳山', '九曲堂', '屏東', '西勢', '潮州', '南州', '林邊', '枋寮'
+        ];
+        var table = document.querySelector('table');
+        var rankingTable = document.createElement('table');
+        var headerRowRanking = rankingTable.insertRow();
+        var headerCell1Ranking = headerRowRanking.insertCell(0);
+        var headerCell2Ranking = headerRowRanking.insertCell(1);
+        var headerCell3Ranking = headerRowRanking.insertCell(2);
+        headerCell1Ranking.innerHTML = '站點';
+        headerCell2Ranking.innerHTML = '排名';
+        headerCell3Ranking.innerHTML = '運量';
+
+        for (var i = 0; i < stationsOrder.length; i++) {
+            var station = stationsOrder[i];
+            var row = rankingTable.insertRow();
+            var cell1 = row.insertCell(0);
+            var cell2 = row.insertCell(1);
+            var cell3 = row.insertCell(2);
+
+            // 獲取站點在整體排名中的索引
+            var stationIndex = sortedStations.indexOf(station);
+
+            cell1.innerHTML = station;
+            cell2.innerHTML = stationIndex + 1;  // 排名
+            cell3.innerHTML = stationTotalLoads[station].totalLoad.toFixed(0);
+        }
+
+        document.body.appendChild(rankingTable);
+    </script>
+</body>
+</html>
+
+

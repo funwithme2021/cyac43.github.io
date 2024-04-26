@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>列車時刻表</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+    </style>
+</head>
+<body>
+    <h2>列車時刻表</h2>
+    
+    <label for="startStation">出發站:</label>
+    <select id="startStation">
+        <!-- JavaScript 動態生成的選項 -->
+    </select>
+    
+    <label for="endStation">抵達站:</label>
+    <select id="endStation">
+        <!-- JavaScript 動態生成的選項 -->
+    </select>
+
+    <button onclick="filterTrainScheduleByStation()">篩選</button>
+
+    <table id="scheduleTableByStation">
+        <thead>
+            <tr>
+                <th>車次</th>
+                <th>車種</th>
+                <th>出發站</th>
+                <th>出發時間</th>
+                <th>轉乘站</th>
+                <th>轉乘車次</th>
+                <th>轉乘車種</th>
+                <th>轉乘出發時間</th>
+                <th>抵達站</th>
+                <th>抵達時間</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- JavaScript 動態生成的內容 -->
+        </tbody>
+    </table>
+
+    <script src="train.test.js"></script>
+    <script>
+    function filterTrainScheduleByStation() {
+    var startStation = document.getElementById('startStation').value;
+    var endStation = document.getElementById('endStation').value;
+
+    var scheduleTable = document.getElementById('scheduleTableByStation').getElementsByTagName('tbody')[0];
+    scheduleTable.innerHTML = ''; // Clear previous content
+
+    var matchingTrains = [];
+
+    for (var trainNumberKey1 in trainSchedule) {
+        var stationTimes1 = trainSchedule[trainNumberKey1]['車站時間'];
+        var startIndex1 = stationTimes1.findIndex(station => station[0] === startStation);
+        var endIndex1 = stationTimes1.findIndex(station => station[0] === endStation);
+
+        if (endIndex1 === -1) {
+            // If the first train doesn't reach the destination, find connecting trains
+            for (var trainNumberKey2 in trainSchedule) {
+                if (trainNumberKey1 !== trainNumberKey2) {
+                    var stationTimes2 = trainSchedule[trainNumberKey2]['車站時間'];
+                    var startIndex2 = stationTimes2.findIndex(station => station[0] === startStation);
+                    var endIndex2 = stationTimes2.findIndex(station => station[0] === endStation);
+
+                    if (startIndex2 !== -1 && endIndex2 !== -1 && startIndex2 < endIndex2) {
+                        // Check if there is a transfer station
+                        var transferStationIndex2 = stationTimes2.findIndex((station, index) => index > startIndex2 && index < endIndex2);
+
+                        if (isTransferTimeValid(stationTimes1, startIndex1, stationTimes2, startIndex2) &&
+                            !isSameTrain(trainNumberKey1, stationTimes1, trainNumberKey2, stationTimes2)) {
+                            // Display transfer information
+                            matchingTrains.push({
+                                trainNumber1: trainNumberKey1,
+                                trainType1: getTrainTypeWithColor(trainSchedule[trainNumberKey1]['車種']),
+                                startStation: stationTimes1[startIndex1][0],
+                                startTime1: stationTimes1[startIndex1][1],
+                                transferStation: '',
+                                transferTrainNumber: trainNumberKey2,
+                                transferTrainType: getTrainTypeWithColor(trainSchedule[trainNumberKey2]['車種']),
+                                transferStartTime: stationTimes2[startIndex2][1],
+                                endStation: stationTimes2[endIndex2][0],
+                                endTime1: stationTimes2[endIndex2][1]
+                            });
+                        }
+                    }
+                }
+            }
+        } else if (startIndex1 !== -1 && endIndex1 !== -1 && startIndex1 < endIndex1) {
+            // Check if there is a transfer station
+            var transferStationIndex1 = stationTimes1.findIndex((station, index) => index > startIndex1 && index < endIndex1);
+
+            for (var trainNumberKey2 in trainSchedule) {
+                if (trainNumberKey1 !== trainNumberKey2) { // Ensure it's a different train
+                    var stationTimes2 = trainSchedule[trainNumberKey2]['車站時間'];
+                    var startIndex2 = stationTimes2.findIndex(station => station[0] === startStation);
+                    var endIndex2 = stationTimes2.findIndex(station => station[0] === endStation);
+
+                    if (startIndex2 !== -1 && endIndex2 !== -1 && startIndex2 < endIndex2) {
+                        var transferStationIndex2 = stationTimes2.findIndex((station, index) => index > startIndex2 && index < endIndex2);
+
+                        if (
+                            (transferStationIndex1 !== -1 || transferStationIndex2 !== -1) &&
+                            isTransferTimeValid(stationTimes1, startIndex1, transferStationIndex1, stationTimes2, startIndex2) &&
+                            !isSameTrain(trainNumberKey1, stationTimes1, trainNumberKey2, stationTimes2)
+                        ) {
+                            // Display transfer information
+                            matchingTrains.push({
+                                trainNumber1: trainNumberKey1,
+                                trainType1: getTrainTypeWithColor(trainSchedule[trainNumberKey1]['車種']),
+                                startStation: stationTimes1[startIndex1][0],
+                                startTime1: stationTimes1[startIndex1][1],
+                                transferStation: transferStationIndex1 !== -1 ? stationTimes1[transferStationIndex1][0] : '',
+                                transferTrainNumber: transferStationIndex1 !== -1 ? trainNumberKey1 : (transferStationIndex2 !== -1 ? trainNumberKey2 : ''),
+                                transferTrainType: transferStationIndex1 !== -1 ? getTrainTypeWithColor(trainSchedule[trainNumberKey1]['車種']) : (transferStationIndex2 !== -1 ? getTrainTypeWithColor(trainSchedule[trainNumberKey2]['車種']) : ''),
+                                transferStartTime: transferStationIndex1 !== -1 ? stationTimes1[transferStationIndex1][1] : (transferStationIndex2 !== -1 ? stationTimes2[startIndex2][1] : ''),
+                                endStation: stationTimes2[endIndex2][0],
+                                endTime1: stationTimes2[endIndex2][1]
+                            });
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    // Sort the matchingTrains array by start time
+    matchingTrains.sort(function (a, b) {
+        return a.startTime1.localeCompare(b.startTime1);
+    });
+
+    // Populate the schedule table with the sorted data
+    for (var i = 0; i < matchingTrains.length; i++) {
+        var row = scheduleTable.insertRow();
+        var cell1 = row.insertCell(0);
+        var cell2 = row.insertCell(1);
+        var cell3 = row.insertCell(2);
+        var cell4 = row.insertCell(3);
+        var cell5 = row.insertCell(4);
+        var cell6 = row.insertCell(5);
+        var cell7 = row.insertCell(6);
+        var cell8 = row.insertCell(7);
+        var cell9 = row.insertCell(8);
+        var cell10 = row.insertCell(9);
+        var cell11 = row.insertCell(10);
+        var cell12 = row.insertCell(11);
+
+        cell1.innerHTML = matchingTrains[i].trainNumber1;
+        cell2.innerHTML = matchingTrains[i].trainType1;
+        cell3.innerHTML = matchingTrains[i].startStation;
+        cell4.innerHTML = matchingTrains[i].startTime1;
+        cell5.innerHTML = matchingTrains[i].transferStation;
+        cell6.innerHTML = matchingTrains[i].transferTrainNumber;
+        cell7.innerHTML = matchingTrains[i].transferTrainType;
+        cell8.innerHTML = matchingTrains[i].transferStartTime;
+        cell9.innerHTML = matchingTrains[i].endStation;
+        cell10.innerHTML = matchingTrains[i].endTime1;
+        // 新增轉乘車次和轉乘車種的顯示
+        cell11.innerHTML = matchingTrains[i].transferTrainNumber2;
+        cell12.innerHTML = matchingTrains[i].transferTrainType2;
+
+        row.setAttribute('onclick', 'showTrainDetails(\'' + matchingTrains[i].trainNumber1 + '\')');
+    }
+}
+
+        // Helper function to check if transfer time is valid
+        function isTransferTimeValid(times1, startIndex1, transferIndex1, times2, startIndex2) {
+            var startTime1 = times1[startIndex1][1];
+            var transferStartTime1 = transferIndex1 !== -1 ? times1[transferIndex1][1] : '';
+            var transferEndTime1 = transferIndex1 !== -1 ? times1[times1.length - 1][1] : '';
+
+            var startTime2 = times2[startIndex2][1];
+
+            var timeDiff = getMinutesDifference(transferEndTime1, startTime2);
+
+            return transferStartTime1 !== '' && transferEndTime1 !== '' && timeDiff <= 30;
+        }
+
+        // Helper function to check if two trains are the same
+        function isSameTrain(trainNumber1, times1, trainNumber2, times2) {
+            return (
+                trainNumber1 === trainNumber2 &&
+                times1[0][0] === times2[0][0] &&
+                times1[times1.length - 1][0] === times2[times2.length - 1][0]
+            );
+        }
+
+        // Helper function to get the difference in minutes between two times
+        function getMinutesDifference(time1, time2) {
+            var [hours1, minutes1] = time1.split(':').map(Number);
+            var [hours2, minutes2] = time2.split(':').map(Number);
+
+            var totalMinutes1 = hours1 * 60 + minutes1;
+            var totalMinutes2 = hours2 * 60 + minutes2;
+
+            return Math.abs(totalMinutes1 - totalMinutes2);
+        }
+
+    </script>
+</body>
+</html>
